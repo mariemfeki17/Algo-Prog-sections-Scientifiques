@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 06 — Les fichiers | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch06-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch06-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 06</span>
+      </div>
+      <h1>Les fichiers (données et textes)</h1>
+      <p class="duree">⏱️ Durée estimée : 60 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Ouvrir, lire, écrire et fermer un fichier.</li>
+          <li>Distinguer fichier texte et fichier de données.</li>
+          <li>Implémenter avec <code>open</code> et <code>pickle</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Convention algorithmique 2024, p. 3 et 8 · Convention d'implémentation 2024-2025, p. 11-12</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Déclaration d'un fichier</h3>
+      <pre class="algo"><code>Déclaration des objets
+Objet       Type / Nature
+F           Fichier Texte
+G           Fichier de Entier</code></pre>
+
+      <h3>2.2 Fichier de données</h3>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Rôle</th></tr></thead>
+        <tbody>
+          <tr><td><code>Ouvrir("Chemin\Nom_physique", Nom_logique, "Mode")</code></td><td>Ouverture</td></tr>
+          <tr><td>Modes : <code>"rb"</code>, <code>"wb"</code>, <code>"ab"</code></td><td>Lecture, Écriture, Ajout</td></tr>
+          <tr><td><code>Lire(Nom_logique, Objet)</code></td><td>Lecture d'un objet</td></tr>
+          <tr><td><code>Écrire(Nom_logique, Objet)</code></td><td>Écriture d'un objet</td></tr>
+          <tr><td><code>Fin_fichier(Nom_logique)</code></td><td>Test de fin</td></tr>
+          <tr><td><code>Fermer(Nom_logique)</code></td><td>Fermeture</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.3 Fichier texte</h3>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Rôle</th></tr></thead>
+        <tbody>
+          <tr><td>Modes : <code>"r"</code>, <code>"w"</code>, <code>"a"</code></td><td>Lecture, Écriture, Ajout</td></tr>
+          <tr><td><code>Lire(Nom_logique, ch)</code></td><td>Lecture de tout le fichier</td></tr>
+          <tr><td><code>Lire_ligne(Nom_logique, ch)</code></td><td>Lecture d'une ligne</td></tr>
+          <tr><td><code>Écrire(Nom_logique, ch)</code></td><td>Écriture d'une chaîne</td></tr>
+          <tr><td><code>Écrire_nl(Nom_logique, ch)</code></td><td>Écriture + retour ligne</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+
+      <h3>3.1 Fichier de données — pickle</h3>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Ouvrir(...)</td><td><code>F = open('chemin', 'wb')</code></td></tr>
+          <tr><td>Écrire(F, obj)</td><td><code>dump(obj, F)</code> (import pickle)</td></tr>
+          <tr><td>Lire(F, obj)</td><td><code>obj = load(F)</code></td></tr>
+          <tr><td>Fermer(F)</td><td><code>F.close()</code></td></tr>
+        </tbody>
+      </table>
+
+      <pre class="python"><code>from pickle import load, dump
+
+# Écriture
+F = open('donnees.dat', 'wb')
+dump(42, F)
+dump("Bonjour", F)
+F.close()
+
+# Lecture
+F = open('donnees.dat', 'rb')
+fini = False
+while not fini:
+    try:
+        x = load(F)
+        print(x)
+    except:
+        fini = True
+F.close()</code></pre>
+
+      <h3>3.2 Fichier texte</h3>
+      <pre class="python"><code># Écriture
+F = open('notes.txt', 'w')
+F.write("Ali\n")
+F.write("Sami\n")
+F.close()
+
+# Lecture ligne par ligne
+F = open('notes.txt', 'r')
+ch = F.readline()
+while ch != "":
+    print(ch.strip())
+    ch = F.readline()
+F.close()</code></pre>
+
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Ouvrir(...)</td><td><code>F = open('chemin', 'r')</code></td></tr>
+          <tr><td>Lire(F, ch)</td><td><code>ch = F.read()</code></td></tr>
+          <tr><td>Lire_ligne(F, ch)</td><td><code>ch = F.readline()</code></td></tr>
+          <tr><td>Écrire(F, ch)</td><td><code>F.write(ch)</code></td></tr>
+          <tr><td>Écrire_nl(F, ch)</td><td><code>F.write(ch + "\n")</code></td></tr>
+          <tr><td>Fin_fichier</td><td><code>ch == ""</code></td></tr>
+          <tr><td>Fermer(F)</td><td><code>F.close()</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="remarque">
+        <h4>Fin de fichier texte</h4>
+        <p>La fin d'un fichier texte est détectée lorsque <code>readline()</code> retourne une <strong>chaîne vide</strong>.</p>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Toujours <code>close()</code> un fichier après usage.</li>
+        <li>Modes : <code>rb/wb/ab</code> pour données, <code>r/w/a</code> pour textes.</li>
+        <li><code>readline()</code> retourne <code>""</code> à la fin (chaîne vide).</li>
+        <li>Utiliser <code>try/except</code> pour la lecture pickle.</li>
+        <li>Ne pas utiliser de fonctions non listées dans la convention.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Écrire puis lire un fichier texte</h4>
+        <p>Écrire 3 noms dans un fichier, puis les lire et les afficher.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code># Écriture
+F = open('noms.txt', 'w')
+for i in range(3):
+    nom = input("Nom : ")
+    F.write(nom + "\n")
+F.close()
+
+# Lecture
+F = open('noms.txt', 'r')
+ch = F.readline()
+while ch != "":
+    print(ch.strip())
+    ch = F.readline()
+F.close()</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Fichier de données</h4>
+        <p>Sauvegarder et relire une liste de 5 entiers avec pickle.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>from pickle import dump, load
+
+F = open('entiers.dat', 'wb')
+for i in range(5):
+    n = int(input("n : "))
+    dump(n, F)
+F.close()
+
+F = open('entiers.dat', 'rb')
+fini = False
+while not fini:
+    try:
+        x = load(F)
+        print(x)
+    except:
+        fini = True
+F.close()</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch06"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 06 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch06";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch06", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

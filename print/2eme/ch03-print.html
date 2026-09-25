@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 03 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 03 — Les types de données simples</p>
+    <p class="print-note">Conforme aux Aides pédagogiques 2022-2023 · Convention algorithmique 2024 · Convention d'implémentation 2024-2025</p>
+  </header>
+
+  <section>
+    <h2>1. Références officielles</h2>
+    <table class="ref-table">
+      <tbody>
+        <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+        <tr><th>Année</th><td>2ème année secondaire</td></tr>
+        <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 2-3</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>2. Les cinq types simples</h2>
+    <table class="correspondance">
+      <thead><tr><th>Type</th><th>Description</th><th>Exemples</th></tr></thead>
+      <tbody>
+        <tr><td>Entier</td><td>Nombres sans décimale</td><td>0, 5, -12</td></tr>
+        <tr><td>Réel</td><td>Nombres avec décimale</td><td>3.14, -0.5</td></tr>
+        <tr><td>Caractère</td><td>Un symbole entre apostrophes</td><td>'A', '5'</td></tr>
+        <tr><td>Booléen</td><td>Vrai ou Faux</td><td>Vrai, Faux</td></tr>
+        <tr><td>Chaîne</td><td>Suite de caractères</td><td>"Bonjour"</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Déclaration</h2>
+    <pre class="algo"><code>ALGORITHME Exemple
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet       Type / Nature
+age         Entier
+taille      Réel
+initiale    Caractère
+estMajeur   Booléen
+nom         Chaîne de caractères</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Correspondances Python</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Entier</td><td>int</td></tr>
+        <tr><td>Réel</td><td>float</td></tr>
+        <tr><td>Booléen</td><td>bool</td></tr>
+        <tr><td>Caractère / Chaîne</td><td>str</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page-break">
+    <h2>5. Exemple complet</h2>
+    <pre class="algo"><code>ALGORITHME Fiche
+DEBUT
+  Lire(nom)
+  Lire(age)
+  Lire(taille)
+  Écrire("Nom : ", nom)
+  Écrire("Âge : ", age)
+  Écrire("Taille : ", taille)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+nom      Chaîne de caractères
+age      Entier
+taille   Réel</code></pre>
+    <pre class="python"><code>nom = input("Nom : ")
+age = int(input("Âge : "))
+taille = float(input("Taille : "))
+print("Nom :", nom)
+print("Âge :", age)
+print("Taille :", taille)</code></pre>
+  </section>
+
+  <section>
+    <h2>6. Remarques et pièges</h2>
+    <ul class="pieges">
+      <li>input() renvoie toujours une chaîne.</li>
+      <li>Caractère entre apostrophes, chaîne entre guillemets.</li>
+      <li>/ donne un réel, Div donne un entier.</li>
+    </ul>
+  </section>
+
+  <section class="page-break">
+    <h2>7. Exercices</h2>
+    <div class="exercice">
+      <h4>Exercice 1 — Calculatrice</h4>
+      <p>Calculer somme, différence, produit, quotient de deux entiers.</p>
+      <p><strong>Correction :</strong></p>
+      <pre class="algo"><code>ALGORITHME Calculs
+DEBUT
+  Lire(a)
+  Lire(b)
+  Écrire("Somme = ", a + b)
+  Écrire("Différence = ", a - b)
+  Écrire("Produit = ", a * b)
+  Écrire("Quotient = ", a Div b)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier</code></pre>
+    </div>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 03</p>
+  </footer>
+</body>
+</html>

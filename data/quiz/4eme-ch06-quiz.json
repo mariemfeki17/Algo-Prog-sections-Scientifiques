@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch06",
+  "titre": "Quiz — Fichiers",
+  "questions": [
+    { "enonce": "Quel mode ouvre un fichier de données en écriture ?", "options": ["rb", "wb", "ab", "r"], "reponse": 1 },
+    { "enonce": "Quel mode ouvre un fichier texte en lecture ?", "options": ["r", "rb", "w", "wb"], "reponse": 0 },
+    { "enonce": "Quelle bibliothèque Python pour les fichiers de données ?", "options": ["math", "numpy", "pickle", "random"], "reponse": 2 },
+    { "enonce": "Que renvoie readline() à la fin d'un fichier ?", "options": ["None", "0", "Chaîne vide", "Erreur"], "reponse": 2 },
+    { "enonce": "Quelle instruction ferme un fichier ?", "options": ["F.stop()", "F.close()", "F.end()", "F.quit()"], "reponse": 1 },
+    { "enonce": "Quel mode ajoute à la fin d'un fichier ?", "options": ["w", "a", "r", "rb"], "reponse": 1 }
+  ]
+}

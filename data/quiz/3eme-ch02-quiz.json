@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch02",
+  "titre": "Quiz — Conditionnelles : Si et Selon",
+  "questions": [
+    { "enonce": "Quelle structure permet de choisir parmi plusieurs valeurs ?", "options": ["Si", "Si...Sinon", "Selon", "Pour"], "reponse": 2 },
+    { "enonce": "Quel doit être le type du sélecteur de Selon ?", "options": ["Chaîne uniquement", "Tableau", "Scalaire", "Booléen uniquement"], "reponse": 2 },
+    { "enonce": "En Python, quelle structure correspond à Selon ?", "options": ["if", "while", "match...case", "for"], "reponse": 2 },
+    { "enonce": "À partir de quelle version de Python match...case est-il disponible ?", "options": ["3.6", "3.8", "3.10", "3.12"], "reponse": 2 },
+    { "enonce": "Dans Selon, comment gérer le cas par défaut ?", "options": ["case default", "Sinon", "else", "Autre"], "reponse": 1 },
+    { "enonce": "Quelle structure gère plusieurs conditions successives ?", "options": ["Si...Sinon", "Si...Sinon Si...", "Selon", "Pour"], "reponse": 1 }
+  ]
+}

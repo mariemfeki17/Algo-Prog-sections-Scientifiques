@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch05",
+  "titre": "Quiz — Modules : fonctions et procédures",
+  "questions": [
+    { "enonce": "Quelle est la principale différence entre une fonction et une procédure ?", "options": ["Aucune", "La fonction retourne un résultat, la procédure non", "La procédure est plus rapide", "La fonction ne prend pas de paramètres"], "reponse": 1 },
+    { "enonce": "Combien de résultats une fonction peut-elle retourner ?", "options": ["0", "1", "2", "Illimité"], "reponse": 1 },
+    { "enonce": "Quel symbole indique un passage par référence en algorithmique ?", "options": ["#", "@", "$", "&"], "reponse": 1 },
+    { "enonce": "En Python, quel mot-clé définit un module ?", "options": ["function", "def", "module", "proc"], "reponse": 1 },
+    { "enonce": "En Python, quel mot-clé retourne un résultat ?", "options": ["return", "yield", "break", "exit"], "reponse": 0 },
+    { "enonce": "Quels types sont passés par référence par défaut en Python ?", "options": ["int, float", "str", "dict, tableau, fichier", "bool"], "reponse": 2 }
+  ]
+}

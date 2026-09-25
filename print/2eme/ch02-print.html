@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche de cours — Ch. 02 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 02 — Les objets : constantes et variables</p>
+    <p class="print-note">Conforme aux Aides pédagogiques 2022-2023 · Convention algorithmique 2024 · Convention d'implémentation 2024-2025</p>
+  </header>
+
+  <section>
+    <h2>1. Références officielles</h2>
+    <table class="ref-table">
+      <tbody>
+        <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+        <tr><th>Année</th><td>2ème année secondaire</td></tr>
+        <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 2-3</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>2. Définitions</h2>
+    <div class="definition">
+      <h3>Objet</h3>
+      <p>Zone mémoire nommée dans laquelle on stocke une valeur. On distingue les constantes et les variables.</p>
+    </div>
+    <div class="definition">
+      <h3>Constante</h3>
+      <p>Objet dont la valeur ne change pas pendant l'exécution de l'algorithme.</p>
+    </div>
+    <div class="definition">
+      <h3>Variable</h3>
+      <p>Objet dont la valeur peut changer au cours de l'exécution de l'algorithme.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Déclaration des objets</h2>
+    <pre class="algo"><code>ALGORITHME Nom_algorithme
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet          Type / Nature
+Nom_objet      Type_objet</code></pre>
+    <p><strong>Règles :</strong> nomenclature significative, indentation respectée, chaque objet a un type.</p>
+  </section>
+
+  <section>
+    <h2>4. Affectation</h2>
+    <pre class="algo"><code>Objet ← Expression</code></pre>
+    <p>Le symbole <code>←</code> se lit « reçoit ».</p>
+  </section>
+
+  <section>
+    <h2>5. Exemple — Prix TTC</h2>
+    <pre class="algo"><code>ALGORITHME PrixTTC
+DEBUT
+  Lire(prixHT)
+  Lire(tauxTVA)
+  prixTTC ← prixHT * (1 + tauxTVA / 100)
+  Écrire("Prix TTC = ", prixTTC)
+FIN
+
+Déclaration des objets
+Objet       Type / Nature
+prixHT      Réel
+tauxTVA     Réel
+prixTTC     Réel</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>6. Implémentation en Python</h2>
+    <pre class="python"><code>prixHT = float(input("Donner le prix HT : "))
+tauxTVA = float(input("Donner le taux de TVA (%) : "))
+prixTTC = prixHT * (1 + tauxTVA / 100)
+print("Prix TTC =", prixTTC)</code></pre>
+    <p><strong>Rappel :</strong> en Python, une variable est créée au moment de l'affectation. Le langage est sensible à la casse.</p>
+  </section>
+
+  <section>
+    <h2>7. Remarques et pièges fréquents</h2>
+    <ul class="pieges">
+      <li>Ne pas confondre constante et variable.</li>
+      <li>Utiliser des noms significatifs.</li>
+      <li>Respecter l'indentation.</li>
+      <li>Convertir après input().</li>
+      <li>Pas d'espaces ni de chiffre en début de nom de variable.</li>
+    </ul>
+  </section>
+
+  <section class="page-break">
+    <h2>8. Exercices</h2>
+
+    <div class="exercice">
+      <h4>Exercice 1 — Périmètre d'un cercle</h4>
+      <p>Calculer le périmètre d'un cercle de rayon R avec PI = 3.14.</p>
+      <p><strong>Correction :</strong></p>
+      <pre class="algo"><code>ALGORITHME PerimetreCercle
+DEBUT
+  PI ← 3.14
+  Lire(R)
+  P ← 2 * PI * R
+  Écrire("Périmètre = ", P)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+PI       Réel (constante)
+R        Réel
+P        Réel</code></pre>
+    </div>
+
+    <div class="exercice">
+      <h4>Exercice 2 — Échange de deux variables</h4>
+      <p>Échanger les valeurs de a et b.</p>
+      <p><strong>Correction :</strong></p>
+      <pre class="algo"><code>ALGORITHME Echange
+DEBUT
+  Lire(a)
+  Lire(b)
+  aux ← a
+  a ← b
+  b ← aux
+  Écrire("a = ", a, " b = ", b)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier
+aux      Entier</code></pre>
+    </div>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 02</p>
+  </footer>
+
+</body>
+</html>

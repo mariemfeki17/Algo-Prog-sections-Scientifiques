@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 04 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 04 — Les opérations élémentaires</p>
+  </header>
+
+  <section>
+    <h2>1. Les trois opérations</h2>
+    <div class="definition">
+      <h3>Entrée — Lire</h3>
+      <pre class="algo"><code>Lire(Objet)</code></pre>
+    </div>
+    <div class="definition">
+      <h3>Sortie — Écrire / Écrire_nl</h3>
+      <pre class="algo"><code>Écrire("Message", Objet, Expression)
+Écrire_nl("Message", Objet, Expression)</code></pre>
+    </div>
+    <div class="definition">
+      <h3>Affectation</h3>
+      <pre class="algo"><code>Objet ← Expression</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Correspondances Python</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Lire(a)</td><td>a = int(input())</td></tr>
+        <tr><td>Écrire("…", x)</td><td>print("…", x)</td></tr>
+        <tr><td>Écrire_nl("…", x)</td><td>print("…", x, "\n")</td></tr>
+        <tr><td>a ← b + c</td><td>a = b + c</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Exemple — Moyenne</h2>
+    <pre class="algo"><code>ALGORITHME Moyenne
+DEBUT
+  Lire(n1)
+  Lire(n2)
+  Lire(n3)
+  m ← (n1 + n2 + n3) / 3
+  Écrire("Moyenne = ", m)
+FIN
+
+Déclaration des objets
+Objet        Type / Nature
+n1, n2, n3   Réel
+m            Réel</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Implémentation Python</h2>
+    <pre class="python"><code>n1 = float(input("Note 1 : "))
+n2 = float(input("Note 2 : "))
+n3 = float(input("Note 3 : "))
+m = (n1 + n2 + n3) / 3
+print("Moyenne =", m)</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Pièges</h2>
+    <ul class="pieges">
+      <li>Convertir après input().</li>
+      <li>Messages entre guillemets.</li>
+      <li>Ne pas confondre Écrire et Écrire_nl.</li>
+      <li>En algorithmique : ← et non =.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 04</p>
+  </footer>
+</body>
+</html>

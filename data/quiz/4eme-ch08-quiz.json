@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch08",
+  "titre": "Quiz — Programmation événementielle",
+  "questions": [
+    { "enonce": "Qu'est-ce qu'un événement ?", "options": ["Une variable", "Une action de l'utilisateur", "Un fichier", "Un module"], "reponse": 1 },
+    { "enonce": "Comment connecter un bouton à une fonction en Qt ?", "options": [".clicked.connect(f)", ".onClick(f)", ".addEvent(f)", ".bind(f)"], "reponse": 0 },
+    { "enonce": "Quelle méthode autorisée pour modifier un texte ?", "options": [".text", ".setText()", ".set()", ".write()"], "reponse": 1 },
+    { "enonce": "Que fait .clear() ?", "options": ["Efface le contenu", "Ferme la fenêtre", "Copie le texte", "Supprime le bouton"], "reponse": 0 },
+    { "enonce": "Que doit-on utiliser pour gérer les erreurs de saisie ?", "options": ["if", "for", "try/except", "while"], "reponse": 2 },
+    { "enonce": "La GUI doit être :", "options": ["L'objet principal d'apprentissage", "Un moyen d'améliorer l'ergonomie", "Interdite", "Réservée aux professeurs"], "reponse": 1 }
+  ]
+}

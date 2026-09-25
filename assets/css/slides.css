@@ -1,0 +1,223 @@
+/* =========================================================
+   MODE SLIDES PROFESSEUR
+   Contraste élevé, navigation clavier, plein écran
+   ========================================================= */
+
+.slides-mode {
+  margin: 0;
+  padding: 0;
+  background: #f0f0f0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slide {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  color: #111;
+  padding: 5vh 8vw;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.slide.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-content {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.slide-center {
+  text-align: center;
+}
+
+/* ---------- Titres ---------- */
+.slide h1 {
+  font-size: 5rem;
+  margin: 0 0 1rem;
+  color: #003366;
+  font-weight: 800;
+}
+.slide h2 {
+  font-size: 3.2rem;
+  margin: 0 0 2rem;
+  color: #003366;
+  font-weight: 700;
+  border-bottom: 6px solid #ff9900;
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+.slide h3 {
+  font-size: 2.4rem;
+  margin: 1.5rem 0 1rem;
+  color: #003366;
+}
+
+.slide-annee {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.slide-source {
+  font-size: 1.3rem;
+  color: #777;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+/* ---------- Listes ---------- */
+.slide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.slide-list li {
+  font-size: 2.2rem;
+  line-height: 1.5;
+  padding: 1rem 0 1rem 3.5rem;
+  position: relative;
+  border-bottom: 2px solid #eee;
+}
+.slide-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #0066cc;
+  font-weight: 800;
+}
+.slide-list-warning li::before {
+  content: "⚠";
+  color: #cc3300;
+}
+
+/* ---------- Définitions ---------- */
+.slide-definition {
+  background: #e6f0ff;
+  border-left: 12px solid #0066cc;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+.slide-definition p {
+  font-size: 2.2rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.slide-note {
+  font-size: 1.8rem;
+  color: #555;
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+.slide-enonce {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+}
+
+/* ---------- Code ---------- */
+.slide-code {
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  border-left: 12px solid #ff9900;
+  margin: 1.5rem 0;
+}
+.slide-code-python {
+  border-left-color: #0066cc;
+}
+.slide-code code {
+  color: inherit;
+  background: none;
+  font-family: inherit;
+}
+
+/* ---------- Bouton correction ---------- */
+.btn-correction-slide {
+  font-size: 1.8rem;
+  padding: 1rem 2.5rem;
+  background: #ff9900;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  transition: background 0.2s;
+}
+.btn-correction-slide:hover { background: #e68a00; }
+
+.correction-slide {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #e8f5e9;
+  border-left: 12px solid #2e7d32;
+  border-radius: 12px;
+}
+.correction-slide.hidden { display: none; }
+
+/* ---------- Navigation ---------- */
+.slide-nav {
+  position: fixed;
+  bottom: 2.5vh;
+  right: 2.5vw;
+  display: flex;
+  gap: 1rem;
+  z-index: 100;
+}
+.slide-nav button {
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 2rem;
+  border: none;
+  background: #003366;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.slide-nav button:hover { background: #0066cc; }
+.slide-nav button:active { transform: scale(0.95); }
+
+.slide-counter {
+  position: fixed;
+  bottom: 2.5vh;
+  left: 2.5vw;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #555;
+  background: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .slide h1 { font-size: 3.5rem; }
+  .slide h2 { font-size: 2.4rem; }
+  .slide-list li { font-size: 1.6rem; }
+  .slide-code { font-size: 1.2rem; }
+  .slide-definition p { font-size: 1.6rem; }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch01",
+  "titre": "Quiz — Rappels 4ème année",
+  "questions": [
+    { "enonce": "Quelle structure conditionnelle est approfondie en 4ème ?", "options": ["Si", "Si...Sinon", "Si généralisée et Selon", "Aucune"], "reponse": 2 },
+    { "enonce": "Quelles méthodes de tri sont au programme de 4ème ?", "options": ["Bulles seulement", "Sélection et insertion", "Fusion", "Rapide"], "reponse": 1 },
+    { "enonce": "Quelle structure est introduite en 4ème pour la GUI ?", "options": ["Tkinter", "Qt Designer", "Swing", "WPF"], "reponse": 1 },
+    { "enonce": "Quelle instruction est interdite ?", "options": ["if", "for", "break", "while"], "reponse": 2 },
+    { "enonce": "Que signifie GUI ?", "options": ["Grand User Interface", "Graphical User Interface", "General User Input", "Global Unit Interface"], "reponse": 1 },
+    { "enonce": "Quelle bibliothèque pour les tableaux en Python ?", "options": ["math", "numpy", "random", "pickle"], "reponse": 1 }
+  ]
+}

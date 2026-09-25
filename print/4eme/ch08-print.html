@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 08 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>4ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 08 — Programmation événementielle</p>
+  </header>
+
+  <section>
+    <h2>1. Principe</h2>
+    <div class="definition">
+      <p>Réagir à des <strong>événements</strong> (clic, saisie...) déclenchés par l'utilisateur.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Connexion d'un événement</h2>
+    <pre class="python"><code>self.btnValider.clicked.connect(self.valider)</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>3. Exemple complet</h2>
+    <pre class="python"><code>from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.uic import loadUi
+import sys
+
+class Fenetre(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi("calculatrice.ui", self)
+        self.btnSomme.clicked.connect(self.calculer)
+        self.btnEffacer.clicked.connect(self.effacer)
+
+    def calculer(self):
+        try:
+            a = float(self.txtA.text)
+            b = float(self.txtB.text)
+            self.lblResultat.setText("Somme = " + str(a + b))
+        except:
+            self.lblResultat.setText("Saisie invalide")
+
+    def effacer(self):
+        self.txtA.clear()
+        self.txtB.clear()
+        self.lblResultat.clear()
+
+app = QApplication(sys.argv)
+f = Fenetre()
+f.show()
+app.exec_()</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Ergonomie</h2>
+    <ul>
+      <li>Réinitialiser les champs.</li>
+      <li>Vérifier les saisies avec try/except.</li>
+      <li>Messages clairs.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 4ème année — Chapitre 08</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 03 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">3ème année — Sections scientifiques</p>
+      <h1>Chapitre 03</h1>
+      <h2>Structures itératives</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Pour</h2>
+      <pre class="slide-code"><code>Pour i de Début à Fin Faire
+  Traitement
+Fin Pour</code></pre>
+      <p class="slide-note">Nombre d'itérations connu.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Tant Que</h2>
+      <pre class="slide-code"><code>Tant que Condition Faire
+  Traitement
+Fin Tant que</code></pre>
+      <p class="slide-note">Condition testée avant.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Répéter</h2>
+      <pre class="slide-code"><code>Répéter
+  Traitement
+Jusqu'à Condition</code></pre>
+      <p class="slide-note">Au moins une exécution.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Choix de la structure</h2>
+      <table class="correspondance">
+        <thead><tr><th>Situation</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td>Nombre connu</td><td>Pour</td></tr>
+          <tr><td>Test avant</td><td>Tant Que</td></tr>
+          <tr><td>Au moins 1 fois</td><td>Répéter</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple Python</h2>
+      <pre class="slide-code slide-code-python"><code>s = 0
+n = int(input("n : "))
+while n != 0:
+    s = s + n
+    n = int(input("n : "))
+print("Somme =", s)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Pour : nombre connu.</li>
+        <li>Tant Que : test avant.</li>
+        <li>Répéter : au moins 1 fois.</li>
+        <li>break interdit.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

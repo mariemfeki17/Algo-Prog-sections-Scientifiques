@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 05 — Modules et décomposition en sous-problèmes | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch05-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch05-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 05</span>
+      </div>
+      <h1>Modules et décomposition en sous-problèmes</h1>
+      <p class="duree">⏱️ Durée estimée : 65 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Décomposer un problème en sous-problèmes.</li>
+          <li>Maîtriser entête, paramètres, résultat, type et portée.</li>
+          <li>Tester chaque module indépendamment.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, p. 7-8 · Convention algorithmique 2024, p. 5-6 · Convention d'implémentation 2024-2025, p. 8</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels de 3ème</h2>
+      <p>Fonctions et procédures ont été introduites en 3ème. En 4ème, on approfondit la décomposition en <strong>sous-problèmes</strong>.</p>
+    </section>
+
+    <section id="cours">
+      <h2>3. Cours théorique</h2>
+
+      <h3>3.1 Décomposition en sous-problèmes</h3>
+      <p>Méthode :</p>
+      <ol class="etapes">
+        <li>Analyser l'énoncé et identifier les tâches.</li>
+        <li>Regrouper les tâches liées en modules.</li>
+        <li>Définir l'entête de chaque module (paramètres, type de retour).</li>
+        <li>Écrire chaque module séparément.</li>
+        <li>Tester chaque module.</li>
+        <li>Assembler le programme principal.</li>
+      </ol>
+
+      <h3>3.2 Éléments d'un module</h3>
+      <table class="correspondance">
+        <thead><tr><th>Élément</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Entête</td><td>Nom + paramètres + type de retour</td></tr>
+          <tr><td>Paramètres</td><td>Valeurs transmises (par valeur ou référence)</td></tr>
+          <tr><td>Résultat</td><td>Un seul résultat simple (fonction uniquement)</td></tr>
+          <tr><td>Type</td><td>Type du résultat</td></tr>
+          <tr><td>Portée</td><td>Locale ou globale</td></tr>
+          <tr><td>Appel</td><td>Utilisation du module</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3.3 Exemple — Statistiques sur un tableau</h3>
+      <p>Décomposer le calcul de la moyenne et du maximum d'un tableau :</p>
+
+      <pre class="algo"><code>Fonction SommeTab (T : Tableau de 100 Entier, n : Entier) : Entier
+DEBUT
+  s ← 0
+  Pour i de 0 à n - 1 Faire
+    s ← s + T[i]
+  Fin Pour
+  Retourner s
+FIN
+
+Fonction MaximumTab (T : Tableau de 100 Entier, n : Entier) : Entier
+DEBUT
+  max ← T[0]
+  Pour i de 1 à n - 1 Faire
+    Si T[i] &gt; max Alors
+      max ← T[i]
+    FinSi
+  Fin Pour
+  Retourner max
+FIN
+
+ALGORITHME ProgrammePrincipal
+DEBUT
+  Lire(n)
+  Pour i de 0 à n - 1 Faire
+    Lire(T[i])
+  Fin Pour
+  m ← SommeTab(T, n) / n
+  Écrire("Moyenne = ", m)
+  Écrire("Maximum = ", MaximumTab(T, n))
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Entier
+n, i     Entier
+m        Réel</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>4. Implémentation en Python</h2>
+
+      <pre class="python"><code>from numpy import array
+
+def somme_tab(T, n):
+    s = 0
+    for i in range(n):
+        s = s + T[i]
+    return s
+
+def maximum_tab(T, n):
+    maxi = T[0]
+    for i in range(1, n):
+        if T[i] > maxi:
+            maxi = T[i]
+    return maxi
+
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+print("Moyenne =", somme_tab(T, n) / n)
+print("Maximum =", maximum_tab(T, n))</code></pre>
+
+      <div class="remarque">
+        <h4>Bonnes pratiques</h4>
+        <ul>
+          <li>Noms significatifs.</li>
+          <li>Commenter chaque module.</li>
+          <li>Un module = une seule responsabilité.</li>
+          <li>Paramètres explicites (éviter les globales).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>5. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Une fonction retourne un seul résultat simple.</li>
+        <li>Ne pas oublier <code>return</code>.</li>
+        <li>Tableau passé par référence en Python.</li>
+        <li>Éviter les variables globales.</li>
+        <li>Tester chaque module indépendamment.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>6. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Moyenne d'un tableau</h4>
+        <p>Écrire une fonction qui calcule la moyenne des éléments d'un tableau T de n réels.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Fonction Moyenne (T : Tableau de 100 Réel, n : Entier) : Réel
+DEBUT
+  s ← 0
+  Pour i de 0 à n - 1 Faire
+    s ← s + T[i]
+  Fin Pour
+  Retourner s / n
+FIN</code></pre>
+          <pre class="python"><code>def moyenne(T, n):
+    s = 0
+    for i in range(n):
+        s = s + T[i]
+    return s / n</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Compter les pairs</h4>
+        <p>Écrire une fonction qui retourne le nombre d'éléments pairs d'un tableau T de n entiers.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Fonction NbPairs (T : Tableau de 100 Entier, n : Entier) : Entier
+DEBUT
+  c ← 0
+  Pour i de 0 à n - 1 Faire
+    Si T[i] Mod 2 = 0 Alors
+      c ← c + 1
+    FinSi
+  Fin Pour
+  Retourner c
+FIN</code></pre>
+          <pre class="python"><code>def nb_pairs(T, n):
+    c = 0
+    for i in range(n):
+        if T[i] % 2 == 0:
+            c = c + 1
+    return c</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>7. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch05"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 05 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch05";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch05", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

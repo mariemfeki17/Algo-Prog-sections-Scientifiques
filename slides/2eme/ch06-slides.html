@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 06 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">2ème année — Sections scientifiques</p>
+      <h1>Chapitre 06</h1>
+      <h2>La structure répétitive Pour</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Structure</h2>
+      <pre class="slide-code"><code>Pour Compteur de Début à Fin [Pas = valeur_pas] Faire
+  Traitement
+Fin Pour</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple — Somme des n premiers entiers</h2>
+      <pre class="slide-code"><code>ALGORITHME SommeN
+DEBUT
+  Lire(n)
+  s ← 0
+  Pour i de 1 à n Faire
+    s ← s + i
+  Fin Pour
+  Écrire("Somme = ", s)
+FIN</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Implémentation Python</h2>
+      <pre class="slide-code slide-code-python"><code>n = int(input("n : "))
+s = 0
+for i in range(1, n + 1):
+    s = s + i
+print("Somme =", s)</code></pre>
+      <p class="slide-note">⚠ range(D, F+1) inclut F.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exercice — Factorielle</h2>
+      <p class="slide-enonce">Calculer n! (factorielle de n).</p>
+      <button class="btn-correction-slide" onclick="toggleCorrection(this)">Afficher la correction</button>
+      <div class="correction-slide hidden">
+        <pre class="slide-code"><code>ALGORITHME Factorielle
+DEBUT
+  Lire(n)
+  f ← 1
+  Pour i de 1 à n Faire
+    f ← f * i
+  Fin Pour
+  Écrire("Factorielle = ", f)
+FIN</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Pièges</h2>
+      <ul class="slide-list slide-list-warning">
+        <li>Oublier le +1 dans range.</li>
+        <li>Ne pas initialiser l'accumulateur.</li>
+        <li>break interdit.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 6</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

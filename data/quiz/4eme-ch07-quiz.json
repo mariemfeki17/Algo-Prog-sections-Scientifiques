@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch07",
+  "titre": "Quiz — Interface graphique Qt Designer",
+  "questions": [
+    { "enonce": "Que signifie GUI ?", "options": ["Grand User Interface", "Graphical User Interface", "General Unit Input", "Global Utility Interface"], "reponse": 1 },
+    { "enonce": "Quel outil pour concevoir une interface en 4ème ?", "options": ["Tkinter", "Qt Designer", "Swing", "WPF"], "reponse": 1 },
+    { "enonce": "Quelle technique pour placer les objets dans Qt Designer ?", "options": ["Copier-coller", "Glisser-déposer", "Programmation", "Script"], "reponse": 1 },
+    { "enonce": "Quelle méthode lit le texte d'un objet ?", "options": [".text", ".setText()", ".clear()", ".show()"], "reponse": 0 },
+    { "enonce": "Quelle méthode vide un champ ?", "options": [".text", ".setText()", ".clear()", ".show()"], "reponse": 2 },
+    { "enonce": "L'usage de la GUI doit être :", "options": ["L'objet principal d'apprentissage", "Un moyen d'améliorer l'ergonomie", "Interdit", "Réservé aux professeurs"], "reponse": 1 }
+  ]
+}

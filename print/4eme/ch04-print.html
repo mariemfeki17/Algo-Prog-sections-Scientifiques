@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 04 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>4ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 04 — Tri : sélection et insertion</p>
+  </header>
+
+  <section>
+    <h2>1. Tri par sélection</h2>
+    <pre class="algo"><code>Procédure TriSelection (@T : Tableau de 100 Entier, n : Entier)
+DEBUT
+  Pour i de 0 à n - 2 Faire
+    min ← i
+    Pour j de i + 1 à n - 1 Faire
+      Si T[j] &lt; T[min] Alors min ← j FinSi
+    Fin Pour
+    Si min ≠ i Alors
+      aux ← T[i]; T[i] ← T[min]; T[min] ← aux
+    FinSi
+  Fin Pour
+FIN</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Tri par insertion</h2>
+    <pre class="algo"><code>Procédure TriInsertion (@T : Tableau de 100 Entier, n : Entier)
+DEBUT
+  Pour i de 1 à n - 1 Faire
+    cle ← T[i]
+    j ← i - 1
+    Tant que (j ≥ 0) Et (T[j] &gt; cle) Faire
+      T[j + 1] ← T[j]
+      j ← j - 1
+    Fin Tant que
+    T[j + 1] ← cle
+  Fin Pour
+FIN</code></pre>
+  </section>
+
+  <section>
+    <h2>3. Comparaison</h2>
+    <table class="correspondance">
+      <thead><tr><th>Critère</th><th>Sélection</th><th>Insertion</th></tr></thead>
+      <tbody>
+        <tr><td>Complexité</td><td>O(n²)</td><td>O(n²)</td></tr>
+        <tr><td>Échanges</td><td>Peu</td><td>Beaucoup</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Implémentation Python</h2>
+    <pre class="python"><code>def tri_selection(T, n):
+    for i in range(n - 1):
+        mini = i
+        for j in range(i + 1, n):
+            if T[j] < T[mini]:
+                mini = j
+        if mini != i:
+            T[i], T[mini] = T[mini], T[i]
+
+def tri_insertion(T, n):
+    for i in range(1, n):
+        cle = T[i]
+        j = i - 1
+        while j >= 0 and T[j] > cle:
+            T[j + 1] = T[j]
+            j = j - 1
+        T[j + 1] = cle</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Pièges</h2>
+    <ul class="pieges">
+      <li>Bornes : n-1, i+1.</li>
+      <li>Tri insertion : j ≥ 0.</li>
+      <li>Variable temporaire pour l'échange.</li>
+      <li>Pas de break.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 4ème année — Chapitre 04</p>
+  </footer>
+</body>
+</html>

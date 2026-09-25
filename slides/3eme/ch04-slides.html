@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 04 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">3ème année — Sections scientifiques</p>
+      <h1>Chapitre 04</h1>
+      <h2>Tableaux à une dimension</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Définition</h2>
+      <div class="slide-definition">
+        <p>Regroupe plusieurs éléments de <strong>même type</strong>, accessibles par un <strong>indice</strong>.</p>
+      </div>
+      <p class="slide-note">Premier indice = 0.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Déclaration</h2>
+      <pre class="slide-code"><code>Déclaration des objets
+Objet       Type / Nature
+T           Tableau de N Entier</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Python — numpy</h2>
+      <pre class="slide-code slide-code-python"><code>from numpy import array
+T = array([0] * 10)
+T2 = array([float()] * 10)
+T3 = array([str] * 10)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Remplissage et affichage</h2>
+      <pre class="slide-code slide-code-python"><code>n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+for i in range(n):
+    print(T[i])</code></pre>
+    <p class="slide-note">⚠ Interdit : print(T)</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exercice — Somme</h2>
+      <p class="slide-enonce">Calculer la somme des éléments d'un tableau.</p>
+      <button class="btn-correction-slide" onclick="toggleCorrection(this)">Afficher la correction</button>
+      <div class="correction-slide hidden">
+        <pre class="slide-code slide-code-python"><code>s = 0
+for i in range(n):
+    s = s + T[i]
+print("Somme =", s)</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Indice de départ : 0.</li>
+        <li>Éléments de même type.</li>
+        <li>numpy : array.</li>
+        <li>Pas de print(T).</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

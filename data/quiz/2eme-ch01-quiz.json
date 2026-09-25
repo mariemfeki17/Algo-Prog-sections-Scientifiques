@@ -1,0 +1,56 @@
+{
+  "id": "2eme-ch01",
+  "titre": "Quiz — Notion de problème et d'algorithme",
+  "questions": [
+    {
+      "enonce": "Qu'est-ce qu'un algorithme ?",
+      "options": [
+        "Un langage de programmation",
+        "Une suite finie et ordonnée d'instructions pour résoudre un problème",
+        "Un type de données",
+        "Un logiciel"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "Quelle est la première étape de résolution d'un problème ?",
+      "options": [
+        "Écrire le code Python",
+        "Analyser l'énoncé et dégager les entrées, sorties et traitements",
+        "Compiler le programme",
+        "Tester le programme"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "Dans la convention algorithmique, comment écrit-on une affectation ?",
+      "options": [
+        "Objet = Expression",
+        "Objet ← Expression",
+        "Objet := Expression",
+        "Objet -> Expression"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "Quelle est la forme générale d'un algorithme selon la convention 2024 ?",
+      "options": [
+        "DEBUT ... FIN",
+        "ALGORITHME Nom / DEBUT / FIN + Déclaration des objets",
+        "PROGRAMME Nom / BEGIN / END",
+        "FUNCTION Nom / ... / END"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "En Python, que retourne input() ?",
+      "options": [
+        "Un entier",
+        "Un réel",
+        "Une chaîne de caractères",
+        "Un booléen"
+      ],
+      "reponse": 2
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch07",
+  "titre": "Quiz — Algorithmes numériques",
+  "questions": [
+    { "enonce": "Quel algorithme permet de calculer le PGCD ?", "options": ["Algorithme de Dijkstra", "Algorithme d'Euclide", "Algorithme de tri", "Algorithme de Newton"], "reponse": 1 },
+    { "enonce": "Quelle relation lie PGCD et PPCM ?", "options": ["PGCD + PPCM = a + b", "PGCD × PPCM = a × b", "PGCD = PPCM", "PGCD - PPCM = 0"], "reponse": 1 },
+    { "enonce": "Jusqu'à quelle valeur teste-t-on la primalité ?", "options": ["n", "n/2", "√n", "n²"], "reponse": 2 },
+    { "enonce": "Quelle opération extrait le reste de la division ?", "options": ["Div", "Mod", "/", "*"], "reponse": 1 },
+    { "enonce": "Quelle est la décomposition en facteurs premiers de 12 ?", "options": ["2×2×3", "2×6", "3×4", "12"], "reponse": 0 },
+    { "enonce": "Le nombre 1 est-il premier ?", "options": ["Oui", "Non", "Parfois", "Cela dépend"], "reponse": 1 }
+  ]
+}

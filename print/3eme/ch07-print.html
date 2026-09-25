@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 07 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>3ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 07 — Algorithmes numériques</p>
+  </header>
+
+  <section>
+    <h2>1. PGCD — Euclide</h2>
+    <pre class="algo"><code>Fonction PGCD (a : Entier, b : Entier) : Entier
+DEBUT
+  Tant que b ≠ 0 Faire
+    r ← a Mod b
+    a ← b
+    b ← r
+  Fin Tant que
+  Retourner a
+FIN</code></pre>
+  </section>
+
+  <section>
+    <h2>2. PPCM</h2>
+    <pre class="algo"><code>Fonction PPCM (a : Entier, b : Entier) : Entier
+DEBUT
+  Retourner (a * b) Div PGCD(a, b)
+FIN</code></pre>
+    <p>Relation : PGCD × PPCM = a × b.</p>
+  </section>
+
+  <section>
+    <h2>3. Primalité</h2>
+    <pre class="algo"><code>Fonction EstPremier (n : Entier) : Booléen
+DEBUT
+  Si n &lt; 2 Alors
+    Retourner Faux
+  FinSi
+  i ← 2
+  Tant que (i * i ≤ n) Et (n Mod i ≠ 0) Faire
+    i ← i + 1
+  Fin Tant que
+  Retourner i * i &gt; n
+FIN</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Décomposition en facteurs premiers</h2>
+    <pre class="algo"><code>Procédure FacteursPremiers (n : Entier)
+DEBUT
+  d ← 2
+  Tant que n &gt; 1 Faire
+    Tant que n Mod d = 0 Faire
+      Écrire(d)
+      n ← n Div d
+    Fin Tant que
+    d ← d + 1
+  Fin Tant que
+FIN</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Implémentation Python</h2>
+    <pre class="python"><code>def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a
+
+def ppcm(a, b):
+    return (a * b) // pgcd(a, b)
+
+def est_premier(n):
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n and n % i != 0:
+        i = i + 1
+    return i * i > n</code></pre>
+  </section>
+
+  <section>
+    <h2>6. Pièges</h2>
+    <ul class="pieges">
+      <li>Primalité : tester jusqu'à √n.</li>
+      <li>PPCM : division entière Div.</li>
+      <li>1 n'est pas premier.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 3ème année — Chapitre 07</p>
+  </footer>
+</body>
+</html>

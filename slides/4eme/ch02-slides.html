@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 02 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">4ème année — Sections scientifiques</p>
+      <h1>Chapitre 02</h1>
+      <h2>Conditionnelles avancées</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Conditionnelle généralisée</h2>
+      <pre class="slide-code"><code>Si C1 Alors T1
+Sinon Si C2 Alors T2
+Sinon Si C3 Alors T3
+Sinon TN
+FinSi</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Selon</h2>
+      <pre class="slide-code"><code>Selon &lt;Sélecteur&gt;
+  V1, V2 : T1
+  V3 : T2
+  Sinon TN
+Fin Selon</code></pre>
+      <p class="slide-note">Sélecteur scalaire.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Python — match...case</h2>
+      <pre class="slide-code slide-code-python"><code>m = float(input("Moyenne : "))
+match m:
+    case m if 0 <= m < 10: print("Ajourné")
+    case m if 10 <= m < 12: print("Passable")
+    case m if 12 <= m < 14: print("Assez bien")
+    case m if 14 <= m < 16: print("Bien")
+    case m if 16 <= m <= 20: print("Très bien")
+    case _: print("Moyenne invalide")</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Choix de la structure</h2>
+      <table class="correspondance">
+        <thead><tr><th>Situation</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td>Deux cas</td><td>Si...Sinon</td></tr>
+          <tr><td>Conditions ordonnées</td><td>Si...Sinon Si...</td></tr>
+          <tr><td>Valeurs précises</td><td>Selon</td></tr>
+          <tr><td>Intervalles</td><td>Si généralisée</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Généralisée : conditions multiples.</li>
+        <li>Selon : sélecteur scalaire.</li>
+        <li>match...case : Python ≥ 3.10.</li>
+        <li>case _ : cas par défaut.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 6</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

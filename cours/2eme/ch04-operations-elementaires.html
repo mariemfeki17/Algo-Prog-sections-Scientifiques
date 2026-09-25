@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch. 04 — Les opérations élémentaires | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch04-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch04-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 04</span>
+      </div>
+      <h1>Les opérations élémentaires</h1>
+      <p class="duree">⏱️ Durée estimée : 45 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Utiliser Lire, Écrire et Écrire_nl.</li>
+          <li>Maîtriser l'affectation.</li>
+          <li>Implémenter en Python (input, print, =).</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023 · Convention algorithmique 2024, p. 2</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 L'opération d'entrée : Lire</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p><code>Lire(Objet)</code> permet de saisir une valeur au clavier et de la stocker dans l'objet.</p>
+      </div>
+      <pre class="algo"><code>Lire(a)</code></pre>
+
+      <h3>2.2 L'opération de sortie : Écrire / Écrire_nl</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p><code>Écrire("Message", Objet, Expression)</code> affiche un message et/ou la valeur d'un objet. <code>Écrire_nl</code> ajoute un retour à la ligne.</p>
+      </div>
+      <pre class="algo"><code>Écrire("La somme est : ", s)
+Écrire_nl("Bonjour")</code></pre>
+
+      <h3>2.3 L'affectation</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p><code>Objet ← Expression</code> : l'objet reçoit la valeur de l'expression.</p>
+      </div>
+      <pre class="algo"><code>s ← a + b
+moyenne ← (n1 + n2 + n3) / 3</code></pre>
+
+      <h3>2.4 Exemple complet</h3>
+      <pre class="algo"><code>ALGORITHME Moyenne
+DEBUT
+  Lire(n1)
+  Lire(n2)
+  Lire(n3)
+  m ← (n1 + n2 + n3) / 3
+  Écrire("Moyenne = ", m)
+FIN
+
+Déclaration des objets
+Objet        Type / Nature
+n1, n2, n3   Réel
+m            Réel</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td><code>Lire(Objet)</code></td><td><code>Objet = input()</code> ou <code>Objet = int(input())</code></td></tr>
+          <tr><td><code>Écrire("…", x)</code></td><td><code>print("…", x)</code></td></tr>
+          <tr><td><code>Écrire_nl("…", x)</code></td><td><code>print("…", x, "\n")</code></td></tr>
+          <tr><td><code>Objet ← Expression</code></td><td><code>Objet = Expression</code></td></tr>
+        </tbody>
+      </table>
+
+      <pre class="python"><code>n1 = float(input("Note 1 : "))
+n2 = float(input("Note 2 : "))
+n3 = float(input("Note 3 : "))
+m = (n1 + n2 + n3) / 3
+print("Moyenne =", m)</code></pre>
+
+      <div class="remarque">
+        <h4>Remarques importantes</h4>
+        <ul>
+          <li><code>input()</code> retourne une chaîne → convertir avec <code>int()</code> ou <code>float()</code>.</li>
+          <li><code>"\n"</code> ajoute un retour à la ligne.</li>
+          <li><strong>Interdit :</strong> <code>print(T)</code> pour afficher un tableau → afficher élément par élément.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Ne pas oublier de convertir après <code>input()</code>.</li>
+        <li>Le message dans <code>Écrire</code> est entre guillemets.</li>
+        <li>Ne pas confondre <code>Écrire</code> et <code>Écrire_nl</code>.</li>
+        <li>L'affectation utilise <code>←</code>, pas <code>=</code>, en algorithmique.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Conversion Celsius → Fahrenheit</h4>
+        <p>Saisir une température en Celsius et afficher sa conversion en Fahrenheit : F = C × 9/5 + 32.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Conversion
+DEBUT
+  Lire(C)
+  F ← C * 9 / 5 + 32
+  Écrire("F = ", F)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+C        Réel
+F        Réel</code></pre>
+          <pre class="python"><code>C = float(input("Celsius : "))
+F = C * 9 / 5 + 32
+print("F =", F)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch04"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 04 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "2eme-ch04";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("2eme-ch04", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

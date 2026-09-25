@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 03 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>4ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 03 — Structures itératives avancées</p>
+  </header>
+
+  <section>
+    <h2>1. Les trois structures</h2>
+    <pre class="algo"><code>Pour i de D à F Faire T Fin Pour
+
+Tant que C Faire T Fin Tant que
+
+Répéter T Jusqu'à C</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Choix argumenté</h2>
+    <table class="correspondance">
+      <thead><tr><th>Situation</th><th>Structure</th></tr></thead>
+      <tbody>
+        <tr><td>Nombre connu</td><td>Pour</td></tr>
+        <tr><td>Test avant</td><td>Tant Que</td></tr>
+        <tr><td>Au moins 1 fois</td><td>Répéter</td></tr>
+        <tr><td>Parcours tableau</td><td>Pour</td></tr>
+        <tr><td>Recherche avec arrêt</td><td>Tant Que</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Correspondances Python</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Pour i de D à F</td><td>for i in range(D, F+1):</td></tr>
+        <tr><td>Tant que C Faire</td><td>while C:</td></tr>
+        <tr><td>Répéter...Jusqu'à C</td><td>while not C: ...</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Exemple — Recherche</h2>
+    <pre class="python"><code>from numpy import array
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+x = int(input("x : "))
+pos = -1
+i = 0
+while i < n and pos == -1:
+    if T[i] == x:
+        pos = i
+    i = i + 1
+print("Position =", pos)</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Pièges</h2>
+    <ul class="pieges">
+      <li>Boucle infinie si condition immuable.</li>
+      <li>Pas de break.</li>
+      <li>Ne pas modifier le compteur d'un Pour.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 4ème année — Chapitre 03</p>
+  </footer>
+</body>
+</html>

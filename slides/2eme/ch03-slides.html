@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 03 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">2ème année — Sections scientifiques</p>
+      <h1>Chapitre 03</h1>
+      <h2>Les types de données simples</h2>
+      <p class="slide-source">Programme officiel 2022-2023 · Convention algorithmique 2024</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Objectifs</h2>
+      <ul class="slide-list">
+        <li>Identifier les types : entier, réel, caractère, booléen, chaîne.</li>
+        <li>Choisir le type adéquat.</li>
+        <li>Implémenter et convertir en Python.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Les 5 types simples</h2>
+      <ul class="slide-list">
+        <li><strong>Entier</strong> : 0, 5, -12</li>
+        <li><strong>Réel</strong> : 3.14, -0.5</li>
+        <li><strong>Caractère</strong> : 'A', '5'</li>
+        <li><strong>Booléen</strong> : Vrai, Faux</li>
+        <li><strong>Chaîne</strong> : "Bonjour"</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Déclaration</h2>
+      <pre class="slide-code"><code>ALGORITHME Exemple
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet       Type / Nature
+age         Entier
+taille      Réel
+initiale    Caractère
+estMajeur   Booléen
+nom         Chaîne de caractères</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Correspondances Python</h2>
+      <ul class="slide-list">
+        <li>Entier → <code>int</code></li>
+        <li>Réel → <code>float</code></li>
+        <li>Booléen → <code>bool</code></li>
+        <li>Caractère / Chaîne → <code>str</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Conversions en Python</h2>
+      <pre class="slide-code slide-code-python"><code>x = int("3")      # 3
+y = float("3.2")  # 3.2
+z = bool("0")     # True
+s = str(123)      # "123"</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple — Fiche</h2>
+      <pre class="slide-code slide-code-python"><code>nom = input("Nom : ")
+age = int(input("Âge : "))
+taille = float(input("Taille : "))
+print("Nom :", nom)
+print("Âge :", age)
+print("Taille :", taille)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Pièges</h2>
+      <ul class="slide-list slide-list-warning">
+        <li>input() renvoie une chaîne.</li>
+        <li>Caractère : apostrophes. Chaîne : guillemets.</li>
+        <li>/ donne un réel, Div donne un entier.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>5 types simples : entier, réel, caractère, booléen, chaîne.</li>
+        <li>Chaque objet a un type.</li>
+        <li>Python : int, float, bool, str.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 9</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

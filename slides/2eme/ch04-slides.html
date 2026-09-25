@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 04 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">2ème année — Sections scientifiques</p>
+      <h1>Chapitre 04</h1>
+      <h2>Les opérations élémentaires</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Lire — Entrée</h2>
+      <pre class="slide-code"><code>Lire(Objet)</code></pre>
+      <p class="slide-note">Saisir une valeur au clavier.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Écrire / Écrire_nl — Sortie</h2>
+      <pre class="slide-code"><code>Écrire("Message", Objet, Expression)
+Écrire_nl("Message", Objet, Expression)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Affectation</h2>
+      <pre class="slide-code"><code>Objet ← Expression</code></pre>
+      <p class="slide-note">Le symbole ← se lit « reçoit ».</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple — Moyenne</h2>
+      <pre class="slide-code"><code>ALGORITHME Moyenne
+DEBUT
+  Lire(n1)
+  Lire(n2)
+  Lire(n3)
+  m ← (n1 + n2 + n3) / 3
+  Écrire("Moyenne = ", m)
+FIN</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Implémentation Python</h2>
+      <pre class="slide-code slide-code-python"><code>n1 = float(input("Note 1 : "))
+n2 = float(input("Note 2 : "))
+n3 = float(input("Note 3 : "))
+m = (n1 + n2 + n3) / 3
+print("Moyenne =", m)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Pièges</h2>
+      <ul class="slide-list slide-list-warning">
+        <li>Convertir après input().</li>
+        <li>Messages entre guillemets.</li>
+        <li>Interdit : print(T) pour un tableau.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

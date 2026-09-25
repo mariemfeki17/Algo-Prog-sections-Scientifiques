@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 08 — Robotique — Consolidation | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/3eme/ch08-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/3eme/ch08-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-3eme">3ème année</span>
+        <span class="badge badge-chapitre">Chapitre 08</span>
+      </div>
+      <h1>Robotique — Consolidation</h1>
+      <p class="duree">⏱️ Durée estimée : 50 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Approfondir les domaines de la robotique.</li>
+          <li>Programmer des objets connectés (Micro-Python / Arduino).</li>
+          <li>Réaliser un feu de carrefour complet.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Systèmes et technologies Internet</td></tr>
+          <tr><th>Année</th><td>3ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 6</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels</h2>
+      <p>En 2ème, nous avons découvert la robotique : définition, domaines, pilotage d'une LED et d'un feu de carrefour simple. En 3ème, on consolide et on complexifie.</p>
+    </section>
+
+    <section id="cours">
+      <h2>3. Consolidation</h2>
+
+      <h3>3.1 Rappel des domaines</h3>
+      <ul>
+        <li><strong>Industrie :</strong> robots de soudure, chaînes de montage.</li>
+        <li><strong>Médecine :</strong> robots chirurgicaux, prothèses.</li>
+        <li><strong>Agriculture :</strong> drones, robots de récolte.</li>
+        <li><strong>Espace :</strong> rovers, satellites.</li>
+        <li><strong>Éducation :</strong> kits pédagogiques (micro:bit, Arduino).</li>
+      </ul>
+
+      <h3>3.2 Programmation avancée — feu de carrefour complet</h3>
+      <p>Feu de carrefour avec 3 LED (rouge, orange, vert) et un cycle complet :</p>
+      <pre class="python"><code>from microbit import *
+while True:
+    # Rouge : 3 s
+    pin0.write_digital(1)
+    pin1.write_digital(0)
+    pin2.write_digital(0)
+    sleep(3000)
+    # Orange : 1 s
+    pin0.write_digital(0)
+    pin1.write_digital(1)
+    pin2.write_digital(0)
+    sleep(1000)
+    # Vert : 3 s
+    pin0.write_digital(0)
+    pin1.write_digital(0)
+    pin2.write_digital(1)
+    sleep(3000)
+    # Orange : 1 s (transition)
+    pin0.write_digital(0)
+    pin1.write_digital(1)
+    pin2.write_digital(0)
+    sleep(1000)</code></pre>
+
+      <h3>3.3 Utilisation des modules</h3>
+      <p>On peut factoriser le code avec des fonctions :</p>
+      <pre class="python"><code>from microbit import *
+
+def allumer(rouge, orange, vert):
+    pin0.write_digital(rouge)
+    pin1.write_digital(orange)
+    pin2.write_digital(vert)
+
+while True:
+    allumer(1, 0, 0); sleep(3000)  # Rouge
+    allumer(0, 1, 0); sleep(1000)  # Orange
+    allumer(0, 0, 1); sleep(3000)  # Vert
+    allumer(0, 1, 0); sleep(1000)  # Orange</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques</h2>
+      <ul class="pieges">
+        <li>L'apprenant n'est <strong>pas</strong> appelé à développer une application de commande complète.</li>
+        <li>Utiliser Micro-Python / Arduino.</li>
+        <li>S'appuyer sur des vidéos, ressources numériques et études de cas.</li>
+        <li>Factoriser le code avec des modules quand c'est possible.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Chenillard</h4>
+        <p>Faire clignoter 3 LED l'une après l'autre (chenillard).</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>from microbit import *
+while True:
+    pin0.write_digital(1); pin1.write_digital(0); pin2.write_digital(0)
+    sleep(300)
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(300)
+    pin0.write_digital(0); pin1.write_digital(0); pin2.write_digital(1)
+    sleep(300)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="3eme-ch08"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 08 — 3ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "3eme-ch08";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("3eme-ch08", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

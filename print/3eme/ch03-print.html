@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 03 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>3ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 03 — Les structures itératives</p>
+  </header>
+
+  <section>
+    <h2>1. Les trois structures</h2>
+    <pre class="algo"><code>Pour i de Début à Fin Faire
+  Traitement
+Fin Pour
+
+Tant que Condition Faire
+  Traitement
+Fin Tant que
+
+Répéter
+  Traitement
+Jusqu'à Condition</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Choix de la structure</h2>
+    <table class="correspondance">
+      <thead><tr><th>Situation</th><th>Structure</th></tr></thead>
+      <tbody>
+        <tr><td>Nombre connu</td><td>Pour</td></tr>
+        <tr><td>Condition avant</td><td>Tant Que</td></tr>
+        <tr><td>Au moins 1 fois</td><td>Répéter</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Correspondances Python</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Pour i de D à F</td><td>for i in range(D, F+1):</td></tr>
+        <tr><td>Tant que C Faire</td><td>while C:</td></tr>
+        <tr><td>Répéter...Jusqu'à C</td><td>while not C: ...</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>4. Exemple — Somme jusqu'à 0</h2>
+    <pre class="algo"><code>ALGORITHME SommeZero
+DEBUT
+  s ← 0
+  Lire(n)
+  Tant que n ≠ 0 Faire
+    s ← s + n
+    Lire(n)
+  Fin Tant que
+  Écrire("Somme = ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier
+s        Entier</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>5. Implémentation Python</h2>
+    <pre class="python"><code>s = 0
+n = int(input("n : "))
+while n != 0:
+    s = s + n
+    n = int(input("n : "))
+print("Somme =", s)</code></pre>
+  </section>
+
+  <section>
+    <h2>6. Pièges</h2>
+    <ul class="pieges">
+      <li>Boucle infinie si la condition ne change pas.</li>
+      <li>Ne pas modifier le compteur dans Pour.</li>
+      <li>break interdit.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 3ème année — Chapitre 03</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "id": "2eme-ch05",
+  "titre": "Quiz — La structure conditionnelle",
+  "questions": [
+    { "enonce": "Quelle est la syntaxe correcte de la condition complète en algorithmique ?", "options": ["Si...Alors...FinSi", "Si...Alors...Sinon...FinSi", "If...Then...EndIf", "Si...Sinon"], "reponse": 1 },
+    { "enonce": "En Python, comment teste-t-on l'égalité ?", "options": ["=", "==", "===", "!="], "reponse": 1 },
+    { "enonce": "Quel opérateur logique correspond à Et ?", "options": ["or", "not", "and", "xor"], "reponse": 2 },
+    { "enonce": "Que fait le bloc Sinon ?", "options": ["Exécute si la condition est vraie", "Exécute si la condition est fausse", "Arrête le programme", "Répète le traitement"], "reponse": 1 },
+    { "enonce": "Comment écrit-on Non en Python ?", "options": ["non", "not", "no", "!"], "reponse": 1 },
+    { "enonce": "Quel opérateur teste si n est pair ?", "options": ["n / 2 = 0", "n Mod 2 = 0", "n Div 2 = 0", "n * 2 = 0"], "reponse": 1 }
+  ]
+}

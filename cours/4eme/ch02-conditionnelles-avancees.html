@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 02 — Structures conditionnelles avancées | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch02-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch02-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 02</span>
+      </div>
+      <h1>Structures conditionnelles avancées</h1>
+      <p class="duree">⏱️ Durée estimée : 55 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Maîtriser la forme généralisée et à choix multiples.</li>
+          <li>Utiliser <code>Selon</code> et <code>match...case</code>.</li>
+          <li>Argumenter le choix de la structure.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, p. 7-8 · Convention algorithmique 2024, p. 4-5 · Convention d'implémentation 2024-2025, p. 6</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Conditionnelle généralisée</h3>
+      <pre class="algo"><code>Si Condition1 Alors
+  Traitement1
+Sinon Si Condition2 Alors
+  Traitement2
+Sinon Si Condition3 Alors
+  Traitement3
+[Sinon
+  TraitementN]
+FinSi</code></pre>
+
+      <h3>2.2 Conditionnelle à choix multiples : Selon</h3>
+      <pre class="algo"><code>Selon &lt;Sélecteur&gt;
+  Valeur1_1[, Valeur1_2, …] : Traitement1
+  Valeur2_1, Valeur2_2 : Traitement2
+  [Sinon TraitementN]
+Fin Selon</code></pre>
+      <p><strong>N.B. :</strong> le sélecteur doit être de type <strong>scalaire</strong>.</p>
+
+      <h3>2.3 Argumentation du choix</h3>
+      <table class="correspondance">
+        <thead><tr><th>Situation</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td>Deux cas + alternative</td><td>Si...Sinon</td></tr>
+          <tr><td>Plusieurs conditions ordonnées</td><td>Si...Sinon Si...</td></tr>
+          <tr><td>Comparaison à des valeurs précises</td><td>Selon</td></tr>
+          <tr><td>Intervalle ou plage de valeurs</td><td>Si généralisée</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.4 Exemple — Mention au bac</h3>
+      <pre class="algo"><code>ALGORITHME Mention
+DEBUT
+  Lire(m)
+  Selon m
+    [0 .. 9]   : Écrire("Ajourné")
+    [10 .. 11] : Écrire("Passable")
+    [12 .. 13] : Écrire("Assez bien")
+    [14 .. 15] : Écrire("Bien")
+    [16 .. 20] : Écrire("Très bien")
+    Sinon Écrire("Moyenne invalide")
+  Fin Selon
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+m        Réel</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Si...Alors</td><td>if ...:</td></tr>
+          <tr><td>Si...Sinon</td><td>if ...: ... else: ...</td></tr>
+          <tr><td>Si...Sinon Si...</td><td>if ...: ... elif ...: ... else: ...</td></tr>
+          <tr><td>Selon</td><td>match...case (Python ≥ 3.10)</td></tr>
+        </tbody>
+      </table>
+
+      <pre class="python"><code>m = float(input("Moyenne : "))
+match m:
+    case m if 0 <= m < 10:
+        print("Ajourné")
+    case m if 10 <= m < 12:
+        print("Passable")
+    case m if 12 <= m < 14:
+        print("Assez bien")
+    case m if 14 <= m < 16:
+        print("Bien")
+    case m if 16 <= m <= 20:
+        print("Très bien")
+    case _:
+        print("Moyenne invalide")</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Le sélecteur de <code>Selon</code> doit être <strong>scalaire</strong>.</li>
+        <li><code>match...case</code> nécessite Python ≥ 3.10.</li>
+        <li>Ne pas oublier le cas par défaut.</li>
+        <li>Utiliser <code>case _</code> pour le cas par défaut en Python.</li>
+        <li>Argumenter le choix de la structure.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Calculatrice avec Selon</h4>
+        <p>Implémenter une calculatrice avec +, -, *, /, en gérant la division par zéro.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Calculatrice
+DEBUT
+  Lire(a)
+  Lire(b)
+  Lire(op)
+  Selon op
+    '+' : Écrire(a + b)
+    '-' : Écrire(a - b)
+    '*' : Écrire(a * b)
+    '/' : Si b ≠ 0 Alors Écrire(a / b)
+          Sinon Écrire("Division par zéro")
+          FinSi
+    Sinon Écrire("Opérateur inconnu")
+  Fin Selon
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a, b     Réel
+op       Caractère</code></pre>
+          <pre class="python"><code>a = float(input("a : "))
+b = float(input("b : "))
+op = input("Opérateur : ")
+match op:
+    case '+': print(a + b)
+    case '-': print(a - b)
+    case '*': print(a * b)
+    case '/':
+        if b != 0: print(a / b)
+        else: print("Division par zéro")
+    case _: print("Opérateur inconnu")</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Saison selon le mois</h4>
+        <p>Afficher la saison (Hiver, Printemps, Été, Automne) selon le numéro du mois.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Saison
+DEBUT
+  Lire(m)
+  Selon m
+    12, 1, 2 : Écrire("Hiver")
+    3, 4, 5  : Écrire("Printemps")
+    6, 7, 8  : Écrire("Été")
+    9, 10, 11: Écrire("Automne")
+    Sinon Écrire("Mois invalide")
+  Fin Selon
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+m        Entier</code></pre>
+          <pre class="python"><code>m = int(input("Mois : "))
+match m:
+    case 12 | 1 | 2: print("Hiver")
+    case 3 | 4 | 5: print("Printemps")
+    case 6 | 7 | 8: print("Été")
+    case 9 | 10 | 11: print("Automne")
+    case _: print("Mois invalide")</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch02"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 02 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch02";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch02", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

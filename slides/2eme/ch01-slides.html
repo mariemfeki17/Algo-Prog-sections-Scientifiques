@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 01 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+
+  <!-- ========== SLIDE 1 : TITRE ========== -->
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">2ème année — Sections scientifiques</p>
+      <h1>Chapitre 01</h1>
+      <h2>Notion de problème et d'algorithme</h2>
+      <p class="slide-source">Programme officiel 2022-2023 · Convention algorithmique 2024</p>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 2 : OBJECTIFS ========== -->
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Objectifs du chapitre</h2>
+      <ul class="slide-list">
+        <li>Identifier les étapes de résolution d'un problème.</li>
+        <li>Dégager les entrées, les sorties et les traitements.</li>
+        <li>Écrire un algorithme simple selon la convention officielle.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 3 : DÉFINITION ========== -->
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Qu'est-ce qu'un algorithme ?</h2>
+      <div class="slide-definition">
+        <p>Une <strong>suite finie et ordonnée d'instructions</strong> permettant de résoudre un problème.</p>
+      </div>
+      <p class="slide-note">→ Indépendant de tout langage de programmation.</p>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 4 : FORMES GÉNÉRALE ========== -->
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Forme générale</h2>
+      <pre class="slide-code"><code>ALGORITHME Nom_algorithme
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet          Type / Nature
+Nom_objet      Type_objet</code></pre>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 5 : EXEMPLE ALGO ========== -->
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple — Somme de deux entiers</h2>
+      <pre class="slide-code"><code>ALGORITHME Somme
+DEBUT
+  Lire(a)
+  Lire(b)
+  s ← a + b
+  Écrire("La somme est : ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier
+s        Entier</code></pre>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 6 : IMPLÉMENTATION PYTHON ========== -->
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Implémentation en Python</h2>
+      <pre class="slide-code slide-code-python"><code>a = int(input("Donner le premier entier : "))
+b = int(input("Donner le deuxième entier : "))
+s = a + b
+print("La somme est :", s)</code></pre>
+      <p class="slide-note">⚠ input() renvoie une chaîne → conversion avec int() ou float().</p>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 7 : PIÈGES ========== -->
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Pièges fréquents</h2>
+      <ul class="slide-list slide-list-warning">
+        <li>Oublier de déclarer les objets.</li>
+        <li>Négliger l'indentation.</li>
+        <li>Oublier la conversion de input().</li>
+        <li>Utiliser break (interdit).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 8 : EXERCICE AVEC CORRECTION MASQUÉE ========== -->
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exercice — Aire d'un rectangle</h2>
+      <p class="slide-enonce">Écrire un algorithme qui calcule et affiche l'aire d'un rectangle à partir de sa longueur et de sa largeur.</p>
+      <button class="btn-correction-slide" onclick="toggleCorrection(this)">Afficher la correction</button>
+      <div class="correction-slide hidden">
+        <pre class="slide-code"><code>ALGORITHME AireRectangle
+DEBUT
+  Lire(L)
+  Lire(l)
+  A ← L * l
+  Écrire("Aire = ", A)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+L        Réel
+l        Réel
+A        Réel</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE 9 : SYNTHÈSE ========== -->
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Algorithme = suite finie d'instructions.</li>
+        <li>Étapes : analyser → entrées → sorties → traitements → algorithme.</li>
+        <li>Respecter la convention algorithmique 2024.</li>
+        <li>Implémenter en Python avec input(), print(), =.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== NAVIGATION ========== -->
+  <div class="slide-counter" id="slide-counter">1 / 9</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)" title="Précédent (←)">←</button>
+    <button onclick="showSlide(currentSlide + 1)" title="Suivant (→)">→</button>
+    <button onclick="toggleFullscreen()" title="Plein écran (F)">⛶</button>
+  </div>
+
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

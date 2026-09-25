@@ -1,0 +1,12 @@
+{
+  "id": "2eme-ch07",
+  "titre": "Quiz — Initiation à la robotique",
+  "questions": [
+    { "enonce": "Qu'est-ce que la robotique ?", "options": ["L'étude des ordinateurs", "La science des robots", "Un langage de programmation", "Un type de capteur"], "reponse": 1 },
+    { "enonce": "Parmi ces domaines, lequel n'est PAS un domaine d'application de la robotique ?", "options": ["Médecine", "Industrie", "Agriculture", "Peinture artistique"], "reponse": 3 },
+    { "enonce": "Quel langage est utilisé pour programmer les cartes micro:bit / Arduino ?", "options": ["Java", "Micro-Python / Arduino", "C#", "PHP"], "reponse": 1 },
+    { "enonce": "Quelle instruction allume une LED connectée à la broche 0 ?", "options": ["pin0.write_digital(0)", "pin0.write_digital(1)", "pin0.read_digital()", "pin0.off()"], "reponse": 1 },
+    { "enonce": "Dans un feu de carrefour, combien de couleurs sont utilisées ?", "options": ["1", "2", "3", "4"], "reponse": 2 },
+    { "enonce": "L'apprenant est-il appelé à développer une application de commande complète ?", "options": ["Oui", "Non", "Parfois", "Uniquement en 4ème"], "reponse": 1 }
+  ]
+}

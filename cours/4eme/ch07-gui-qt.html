@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 07 — Interface graphique avec Qt Designer | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch07-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch07-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 07</span>
+      </div>
+      <h1>Interface graphique avec Qt Designer</h1>
+      <p class="duree">⏱️ Durée estimée : 70 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Découvrir l'interface graphique à partir d'une application existante.</li>
+          <li>Concevoir et utiliser une GUI avec Qt Designer.</li>
+          <li>Utiliser le glisser-déposer et les méthodes : <code>.text</code>, <code>.setText</code>, <code>.clear</code>, <code>.show</code>, <code>.clicked</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, p. 9-10</td></tr>
+          <tr><th>Outil</th><td>Qt Designer + bibliothèques nécessaires</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Principes d'une interface graphique</h3>
+      <p>Une <strong>interface graphique (GUI)</strong> permet à l'utilisateur d'interagir avec un programme via des objets visuels : boutons, champs de saisie, étiquettes, etc.</p>
+
+      <h3>2.2 Concevoir avec Qt Designer</h3>
+      <p>Qt Designer permet de :</p>
+      <ul>
+        <li><strong>Glisser–Déposer</strong> les objets graphiques sur une fenêtre.</li>
+        <li>Configurer leurs <strong>propriétés</strong> (nom, texte, taille).</li>
+        <li>Sauvegarder l'interface dans un fichier <code>.ui</code>.</li>
+      </ul>
+
+      <h3>2.3 Objets graphiques courants</h3>
+      <table class="correspondance">
+        <thead><tr><th>Objet</th><th>Rôle</th></tr></thead>
+        <tbody>
+          <tr><td>QLabel</td><td>Étiquette (texte non modifiable)</td></tr>
+          <tr><td>QLineEdit</td><td>Champ de saisie</td></tr>
+          <tr><td>QPushButton</td><td>Bouton</td></tr>
+          <tr><td>QTextEdit</td><td>Zone de texte multilignes</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.4 Méthodes autorisées</h3>
+      <p>La convention limite l'usage à ces méthodes :</p>
+      <ul>
+        <li><code>.text</code> : lire le texte d'un objet.</li>
+        <li><code>.setText(...)</code> : modifier le texte.</li>
+        <li><code>.clear()</code> : effacer le contenu.</li>
+        <li><code>.show()</code> : afficher un objet.</li>
+        <li><code>.clicked</code> : signal de clic (utilisé pour connecter).</li>
+      </ul>
+
+      <h3>2.5 Exemple — Calculatrice simple</h3>
+      <p>Interface avec deux champs <code>a</code>, <code>b</code>, un bouton <code>btnSomme</code> et un label <code>lblResultat</code>.</p>
+      <pre class="python"><code>from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.uic import loadUi
+import sys
+
+class Fenetre(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi("calculatrice.ui", self)
+        self.btnSomme.clicked.connect(self.calculer)
+
+    def calculer(self):
+        a = float(self.txtA.text)
+        b = float(self.txtB.text)
+        s = a + b
+        self.lblResultat.setText("Somme = " + str(s))
+
+app = QApplication(sys.argv)
+f = Fenetre()
+f.show()
+app.exec_()</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>3. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>L'usage de la GUI doit <strong>améliorer l'ergonomie</strong>, pas être un objet principal d'apprentissage.</li>
+        <li>Se limiter aux méthodes listées : <code>.text</code>, <code>.setText</code>, <code>.clear</code>, <code>.show</code>, <code>.clicked</code>.</li>
+        <li>Traiter des problèmes avec <strong>une seule interface</strong>.</li>
+        <li>Installer Qt Designer et les bibliothèques nécessaires.</li>
+        <li>Convertir les textes (<code>.text</code>) en nombres si nécessaire.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>4. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Calculatrice simple</h4>
+        <p>Concevoir une interface avec deux champs et un bouton « Somme », afficher le résultat dans un label.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.uic import loadUi
+import sys
+
+class Fenetre(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi("calculatrice.ui", self)
+        self.btnSomme.clicked.connect(self.calculer)
+
+    def calculer(self):
+        a = float(self.txtA.text)
+        b = float(self.txtB.text)
+        self.lblResultat.setText("Somme = " + str(a + b))
+
+app = QApplication(sys.argv)
+f = Fenetre()
+f.show()
+app.exec_()</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Bouton Effacer</h4>
+        <p>Ajouter un bouton « Effacer » qui vide les champs et le label.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>self.btnEffacer.clicked.connect(self.effacer)
+
+def effacer(self):
+    self.txtA.clear()
+    self.txtB.clear()
+    self.lblResultat.clear()</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>5. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch07"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 07 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch07";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch07", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

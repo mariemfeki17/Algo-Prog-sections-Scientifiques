@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 02 — Les objets : constantes et variables | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch02-print.html" class="btn btn-print" target="_blank" rel="noopener">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch02-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 02</span>
+      </div>
+      <h1>Les objets : constantes et variables</h1>
+      <p class="duree">⏱️ Durée estimée : 50 min</p>
+
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Distinguer une constante d'une variable.</li>
+          <li>Déclarer un objet selon la convention algorithmique.</li>
+          <li>Affecter une valeur à une variable et implémenter en Python.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire — Sections scientifiques</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 2-3</td></tr>
+          <tr><th>Conventions</th><td>Convention algorithmique 2024 · Convention d'implémentation 2024-2025</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels du chapitre précédent</h2>
+      <p>
+        Dans le chapitre 1, nous avons vu qu'un algorithme manipule des <strong>entrées</strong>,
+        effectue des <strong>traitements</strong> et produit des <strong>sorties</strong>.
+        Ces entrées et sorties sont stockées dans des <strong>objets</strong>.
+      </p>
+    </section>
+
+    <section id="cours">
+      <h2>3. Cours théorique</h2>
+
+      <h3>3.1 Qu'est-ce qu'un objet ?</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>
+          Un <strong>objet</strong> est une zone mémoire nommée dans laquelle on stocke une valeur.
+          En algorithmique, on distingue deux catégories d'objets :
+          les <strong>constantes</strong> et les <strong>variables</strong>.
+        </p>
+      </div>
+
+      <h3>3.2 La constante</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>
+          Une <strong>constante</strong> est un objet dont la valeur <strong>ne change pas</strong>
+          pendant l'exécution de l'algorithme. Elle est définie une seule fois.
+        </p>
+      </div>
+      <p><strong>Exemple :</strong> la valeur de π (3,14), le nombre de jours dans une semaine (7).</p>
+
+      <h3>3.3 La variable</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>
+          Une <strong>variable</strong> est un objet dont la valeur <strong>peut changer</strong>
+          au cours de l'exécution de l'algorithme.
+        </p>
+      </div>
+      <p><strong>Exemple :</strong> la note d'un élève, le compteur d'une boucle, la somme de deux nombres.</p>
+
+      <h3>3.4 Déclaration des objets</h3>
+      <p>Selon la <em>Convention algorithmique 2024</em>, les objets se déclarent après le titre de l'algorithme :</p>
+
+      <pre class="algo"><code>ALGORITHME Nom_algorithme
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet          Type / Nature
+Nom_objet      Type_objet</code></pre>
+
+      <p><strong>Règles :</strong></p>
+      <ul>
+        <li>La <strong>nomenclature</strong> des objets doit être <strong>significative</strong>.</li>
+        <li>Chaque objet a un <strong>type</strong> (entier, réel, caractère, booléen, chaîne).</li>
+        <li>L'écriture doit respecter l'<strong>indentation</strong>.</li>
+      </ul>
+
+      <h3>3.5 L'affectation</h3>
+      <p>L'affectation permet de donner une valeur à une variable :</p>
+      <pre class="algo"><code>Objet ← Expression</code></pre>
+      <p>Le symbole <code>←</code> se lit « reçoit ».</p>
+
+      <h3>3.6 Exemple complet</h3>
+      <p><strong>Énoncé :</strong> Calculer le prix TTC d'un article à partir de son prix HT et d'un taux de TVA.</p>
+
+      <div class="bloc-etapes">
+        <p><strong>Entrées :</strong> <code>prixHT</code> (réel), <code>tauxTVA</code> (réel).</p>
+        <p><strong>Sorties :</strong> <code>prixTTC</code> (réel).</p>
+        <p><strong>Traitements :</strong> <code>prixTTC ← prixHT * (1 + tauxTVA / 100)</code>.</p>
+      </div>
+
+      <pre class="algo"><code>ALGORITHME PrixTTC
+DEBUT
+  Lire(prixHT)
+  Lire(tauxTVA)
+  prixTTC ← prixHT * (1 + tauxTVA / 100)
+  Écrire("Prix TTC = ", prixTTC)
+FIN
+
+Déclaration des objets
+Objet       Type / Nature
+prixHT      Réel
+tauxTVA     Réel
+prixTTC     Réel</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>4. Implémentation en Python</h2>
+      <p>
+        En Python, une variable <strong>n'a pas besoin d'être déclarée</strong> : elle est créée
+        au moment de l'affectation. Son type est défini par la valeur qui lui est attribuée.
+      </p>
+
+      <pre class="python"><code># Algorithme PrixTTC — implémentation Python
+prixHT = float(input("Donner le prix HT : "))
+tauxTVA = float(input("Donner le taux de TVA (%) : "))
+prixTTC = prixHT * (1 + tauxTVA / 100)
+print("Prix TTC =", prixTTC)</code></pre>
+
+      <div class="remarque">
+        <h4>Correspondances algorithmique ↔ Python</h4>
+        <table class="correspondance">
+          <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+          <tbody>
+            <tr><td><code>Objet ← Expression</code></td><td><code>Objet = Expression</code></td></tr>
+            <tr><td><code>Lire(x)</code></td><td><code>x = input()</code> (avec conversion)</td></tr>
+            <tr><td><code>Écrire("…", x)</code></td><td><code>print("…", x)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="remarque">
+        <h4>⚠️ Sensibilité à la casse</h4>
+        <p>Python est <strong>sensible à la casse</strong> : <code>prix</code>, <code>Prix</code> et <code>PRIX</code> sont trois variables différentes.</p>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>5. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Ne pas confondre <strong>constante</strong> (valeur fixe) et <strong>variable</strong> (valeur modifiable).</li>
+        <li>Utiliser des noms <strong>significatifs</strong> : <code>moyenne</code> plutôt que <code>m</code>.</li>
+        <li>Respecter l'<strong>indentation</strong> dans la déclaration des objets.</li>
+        <li>En Python, ne pas oublier la <strong>conversion</strong> après <code>input()</code>.</li>
+        <li>Le nom d'une variable ne peut pas commencer par un chiffre ni contenir d'espaces.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>6. Exercices corrigés</h2>
+
+      <div class="exercice">
+        <h4>Exercice 1 — Périmètre d'un cercle</h4>
+        <p>Écrire un algorithme qui calcule le périmètre d'un cercle de rayon <code>R</code>, en utilisant la constante <code>PI = 3.14</code>.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME PerimetreCercle
+DEBUT
+  PI ← 3.14
+  Lire(R)
+  P ← 2 * PI * R
+  Écrire("Périmètre = ", P)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+PI       Réel (constante)
+R        Réel
+P        Réel</code></pre>
+          <pre class="python"><code>PI = 3.14
+R = float(input("Rayon : "))
+P = 2 * PI * R
+print("Périmètre =", P)</code></pre>
+        </div>
+      </div>
+
+      <div class="exercice">
+        <h4>Exercice 2 — Échange de deux variables</h4>
+        <p>Écrire un algorithme qui échange les valeurs de deux variables <code>a</code> et <code>b</code>.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Echange
+DEBUT
+  Lire(a)
+  Lire(b)
+  aux ← a
+  a ← b
+  b ← aux
+  Écrire("a = ", a, " b = ", b)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier
+aux      Entier</code></pre>
+          <pre class="python"><code>a = int(input("a : "))
+b = int(input("b : "))
+aux = a
+a = b
+b = aux
+print("a =", a, " b =", b)</code></pre>
+          <p><strong>Astuce Python :</strong> on peut aussi écrire <code>a, b = b, a</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>7. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch02"></div>
+    </section>
+
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 02 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "2eme-ch02";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé";
+      btn.disabled = true;
+      btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé";
+      btn.disabled = true;
+      btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const correction = btn.nextElementSibling;
+      correction.classList.toggle("hidden");
+      btn.textContent = correction.classList.contains("hidden")
+        ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("2eme-ch02", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch04",
+  "titre": "Quiz — Tri sélection et insertion",
+  "questions": [
+    { "enonce": "Dans le tri par sélection, à chaque étape on cherche :", "options": ["Le plus grand", "Le plus petit", "Un élément au hasard", "Le premier"], "reponse": 1 },
+    { "enonce": "Dans le tri par insertion, on insère T[i] dans :", "options": ["Le tableau entier", "La partie déjà triée", "Le début du tableau", "La fin du tableau"], "reponse": 1 },
+    { "enonce": "Quelle est la complexité des deux tris ?", "options": ["O(n)", "O(n log n)", "O(n²)", "O(1)"], "reponse": 2 },
+    { "enonce": "Quelle condition est indispensable dans le tri par insertion ?", "options": ["j ≥ 0", "j > n", "i = 0", "i < 0"], "reponse": 0 },
+    { "enonce": "Quel tri échange le moins d'éléments ?", "options": ["Bulles", "Sélection", "Insertion", "Fusion"], "reponse": 1 },
+    { "enonce": "Quelle instruction est interdite dans les tris ?", "options": ["if", "for", "break", "while"], "reponse": 2 }
+  ]
+}

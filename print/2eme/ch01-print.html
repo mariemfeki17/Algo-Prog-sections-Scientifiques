@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche de cours — Ch. 01 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+
+  <!-- En-tête imprimable -->
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 01 — Notion de problème et d'algorithme</p>
+    <p class="print-note">Conforme aux Aides pédagogiques 2022-2023 · Convention algorithmique 2024 · Convention d'implémentation 2024-2025</p>
+  </header>
+
+  <!-- 1. Références -->
+  <section>
+    <h2>1. Références officielles</h2>
+    <table class="ref-table">
+      <tbody>
+        <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+        <tr><th>Année</th><td>2ème année secondaire</td></tr>
+        <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 2-3</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 2. Définitions -->
+  <section>
+    <h2>2. Définitions</h2>
+    <div class="definition">
+      <h3>Problème</h3>
+      <p>Situation pour laquelle on cherche une solution : entrées → traitements → sorties.</p>
+    </div>
+    <div class="definition">
+      <h3>Algorithme</h3>
+      <p>Suite finie et ordonnée d'instructions permettant de résoudre un problème, indépendante de tout langage.</p>
+    </div>
+  </section>
+
+  <!-- 3. Forme générale -->
+  <section>
+    <h2>3. Forme générale d'un algorithme</h2>
+    <pre class="algo"><code>ALGORITHME Nom_algorithme
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet          Type / Nature
+Nom_objet      Type_objet</code></pre>
+  </section>
+
+  <!-- 4. Exemple -->
+  <section>
+    <h2>4. Exemple — Somme de deux entiers</h2>
+    <pre class="algo"><code>ALGORITHME Somme
+DEBUT
+  Lire(a)
+  Lire(b)
+  s ← a + b
+  Écrire("La somme est : ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier
+s        Entier</code></pre>
+  </section>
+
+  <!-- 5. Implémentation -->
+  <section class="page-break">
+    <h2>5. Implémentation en Python</h2>
+    <pre class="python"><code>a = int(input("Donner le premier entier : "))
+b = int(input("Donner le deuxième entier : "))
+s = a + b
+print("La somme est :", s)</code></pre>
+  </section>
+
+  <!-- 6. Remarques -->
+  <section>
+    <h2>6. Remarques et pièges fréquents</h2>
+    <ul class="pieges">
+      <li>Déclarer tous les objets.</li>
+      <li>Respecter l'indentation.</li>
+      <li>En Python, input() renvoie une chaîne : convertir avec int() ou float().</li>
+      <li>Nomenclature significative.</li>
+      <li>Ne jamais utiliser break.</li>
+    </ul>
+  </section>
+
+  <!-- 7. Exercices -->
+  <section class="page-break">
+    <h2>7. Exercices</h2>
+
+    <div class="exercice">
+      <h4>Exercice 1 — Aire d'un rectangle</h4>
+      <p>Écrire un algorithme qui calcule et affiche l'aire d'un rectangle.</p>
+      <p><strong>Correction :</strong></p>
+      <pre class="algo"><code>ALGORITHME AireRectangle
+DEBUT
+  Lire(L)
+  Lire(l)
+  A ← L * l
+  Écrire("Aire = ", A)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+L        Réel
+l        Réel
+A        Réel</code></pre>
+    </div>
+
+    <div class="exercice">
+      <h4>Exercice 2 — Moyenne de trois notes</h4>
+      <p>Écrire un algorithme qui calcule la moyenne de trois notes.</p>
+      <p><strong>Correction :</strong></p>
+      <pre class="algo"><code>ALGORITHME Moyenne
+DEBUT
+  Lire(n1)
+  Lire(n2)
+  Lire(n3)
+  m ← (n1 + n2 + n3) / 3
+  Écrire("Moyenne = ", m)
+FIN
+
+Déclaration des objets
+Objet        Type / Nature
+n1, n2, n3   Réel
+m            Réel</code></pre>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 01 — Page 1</p>
+  </footer>
+
+</body>
+</html>

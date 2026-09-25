@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 04 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>3ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 04 — Les tableaux à une dimension</p>
+  </header>
+
+  <section>
+    <h2>1. Définition</h2>
+    <div class="definition">
+      <p>Un <strong>tableau à une dimension</strong> regroupe plusieurs éléments de <strong>même type</strong>, accessibles par un <strong>indice</strong>.</p>
+    </div>
+    <p>Indice du premier élément : <strong>0</strong>.</p>
+  </section>
+
+  <section>
+    <h2>2. Déclaration en algorithmique</h2>
+    <pre class="algo"><code>Déclaration des objets
+Objet       Type / Nature
+T           Tableau de N Entier</code></pre>
+  </section>
+
+  <section>
+    <h2>3. Déclaration en Python (numpy)</h2>
+    <pre class="python"><code>from numpy import array
+
+T = array([0] * 10)          # 10 entiers à 0
+T = array([float()] * 10)    # 10 réels à 0.0
+T = array([str] * 10)        # 10 chaînes
+T = array([str()] * 10)      # 10 caractères vides
+T = array([''] * 10, dtype='U20')  # 10 chaînes de 20 caractères</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Parcours</h2>
+    <pre class="algo"><code>ALGORITHME RemplirAfficher
+DEBUT
+  Lire(n)
+  Pour i de 0 à n - 1 Faire
+    Lire(T[i])
+  Fin Pour
+  Pour i de 0 à n - 1 Faire
+    Écrire(T[i])
+  Fin Pour
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Entier
+n        Entier
+i        Entier</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>5. Implémentation Python</h2>
+    <pre class="python"><code>from numpy import array
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+for i in range(n):
+    print(T[i])</code></pre>
+    <p><strong>Interdit :</strong> <code>print(T)</code>.</p>
+  </section>
+
+  <section>
+    <h2>6. Exercice — Somme des éléments</h2>
+    <pre class="algo"><code>ALGORITHME SommeTab
+DEBUT
+  Lire(n)
+  Pour i de 0 à n - 1 Faire
+    Lire(T[i])
+  Fin Pour
+  s ← 0
+  Pour i de 0 à n - 1 Faire
+    s ← s + T[i]
+  Fin Pour
+  Écrire("Somme = ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Entier
+n, i, s  Entier</code></pre>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 3ème année — Chapitre 04</p>
+  </footer>
+</body>
+</html>

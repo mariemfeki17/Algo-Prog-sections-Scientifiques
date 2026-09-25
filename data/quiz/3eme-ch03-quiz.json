@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch03",
+  "titre": "Quiz — Structures itératives",
+  "questions": [
+    { "enonce": "Quelle structure utiliser quand le nombre d'itérations est connu ?", "options": ["Tant Que", "Répéter", "Pour", "Selon"], "reponse": 2 },
+    { "enonce": "Dans Tant Que, la condition est testée :", "options": ["Après le traitement", "Avant le traitement", "Jamais", "Une seule fois"], "reponse": 1 },
+    { "enonce": "Dans Répéter...Jusqu'à, le traitement s'exécute :", "options": ["Zéro fois", "Au moins une fois", "Exactement 10 fois", "Jamais"], "reponse": 1 },
+    { "enonce": "En Python, quelle instruction correspond à Tant Que ?", "options": ["for", "while", "repeat", "until"], "reponse": 1 },
+    { "enonce": "Quel risque si la condition ne change jamais dans Tant Que ?", "options": ["Erreur de syntaxe", "Boucle infinie", "Arrêt automatique", "Compilation"], "reponse": 1 },
+    { "enonce": "Quelle instruction est interdite dans les boucles ?", "options": ["if", "for", "break", "print"], "reponse": 2 }
+  ]
+}

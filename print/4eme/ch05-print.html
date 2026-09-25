@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 05 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>4ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 05 — Modules et décomposition en sous-problèmes</p>
+  </header>
+
+  <section>
+    <h2>1. Décomposition en sous-problèmes</h2>
+    <ol>
+      <li>Analyser l'énoncé.</li>
+      <li>Regrouper les tâches en modules.</li>
+      <li>Définir l'entête de chaque module.</li>
+      <li>Écrire chaque module.</li>
+      <li>Tester chaque module.</li>
+      <li>Assembler.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>2. Éléments d'un module</h2>
+    <table class="correspondance">
+      <thead><tr><th>Élément</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Entête</td><td>Nom + paramètres + type de retour</td></tr>
+        <tr><td>Paramètres</td><td>Par valeur ou référence</td></tr>
+        <tr><td>Résultat</td><td>Un seul, simple (fonction)</td></tr>
+        <tr><td>Portée</td><td>Locale ou globale</td></tr>
+        <tr><td>Appel</td><td>Utilisation du module</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Exemple — Moyenne et Maximum</h2>
+    <pre class="algo"><code>Fonction SommeTab (T : Tableau de 100 Entier, n : Entier) : Entier
+DEBUT
+  s ← 0
+  Pour i de 0 à n - 1 Faire
+    s ← s + T[i]
+  Fin Pour
+  Retourner s
+FIN
+
+Fonction MaximumTab (T : Tableau de 100 Entier, n : Entier) : Entier
+DEBUT
+  max ← T[0]
+  Pour i de 1 à n - 1 Faire
+    Si T[i] &gt; max Alors max ← T[i] FinSi
+  Fin Pour
+  Retourner max
+FIN</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Implémentation Python</h2>
+    <pre class="python"><code>def somme_tab(T, n):
+    s = 0
+    for i in range(n):
+        s = s + T[i]
+    return s
+
+def maximum_tab(T, n):
+    maxi = T[0]
+    for i in range(1, n):
+        if T[i] > maxi:
+            maxi = T[i]
+    return maxi
+
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+print("Moyenne =", somme_tab(T, n) / n)
+print("Maximum =", maximum_tab(T, n))</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Bonnes pratiques</h2>
+    <ul>
+      <li>Noms significatifs.</li>
+      <li>Commenter chaque module.</li>
+      <li>Un module = une responsabilité.</li>
+      <li>Éviter les globales.</li>
+      <li>Tester chaque module.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 4ème année — Chapitre 05</p>
+  </footer>
+</body>
+</html>

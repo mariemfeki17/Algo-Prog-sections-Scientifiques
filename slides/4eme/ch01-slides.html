@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 01 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">4ème année — Sections scientifiques</p>
+      <h1>Chapitre 01</h1>
+      <h2>Rappels et consolidation</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Types standards</h2>
+      <ul class="slide-list">
+        <li>Entier → <code>int</code></li>
+        <li>Réel → <code>float</code></li>
+        <li>Booléen → <code>bool</code></li>
+        <li>Caractère / Chaîne → <code>str</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Structures de base</h2>
+      <pre class="slide-code"><code>Si C1 Alors T1
+Sinon Si C2 Alors T2
+Sinon T3
+FinSi
+
+Pour i de D à F Faire T Fin Pour
+Tant que C Faire T Fin Tant que
+Répéter T Jusqu'à C</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Nouveautés 4ème</h2>
+      <ul class="slide-list">
+        <li>Conditionnelles généralisées</li>
+        <li>Tri sélection/insertion</li>
+        <li>Sous-problèmes</li>
+        <li>Fichiers</li>
+        <li>GUI Qt Designer</li>
+        <li>Programmation événementielle</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Consolider les bases.</li>
+        <li>Adopter les bonnes pratiques.</li>
+        <li>break interdit.</li>
+        <li>print(T) interdit.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 5</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

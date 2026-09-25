@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 06 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 06 — La structure répétitive Pour</p>
+  </header>
+
+  <section>
+    <h2>1. Structure</h2>
+    <pre class="algo"><code>Pour Compteur de Début à Fin [Pas = valeur_pas] Faire
+  Traitement
+Fin Pour</code></pre>
+    <p>Pas par défaut : 1. Ne jamais modifier le compteur dans le traitement.</p>
+  </section>
+
+  <section>
+    <h2>2. Exemple — Somme des n premiers entiers</h2>
+    <pre class="algo"><code>ALGORITHME SommeN
+DEBUT
+  Lire(n)
+  s ← 0
+  Pour i de 1 à n Faire
+    s ← s + i
+  Fin Pour
+  Écrire("Somme = ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier
+i        Entier
+s        Entier</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>3. Implémentation Python</h2>
+    <pre class="python"><code>n = int(input("n : "))
+s = 0
+for i in range(1, n + 1):
+    s = s + i
+print("Somme =", s)</code></pre>
+    <p><strong>Attention :</strong> <code>range(D, F+1)</code> inclut F ; <code>range(D, F)</code> l'exclut.</p>
+  </section>
+
+  <section>
+    <h2>4. Pièges</h2>
+    <ul class="pieges">
+      <li>Oublier le +1 dans range.</li>
+      <li>Ne pas initialiser l'accumulateur.</li>
+      <li>Modifier le compteur dans la boucle.</li>
+      <li>Utiliser break (interdit).</li>
+    </ul>
+  </section>
+
+  <section class="page-break">
+    <h2>5. Exercices</h2>
+    <div class="exercice">
+      <h4>Exercice 1 — Table de multiplication</h4>
+      <pre class="algo"><code>ALGORITHME Table
+DEBUT
+  Lire(n)
+  Pour i de 1 à 10 Faire
+    Écrire(n, " x ", i, " = ", n * i)
+  Fin Pour
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier
+i        Entier</code></pre>
+    </div>
+    <div class="exercice">
+      <h4>Exercice 2 — Factorielle</h4>
+      <pre class="algo"><code>ALGORITHME Factorielle
+DEBUT
+  Lire(n)
+  f ← 1
+  Pour i de 1 à n Faire
+    f ← f * i
+  Fin Pour
+  Écrire("Factorielle = ", f)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier
+i        Entier
+f        Entier</code></pre>
+    </div>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 06</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 01 — Rappels et consolidation | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch01-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch01-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 01</span>
+      </div>
+      <h1>Rappels et consolidation</h1>
+      <p class="duree">⏱️ Durée estimée : 40 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Consolider les acquis de 3ème année.</li>
+          <li>Préparer les structures avancées (conditionnelles généralisées, tri, fichiers, GUI).</li>
+          <li>Adopter les bonnes pratiques de programmation.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire — Sections scientifiques</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 7-10</td></tr>
+          <tr><th>Conventions</th><td>Convention algorithmique 2024 · Convention d'implémentation 2024-2025</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels du niveau 3ème</h2>
+
+      <h3>2.1 Objets et types standards</h3>
+      <ul>
+        <li>Entier → <code>int</code></li>
+        <li>Réel → <code>float</code></li>
+        <li>Booléen → <code>bool</code></li>
+        <li>Caractère / Chaîne → <code>str</code></li>
+      </ul>
+
+      <h3>2.2 Structures conditionnelles</h3>
+      <pre class="algo"><code>Si C1 Alors T1
+Sinon Si C2 Alors T2
+Sinon T3
+FinSi</code></pre>
+
+      <h3>2.3 Structures itératives</h3>
+      <pre class="algo"><code>Pour i de D à F Faire
+  T
+Fin Pour
+
+Tant que C Faire
+  T
+Fin Tant que
+
+Répéter
+  T
+Jusqu'à C</code></pre>
+
+      <h3>2.4 Tableaux à une dimension</h3>
+      <pre class="algo"><code>Déclaration des objets
+Objet    Type / Nature
+T        Tableau de N Entier</code></pre>
+
+      <h3>2.5 Modules</h3>
+      <pre class="algo"><code>Fonction Nom_f (pf1 : type1, …, pfN : typeN) : Type_résultat
+DEBUT
+  Traitement
+  Retourner Résultat
+FIN</code></pre>
+    </section>
+
+    <section id="cours">
+      <h2>3. Nouveautés de la 4ème année</h2>
+      <ul>
+        <li>Conditionnelles généralisées et à choix multiples (<code>Selon</code>, <code>match...case</code>).</li>
+        <li>Tri par sélection et tri par insertion.</li>
+        <li>Décomposition en sous-problèmes.</li>
+        <li>Fichiers (textes et données).</li>
+        <li>Interface graphique avec Qt Designer.</li>
+        <li>Programmation événementielle.</li>
+      </ul>
+
+      <h3>3.1 Bonnes pratiques</h3>
+      <ul>
+        <li>Noms significatifs.</li>
+        <li>Indentation rigoureuse (4 espaces).</li>
+        <li>Commentaires utiles.</li>
+        <li>Pas de <code>break</code>.</li>
+        <li>Pas de <code>print(T)</code> pour un tableau.</li>
+        <li>N'utiliser que les fonctions listées dans la convention d'implémentation.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>4. Exercices de révision</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Révision des modules</h4>
+        <p>Écrire une fonction qui retourne la somme des éléments d'un tableau T de n entiers.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Fonction SommeTab (T : Tableau de 100 Entier, n : Entier) : Entier
+DEBUT
+  s ← 0
+  Pour i de 0 à n - 1 Faire
+    s ← s + T[i]
+  Fin Pour
+  Retourner s
+FIN</code></pre>
+          <pre class="python"><code>def somme_tab(T, n):
+    s = 0
+    for i in range(n):
+        s = s + T[i]
+    return s</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Révision des itératives</h4>
+        <p>Calculer la somme des n premiers entiers avec Tant Que.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME SommeN
+DEBUT
+  Lire(n)
+  s ← 0
+  i ← 1
+  Tant que i ≤ n Faire
+    s ← s + i
+    i ← i + 1
+  Fin Tant que
+  Écrire("Somme = ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n, i, s  Entier</code></pre>
+          <pre class="python"><code>n = int(input("n : "))
+s = 0
+i = 1
+while i <= n:
+    s = s + i
+    i = i + 1
+print("Somme =", s)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>5. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch01"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 01 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch01";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch01", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

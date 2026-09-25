@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 06 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>3ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 06 — Traitements sur tableaux : recherche et tri à bulles</p>
+  </header>
+
+  <section>
+    <h2>1. Recherche d'un élément</h2>
+    <pre class="algo"><code>Fonction Recherche (T : Tableau de 100 Entier, n : Entier, x : Entier) : Entier
+DEBUT
+  i ← 0
+  pos ← -1
+  Tant que (i &lt; n) Et (pos = -1) Faire
+    Si T[i] = x Alors
+      pos ← i
+    Sinon
+      i ← i + 1
+    FinSi
+  Fin Tant que
+  Retourner pos
+FIN</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Tri à bulles</h2>
+    <pre class="algo"><code>Procédure TriBulles (@T : Tableau de 100 Entier, n : Entier)
+DEBUT
+  Pour i de 1 à n - 1 Faire
+    Pour j de 0 à n - i - 1 Faire
+      Si T[j] &gt; T[j + 1] Alors
+        aux ← T[j]
+        T[j] ← T[j + 1]
+        T[j + 1] ← aux
+      FinSi
+    Fin Pour
+  Fin Pour
+FIN</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>3. Implémentation Python</h2>
+    <pre class="python"><code>def recherche(T, n, x):
+    i = 0
+    pos = -1
+    while i < n and pos == -1:
+        if T[i] == x:
+            pos = i
+        else:
+            i = i + 1
+    return pos
+
+def tri_bulles(T, n):
+    for i in range(1, n):
+        for j in range(n - i):
+            if T[j] > T[j + 1]:
+                T[j], T[j + 1] = T[j + 1], T[j]</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Pièges</h2>
+    <ul class="pieges">
+      <li>Bornes des boucles : n - i - 1.</li>
+      <li>Variable temporaire pour l'échange.</li>
+      <li>Pas de break.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 3ème année — Chapitre 06</p>
+  </footer>
+</body>
+</html>

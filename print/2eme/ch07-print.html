@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 07 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 07 — Initiation à la robotique</p>
+  </header>
+
+  <section>
+    <h2>1. Définition</h2>
+    <div class="definition">
+      <p>La <strong>robotique</strong> est la science qui étudie la conception, la construction et la programmation des robots.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Domaines d'application</h2>
+    <ul>
+      <li>Industrie, Médecine, Agriculture, Domestique, Espace, Éducation.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Piloter un objet connecté</h2>
+    <ol>
+      <li>Connaître les interfaces.</li>
+      <li>Connecter l'objet à l'ordinateur.</li>
+      <li>Programmer l'objet.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>4. Exemple — LED clignotante</h2>
+    <pre class="python"><code>from microbit import *
+while True:
+    pin0.write_digital(1)
+    sleep(500)
+    pin0.write_digital(0)
+    sleep(500)</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Exemple — Feu de carrefour</h2>
+    <pre class="python"><code>from microbit import *
+while True:
+    pin0.write_digital(1); pin1.write_digital(0); pin2.write_digital(0)
+    sleep(3000)
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(1000)
+    pin0.write_digital(0); pin1.write_digital(0); pin2.write_digital(1)
+    sleep(3000)</code></pre>
+  </section>
+
+  <section>
+    <h2>6. Remarques</h2>
+    <ul class="pieges">
+      <li>Pas d'application de commande complète.</li>
+      <li>Utiliser Micro-Python / Arduino.</li>
+      <li>Activités : LED, feu de carrefour.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 07</p>
+  </footer>
+</body>
+</html>

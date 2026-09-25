@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch08",
+  "titre": "Quiz — Robotique (Consolidation)",
+  "questions": [
+    { "enonce": "Quel langage est utilisé pour programmer micro:bit / Arduino ?", "options": ["Java", "C#", "Micro-Python / Arduino", "PHP"], "reponse": 2 },
+    { "enonce": "Quelle instruction allume une LED sur pin0 ?", "options": ["pin0.write_digital(0)", "pin0.write_digital(1)", "pin0.read()", "pin0.off()"], "reponse": 1 },
+    { "enonce": "Combien de couleurs dans un feu de carrefour ?", "options": ["1", "2", "3", "4"], "reponse": 2 },
+    { "enonce": "Quelle instruction provoque une pause en Micro-Python ?", "options": ["wait()", "sleep()", "delay()", "pause()"], "reponse": 1 },
+    { "enonce": "Peut-on factoriser le code d'un feu avec des modules ?", "options": ["Non", "Oui, avec def", "Uniquement en 4ème", "Uniquement en C"], "reponse": 1 },
+    { "enonce": "L'apprenant doit-il développer une application de commande complète ?", "options": ["Oui", "Non", "Uniquement en 4ème", "Cela dépend"], "reponse": 1 }
+  ]
+}

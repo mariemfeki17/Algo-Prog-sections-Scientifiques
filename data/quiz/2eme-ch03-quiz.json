@@ -1,0 +1,12 @@
+{
+  "id": "2eme-ch03",
+  "titre": "Quiz — Les types de données simples",
+  "questions": [
+    { "enonce": "Quel type correspond à la valeur 3.14 ?", "options": ["Entier", "Réel", "Caractère", "Chaîne"], "reponse": 1 },
+    { "enonce": "Comment écrit-on un caractère en algorithmique ?", "options": ["\"A\"", "'A'", "A", "char A"], "reponse": 1 },
+    { "enonce": "Quel type correspond à Vrai / Faux ?", "options": ["Entier", "Réel", "Booléen", "Chaîne"], "reponse": 2 },
+    { "enonce": "En Python, quel type pour un entier ?", "options": ["int", "float", "bool", "str"], "reponse": 0 },
+    { "enonce": "Que renvoie input() en Python ?", "options": ["int", "float", "str", "bool"], "reponse": 2 },
+    { "enonce": "Quelle opération donne le reste de la division entière ?", "options": ["Div", "Mod", "/", "*"], "reponse": 1 }
+  ]
+}

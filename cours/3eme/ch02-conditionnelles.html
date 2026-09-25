@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch. 02 — Les structures conditionnelles : Si et Selon | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/3eme/ch02-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/3eme/ch02-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-3eme">3ème année</span>
+        <span class="badge badge-chapitre">Chapitre 02</span>
+      </div>
+      <h1>Les structures conditionnelles : Si et Selon</h1>
+      <p class="duree">⏱️ Durée estimée : 55 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Maîtriser Si, Si...Sinon et Selon.</li>
+          <li>Choisir la structure adéquate selon le problème.</li>
+          <li>Implémenter en Python (if / elif / else / match...case).</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>3ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 5 · Convention algorithmique 2024, p. 4-5</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels du chapitre précédent</h2>
+      <p>En 2ème année, nous avons vu <code>Si...Alors</code> et <code>Si...Sinon</code>. En 3ème, on ajoute la structure <strong>Selon</strong> qui permet de choisir parmi plusieurs valeurs.</p>
+    </section>
+
+    <section id="cours">
+      <h2>3. Cours théorique</h2>
+
+      <h3>3.1 Condition simple</h3>
+      <pre class="algo"><code>Si Condition Alors
+  Traitement
+FinSi</code></pre>
+
+      <h3>3.2 Condition complète</h3>
+      <pre class="algo"><code>Si Condition Alors
+  Traitement1
+Sinon
+  Traitement2
+FinSi</code></pre>
+
+      <h3>3.3 Condition généralisée</h3>
+      <pre class="algo"><code>Si Condition1 Alors
+  Traitement1
+Sinon Si Condition2 Alors
+  Traitement2
+Sinon Si Condition3 Alors
+  Traitement3
+[Sinon
+  TraitementN]
+FinSi</code></pre>
+
+      <h3>3.4 Condition à choix multiples : Selon</h3>
+      <pre class="algo"><code>Selon &lt;Sélecteur&gt;
+  Valeur1_1[, Valeur1_2, …] : Traitement1
+  Valeur2_1, Valeur2_2 : Traitement2
+  [Sinon
+    TraitementN]
+Fin Selon</code></pre>
+      <p><strong>N.B. :</strong> le sélecteur doit être de type scalaire (entier, caractère…).</p>
+
+      <h3>3.5 Exemple complet — Jours de la semaine</h3>
+      <pre class="algo"><code>ALGORITHME JourSemaine
+DEBUT
+  Lire(j)
+  Selon j
+    1, 2, 3, 4, 5 : Écrire("Jour ouvrable")
+    6, 7 : Écrire("Week-end")
+    Sinon Écrire("Numéro invalide")
+  Fin Selon
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+j        Entier</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>4. Implémentation en Python</h2>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Si...Alors...FinSi</td><td>if ...:</td></tr>
+          <tr><td>Si...Sinon...FinSi</td><td>if ...: ... else: ...</td></tr>
+          <tr><td>Si...Sinon Si...</td><td>if ...: ... elif ...: ... else: ...</td></tr>
+          <tr><td>Selon...Fin Selon</td><td>match...case (Python ≥ 3.10)</td></tr>
+        </tbody>
+      </table>
+
+      <pre class="python"><code>j = int(input("Numéro du jour : "))
+match j:
+    case 1 | 2 | 3 | 4 | 5:
+        print("Jour ouvrable")
+    case 6 | 7:
+        print("Week-end")
+    case _:
+        print("Numéro invalide")</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>5. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Le sélecteur de <code>Selon</code> doit être de type scalaire.</li>
+        <li>En Python, <code>match...case</code> nécessite Python ≥ 3.10.</li>
+        <li>Ne pas oublier le cas par défaut (<code>Sinon</code> / <code>case _</code>).</li>
+        <li>Ne pas confondre <code>=</code> (affectation) et <code>==</code> (comparaison).</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>6. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Calculatrice avec Selon</h4>
+        <p>Saisir deux réels et un opérateur (+, -, *, /), puis afficher le résultat.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Calculatrice
+DEBUT
+  Lire(a)
+  Lire(b)
+  Lire(op)
+  Selon op
+    '+' : Écrire("Somme = ", a + b)
+    '-' : Écrire("Différence = ", a - b)
+    '*' : Écrire("Produit = ", a * b)
+    '/' : Si b ≠ 0 Alors
+            Écrire("Quotient = ", a / b)
+          Sinon
+            Écrire("Division par zéro impossible")
+          FinSi
+    Sinon Écrire("Opérateur inconnu")
+  Fin Selon
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a, b     Réel
+op       Caractère</code></pre>
+          <pre class="python"><code>a = float(input("a : "))
+b = float(input("b : "))
+op = input("Opérateur : ")
+match op:
+    case '+':
+        print("Somme =", a + b)
+    case '-':
+        print("Différence =", a - b)
+    case '*':
+        print("Produit =", a * b)
+    case '/':
+        if b != 0:
+            print("Quotient =", a / b)
+        else:
+            print("Division par zéro impossible")
+    case _:
+        print("Opérateur inconnu")</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>7. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="3eme-ch02"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 02 — 3ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "3eme-ch02";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("3eme-ch02", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

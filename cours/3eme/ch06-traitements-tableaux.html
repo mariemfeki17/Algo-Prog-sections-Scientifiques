@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 06 — Traitements sur tableaux | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/3eme/ch06-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/3eme/ch06-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-3eme">3ème année</span>
+        <span class="badge badge-chapitre">Chapitre 06</span>
+      </div>
+      <h1>Traitements sur tableaux : recherche et tri à bulles</h1>
+      <p class="duree">⏱️ Durée estimée : 60 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Rechercher un élément dans un tableau.</li>
+          <li>Trier un tableau par la méthode à bulles.</li>
+          <li>Implémenter en Python.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>3ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 5-6</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Recherche d'un élément</h3>
+      <p>Parcourir le tableau jusqu'à trouver la valeur <code>x</code>. On renvoie son indice ou -1 s'il n'existe pas.</p>
+
+      <pre class="algo"><code>Fonction Recherche (T : Tableau de 100 Entier, n : Entier, x : Entier) : Entier
+DEBUT
+  i ← 0
+  pos ← -1
+  Tant que (i &lt; n) Et (pos = -1) Faire
+    Si T[i] = x Alors
+      pos ← i
+    Sinon
+      i ← i + 1
+    FinSi
+  Fin Tant que
+  Retourner pos
+FIN</code></pre>
+
+      <h3>2.2 Tri à bulles</h3>
+      <p>Principe : comparer les éléments deux à deux et échanger s'ils sont mal ordonnés. À chaque passage, le plus grand « remonte » à la fin.</p>
+
+      <pre class="algo"><code>Procédure TriBulles (@T : Tableau de 100 Entier, n : Entier)
+DEBUT
+  Pour i de 1 à n - 1 Faire
+    Pour j de 0 à n - i - 1 Faire
+      Si T[j] &gt; T[j + 1] Alors
+        aux ← T[j]
+        T[j] ← T[j + 1]
+        T[j + 1] ← aux
+      FinSi
+    Fin Pour
+  Fin Pour
+FIN</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+
+      <h3>3.1 Recherche</h3>
+      <pre class="python"><code>def recherche(T, n, x):
+    i = 0
+    pos = -1
+    while i < n and pos == -1:
+        if T[i] == x:
+            pos = i
+        else:
+            i = i + 1
+    return pos</code></pre>
+
+      <h3>3.2 Tri à bulles</h3>
+      <pre class="python"><code>def tri_bulles(T, n):
+    for i in range(1, n):
+        for j in range(n - i):
+            if T[j] > T[j + 1]:
+                T[j], T[j + 1] = T[j + 1], T[j]</code></pre>
+
+      <p><strong>Remarque :</strong> en Python, le tableau est passé par référence : les modifications sont visibles à l'extérieur de la procédure.</p>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Indice de départ : 0.</li>
+        <li>Attention aux bornes des boucles imbriquées (<code>n - i - 1</code>).</li>
+        <li>Utiliser une variable temporaire pour l'échange (ou l'affectation multiple Python).</li>
+        <li>Pas de <code>break</code>.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Recherche et comptage</h4>
+        <p>Compter le nombre d'occurrences d'un entier x dans un tableau T de n entiers.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Fonction Compteur (T : Tableau de 100 Entier, n : Entier, x : Entier) : Entier
+DEBUT
+  c ← 0
+  Pour i de 0 à n - 1 Faire
+    Si T[i] = x Alors
+      c ← c + 1
+    FinSi
+  Fin Pour
+  Retourner c
+FIN</code></pre>
+          <pre class="python"><code>def compteur(T, n, x):
+    c = 0
+    for i in range(n):
+        if T[i] == x:
+            c = c + 1
+    return c</code></pre>
+        </div>
+      </div>
+
+      <div class="exercice">
+        <h4>Exercice 2 — Tri à bulles puis affichage</h4>
+        <p>Trier un tableau d'entiers par tri à bulles puis l'afficher.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME ProgrammeTri
+DEBUT
+  Lire(n)
+  Pour i de 0 à n - 1 Faire
+    Lire(T[i])
+  Fin Pour
+  TriBulles(T, n)
+  Pour i de 0 à n - 1 Faire
+    Écrire(T[i])
+  Fin Pour
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Entier
+n        Entier
+i        Entier</code></pre>
+          <pre class="python"><code>from numpy import array
+
+def tri_bulles(T, n):
+    for i in range(1, n):
+        for j in range(n - i):
+            if T[j] > T[j + 1]:
+                T[j], T[j + 1] = T[j + 1], T[j]
+
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+tri_bulles(T, n)
+for i in range(n):
+    print(T[i])</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="3eme-ch06"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 06 — 3ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "3eme-ch06";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("3eme-ch06", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

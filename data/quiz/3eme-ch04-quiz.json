@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch04",
+  "titre": "Quiz — Tableaux à une dimension",
+  "questions": [
+    { "enonce": "Quel est l'indice du premier élément d'un tableau ?", "options": ["1", "0", "-1", "N"], "reponse": 1 },
+    { "enonce": "Les éléments d'un tableau sont :", "options": ["De types différents", "De même type", "Toujours des entiers", "Toujours des chaînes"], "reponse": 1 },
+    { "enonce": "Quelle bibliothèque utiliser en Python pour les tableaux ?", "options": ["math", "random", "numpy", "pickle"], "reponse": 2 },
+    { "enonce": "Comment déclarer un tableau de 10 entiers initialisés à 0 ?", "options": ["T = [0] * 10", "T = array([0] * 10)", "T = int[10]", "T = list(10)"], "reponse": 1 },
+    { "enonce": "Peut-on utiliser print(T) pour afficher un tableau ?", "options": ["Oui", "Non, il faut afficher élément par élément", "Oui en 4ème uniquement", "Cela dépend"], "reponse": 1 },
+    { "enonce": "Comment accéder à l'élément d'indice i ?", "options": ["T(i)", "T[i]", "T{i}", "T.i"], "reponse": 1 }
+  ]
+}

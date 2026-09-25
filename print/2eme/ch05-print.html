@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 05 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 05 — La structure conditionnelle</p>
+  </header>
+
+  <section>
+    <h2>1. Condition simple</h2>
+    <pre class="algo"><code>Si Condition Alors
+  Traitement
+FinSi</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Condition complète</h2>
+    <pre class="algo"><code>Si Condition Alors
+  Traitement1
+Sinon
+  Traitement2
+FinSi</code></pre>
+  </section>
+
+  <section>
+    <h2>3. Opérateurs</h2>
+    <table class="correspondance">
+      <thead><tr><th>Comparaison</th><th>Logique</th></tr></thead>
+      <tbody>
+        <tr><td>= , ≠</td><td>Non</td></tr>
+        <tr><td>&gt; , ≥</td><td>Et</td></tr>
+        <tr><td>&lt; , ≤</td><td>Ou</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>4. Exemple — Parité</h2>
+    <pre class="algo"><code>ALGORITHME Parite
+DEBUT
+  Lire(n)
+  Si n Mod 2 = 0 Alors
+    Écrire("Pair")
+  Sinon
+    Écrire("Impair")
+  FinSi
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>5. Implémentation Python</h2>
+    <pre class="python"><code>n = int(input("Entier : "))
+if n % 2 == 0:
+    print("Pair")
+else:
+    print("Impair")</code></pre>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Si...Alors</td><td>if ...:</td></tr>
+        <tr><td>Sinon</td><td>else:</td></tr>
+        <tr><td>Et / Ou / Non</td><td>and / or / not</td></tr>
+        <tr><td>=</td><td>==</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>6. Pièges</h2>
+    <ul class="pieges">
+      <li>En Python : == pour l'égalité.</li>
+      <li>Ne pas oublier les : après if/else.</li>
+      <li>Respecter l'indentation.</li>
+      <li>Ne pas confondre = et ==.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 05</p>
+  </footer>
+</body>
+</html>

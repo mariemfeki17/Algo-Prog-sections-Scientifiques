@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch. 07 — Initiation à la robotique | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch07-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch07-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 07</span>
+      </div>
+      <h1>Initiation à la robotique</h1>
+      <p class="duree">⏱️ Durée estimée : 55 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Définir la robotique et identifier ses domaines d'application.</li>
+          <li>Connaître les interfaces d'un objet à connecter.</li>
+          <li>Programmer une LED et un feu de carrefour (Micro-Python / Arduino).</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Systèmes et technologies Internet</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 4</td></tr>
+          <tr><th>Technologies</th><td>Micro-Python / Arduino</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Définition de la robotique</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>La <strong>robotique</strong> est la science qui étudie la conception, la construction et la programmation des robots. Un <strong>robot</strong> est une machine programmable capable d'exécuter des tâches de manière autonome ou semi-autonome.</p>
+      </div>
+
+      <h3>2.2 Domaines d'application</h3>
+      <ul>
+        <li><strong>Industrie :</strong> chaînes de montage, soudure, peinture.</li>
+        <li><strong>Médecine :</strong> chirurgie assistée, prothèses.</li>
+        <li><strong>Agriculture :</strong> drones, robots de récolte.</li>
+        <li><strong>Domestique :</strong> aspirateurs autonomes.</li>
+        <li><strong>Espace :</strong> rovers d'exploration.</li>
+        <li><strong>Éducation :</strong> apprentissage du code.</li>
+      </ul>
+
+      <h3>2.3 Piloter un objet connecté</h3>
+      <p>Pour piloter un objet connecté, il faut :</p>
+      <ol>
+        <li>Connaître les <strong>interfaces</strong> de l'objet (ports, broches).</li>
+        <li>Savoir <strong>connecter</strong> l'objet à l'ordinateur (USB, Bluetooth, Wi-Fi).</li>
+        <li><strong>Programmer</strong> l'objet pour réaliser des tâches.</li>
+      </ol>
+
+      <h3>2.4 Exemple : faire clignoter une LED</h3>
+      <p>En Micro-Python (carte type micro:bit ou Arduino) :</p>
+      <pre class="python"><code>from microbit import *
+while True:
+    pin0.write_digital(1)  # LED allumée
+    sleep(500)
+    pin0.write_digital(0)  # LED éteinte
+    sleep(500)</code></pre>
+
+      <h3>2.5 Exemple : feu de carrefour</h3>
+      <pre class="python"><code>from microbit import *
+while True:
+    # Rouge
+    pin0.write_digital(1)
+    pin1.write_digital(0)
+    pin2.write_digital(0)
+    sleep(3000)
+    # Orange
+    pin0.write_digital(0)
+    pin1.write_digital(1)
+    pin2.write_digital(0)
+    sleep(1000)
+    # Vert
+    pin0.write_digital(0)
+    pin1.write_digital(0)
+    pin2.write_digital(1)
+    sleep(3000)</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>3. Remarques</h2>
+      <ul class="pieges">
+        <li>L'apprenant n'est <strong>pas</strong> appelé à développer une application de commande complète.</li>
+        <li>Utiliser <strong>Micro-Python / Arduino</strong> pour programmer la carte.</li>
+        <li>Activités types : LED clignotante, feu de carrefour.</li>
+        <li>S'appuyer sur des vidéos, ressources numériques et études de cas.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>4. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — LED clignotante lente</h4>
+        <p>Écrire un programme qui fait clignoter une LED avec une période de 2 secondes.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>from microbit import *
+while True:
+    pin0.write_digital(1)
+    sleep(1000)
+    pin0.write_digital(0)
+    sleep(1000)</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Feu de carrefour simplifié</h4>
+        <p>Écrire un programme qui alterne rouge (3s), orange (1s), vert (3s).</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>from microbit import *
+while True:
+    pin0.write_digital(1); pin1.write_digital(0); pin2.write_digital(0)
+    sleep(3000)
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(1000)
+    pin0.write_digital(0); pin1.write_digital(0); pin2.write_digital(1)
+    sleep(3000)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>5. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch07"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 07 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "2eme-ch07";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("2eme-ch07", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

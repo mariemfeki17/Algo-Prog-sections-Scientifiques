@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 06 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>4ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 06 — Les fichiers (données et textes)</p>
+  </header>
+
+  <section>
+    <h2>1. Fichier de données</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Rôle</th></tr></thead>
+      <tbody>
+        <tr><td>Ouvrir(..., "rb")</td><td>Lecture</td></tr>
+        <tr><td>Ouvrir(..., "wb")</td><td>Écriture</td></tr>
+        <tr><td>Ouvrir(..., "ab")</td><td>Ajout</td></tr>
+        <tr><td>Lire(F, obj)</td><td>Lecture objet</td></tr>
+        <tr><td>Écrire(F, obj)</td><td>Écriture objet</td></tr>
+        <tr><td>Fin_fichier(F)</td><td>Fin ?</td></tr>
+        <tr><td>Fermer(F)</td><td>Fermeture</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>2. Fichier texte</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Rôle</th></tr></thead>
+      <tbody>
+        <tr><td>Modes r, w, a</td><td>Lecture, Écriture, Ajout</td></tr>
+        <tr><td>Lire_ligne(F, ch)</td><td>Lire une ligne</td></tr>
+        <tr><td>Écrire_nl(F, ch)</td><td>Écrire + \n</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page-break">
+    <h2>3. Python — Fichier données (pickle)</h2>
+    <pre class="python"><code>from pickle import dump, load
+
+F = open('donnees.dat', 'wb')
+dump(42, F)
+dump("Bonjour", F)
+F.close()
+
+F = open('donnees.dat', 'rb')
+fini = False
+while not fini:
+    try:
+        x = load(F)
+        print(x)
+    except:
+        fini = True
+F.close()</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Python — Fichier texte</h2>
+    <pre class="python"><code>F = open('notes.txt', 'w')
+F.write("Ali\n")
+F.write("Sami\n")
+F.close()
+
+F = open('notes.txt', 'r')
+ch = F.readline()
+while ch != "":
+    print(ch.strip())
+    ch = F.readline()
+F.close()</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Pièges</h2>
+    <ul class="pieges">
+      <li>Toujours close().</li>
+      <li>Modes rb/wb/ab (données) vs r/w/a (textes).</li>
+      <li>Fin fichier texte : chaîne vide.</li>
+      <li>try/except pour pickle.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 4ème année — Chapitre 06</p>
+  </footer>
+</body>
+</html>

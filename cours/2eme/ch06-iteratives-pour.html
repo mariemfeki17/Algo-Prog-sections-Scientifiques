@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch. 06 — La structure répétitive Pour | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch06-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch06-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 06</span>
+      </div>
+      <h1>La structure répétitive Pour</h1>
+      <p class="duree">⏱️ Durée estimée : 50 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Écrire une boucle Pour.</li>
+          <li>Utiliser un compteur.</li>
+          <li>Implémenter for...in range() en Python.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023 · Convention algorithmique 2024, p. 5</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Structure itérative complète</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>La structure <code>Pour</code> répète un traitement un nombre connu de fois, en utilisant un compteur.</p>
+      </div>
+      <pre class="algo"><code>Pour Compteur de Début à Fin [Pas = valeur_pas] Faire
+  Traitement
+Fin Pour</code></pre>
+      <p><strong>Remarques :</strong></p>
+      <ul>
+        <li>Le pas peut être positif ou négatif ; par défaut il vaut 1.</li>
+        <li>Éviter de modifier la valeur du compteur dans le traitement.</li>
+      </ul>
+
+      <h3>2.2 Exemple : afficher les entiers de 1 à 5</h3>
+      <pre class="algo"><code>ALGORITHME Compteur
+DEBUT
+  Pour i de 1 à 5 Faire
+    Écrire(i)
+  Fin Pour
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+i        Entier</code></pre>
+
+      <h3>2.3 Exemple : somme des n premiers entiers</h3>
+      <pre class="algo"><code>ALGORITHME SommeN
+DEBUT
+  Lire(n)
+  s ← 0
+  Pour i de 1 à n Faire
+    s ← s + i
+  Fin Pour
+  Écrire("Somme = ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier
+i        Entier
+s        Entier</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td><code>Pour i de D à F Faire</code></td><td><code>for i in range(D, F+1):</code></td></tr>
+          <tr><td><code>Pour i de D à F Pas = P Faire</code></td><td><code>for i in range(D, F+1, P):</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="remarque">
+        <h4>Attention à range()</h4>
+        <p>Dans <code>range(D, F+1)</code>, la valeur finale <code>F</code> est <strong>incluse</strong> grâce au <code>+1</code>. Sans le <code>+1</code>, elle serait exclue.</p>
+      </div>
+
+      <pre class="python"><code>n = int(input("n : "))
+s = 0
+for i in range(1, n + 1):
+    s = s + i
+print("Somme =", s)</code></pre>
+
+      <div class="remarque">
+        <h4>Interdit : break</h4>
+        <p>La convention d'implémentation <strong>interdit</strong> l'utilisation de <code>break</code> pour forcer l'arrêt d'une boucle.</p>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Ne pas oublier le <code>+1</code> dans <code>range</code> pour inclure la borne finale.</li>
+        <li>Initialiser l'accumulateur avant la boucle (ex. <code>s ← 0</code>).</li>
+        <li>Ne jamais modifier le compteur dans le corps de la boucle.</li>
+        <li>Pas de <code>break</code> (interdit par la convention).</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Table de multiplication</h4>
+        <p>Afficher la table de multiplication d'un entier n (de 1 à 10).</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Table
+DEBUT
+  Lire(n)
+  Pour i de 1 à 10 Faire
+    Écrire(n, " x ", i, " = ", n * i)
+  Fin Pour
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier
+i        Entier</code></pre>
+          <pre class="python"><code>n = int(input("n : "))
+for i in range(1, 11):
+    print(n, "x", i, "=", n * i)</code></pre>
+        </div>
+      </div>
+
+      <div class="exercice">
+        <h4>Exercice 2 — Factorielle</h4>
+        <p>Calculer n! (factorielle de n).</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Factorielle
+DEBUT
+  Lire(n)
+  f ← 1
+  Pour i de 1 à n Faire
+    f ← f * i
+  Fin Pour
+  Écrire("Factorielle = ", f)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier
+i        Entier
+f        Entier</code></pre>
+          <pre class="python"><code>n = int(input("n : "))
+f = 1
+for i in range(1, n + 1):
+    f = f * i
+print("Factorielle =", f)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch06"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 06 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "2eme-ch06";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("2eme-ch06", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

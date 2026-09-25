@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 07 | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>4ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 07 — Interface graphique avec Qt Designer</p>
+  </header>
+
+  <section>
+    <h2>1. Principes</h2>
+    <ul>
+      <li>GUI : interaction via objets visuels.</li>
+      <li>Qt Designer : glisser-déposer.</li>
+      <li>Sauvegarde dans un fichier .ui.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Objets graphiques</h2>
+    <table class="correspondance">
+      <thead><tr><th>Objet</th><th>Rôle</th></tr></thead>
+      <tbody>
+        <tr><td>QLabel</td><td>Étiquette</td></tr>
+        <tr><td>QLineEdit</td><td>Champ de saisie</td></tr>
+        <tr><td>QPushButton</td><td>Bouton</td></tr>
+        <tr><td>QTextEdit</td><td>Texte multilignes</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Méthodes autorisées</h2>
+    <ul>
+      <li>.text</li>
+      <li>.setText(...)</li>
+      <li>.clear()</li>
+      <li>.show()</li>
+      <li>.clicked</li>
+    </ul>
+  </section>
+
+  <section class="page-break">
+    <h2>4. Exemple — Calculatrice simple</h2>
+    <pre class="python"><code>from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.uic import loadUi
+import sys
+
+class Fenetre(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi("calculatrice.ui", self)
+        self.btnSomme.clicked.connect(self.calculer)
+
+    def calculer(self):
+        a = float(self.txtA.text)
+        b = float(self.txtB.text)
+        self.lblResultat.setText("Somme = " + str(a + b))
+
+app = QApplication(sys.argv)
+f = Fenetre()
+f.show()
+app.exec_()</code></pre>
+  </section>
+
+  <section>
+    <h2>5. Pièges</h2>
+    <ul class="pieges">
+      <li>Se limiter aux méthodes listées.</li>
+      <li>Une seule interface.</li>
+      <li>GUI = amélioration ergonomique.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 4ème année — Chapitre 07</p>
+  </footer>
+</body>
+</html>

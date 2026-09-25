@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 03 — Les types de données simples | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch03-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch03-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 03</span>
+      </div>
+      <h1>Les types de données simples</h1>
+      <p class="duree">⏱️ Durée estimée : 55 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Identifier les types : entier, réel, caractère, booléen, chaîne.</li>
+          <li>Choisir le type adéquat pour un objet.</li>
+          <li>Implémenter les types en Python et effectuer des conversions.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire — Sections scientifiques</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 2-3</td></tr>
+          <tr><th>Conventions</th><td>Convention algorithmique 2024 · Convention d'implémentation 2024-2025</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels</h2>
+      <p>Dans les chapitres précédents, nous avons vu qu'un objet est une zone mémoire nommée. Chaque objet possède un <strong>type</strong> qui détermine la nature de la valeur qu'il peut contenir.</p>
+    </section>
+
+    <section id="cours">
+      <h2>3. Cours théorique</h2>
+
+      <h3>3.1 Les cinq types simples</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>Un <strong>type de données</strong> définit l'ensemble des valeurs qu'un objet peut prendre ainsi que les opérations applicables.</p>
+      </div>
+
+      <table class="correspondance">
+        <thead>
+          <tr><th>Type</th><th>Description</th><th>Exemples</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Entier</strong></td><td>Nombres sans partie décimale</td><td>0, 5, -12, 2024</td></tr>
+          <tr><td><strong>Réel</strong></td><td>Nombres avec partie décimale</td><td>3.14, -0.5, 2.0</td></tr>
+          <tr><td><strong>Caractère</strong></td><td>Un seul symbole entre apostrophes</td><td>'A', 'z', '5', '@'</td></tr>
+          <tr><td><strong>Booléen</strong></td><td>Vrai ou Faux</td><td>Vrai, Faux</td></tr>
+          <tr><td><strong>Chaîne</strong></td><td>Suite de caractères entre guillemets</td><td>"Bonjour", "Info"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3.2 Déclaration selon la convention</h3>
+      <pre class="algo"><code>ALGORITHME Exemple
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet       Type / Nature
+age         Entier
+taille      Réel
+initiale    Caractère
+estMajeur   Booléen
+nom         Chaîne de caractères</code></pre>
+
+      <h3>3.3 Opérations sur les types</h3>
+      <ul>
+        <li><strong>Entier / Réel :</strong> +, -, *, /, Div, Mod</li>
+        <li><strong>Caractère :</strong> comparaison, Ord, Chr</li>
+        <li><strong>Booléen :</strong> Non, Et, Ou</li>
+        <li><strong>Chaîne :</strong> concaténation (+), Long, Pos, Sous_chaine, Majus…</li>
+      </ul>
+
+      <h3>3.4 Exemple complet</h3>
+      <pre class="algo"><code>ALGORITHME Fiche
+DEBUT
+  Lire(nom)
+  Lire(age)
+  Lire(taille)
+  Écrire("Nom : ", nom)
+  Écrire("Âge : ", age)
+  Écrire("Taille : ", taille)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+nom      Chaîne de caractères
+age      Entier
+taille   Réel</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>4. Implémentation en Python</h2>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Entier</td><td><code>int</code></td></tr>
+          <tr><td>Réel</td><td><code>float</code></td></tr>
+          <tr><td>Booléen</td><td><code>bool</code></td></tr>
+          <tr><td>Caractère / Chaîne</td><td><code>str</code></td></tr>
+        </tbody>
+      </table>
+
+      <h4>Conversions</h4>
+      <table class="correspondance">
+        <thead><tr><th>Conversion</th><th>Syntaxe</th><th>Exemple</th></tr></thead>
+        <tbody>
+          <tr><td>str → int</td><td><code>int(ch)</code></td><td><code>x = int("3")</code> → 3</td></tr>
+          <tr><td>str → float</td><td><code>float(ch)</code></td><td><code>x = float("3.2")</code> → 3.2</td></tr>
+          <tr><td>str → bool</td><td><code>bool(ch)</code></td><td><code>x = bool("0")</code> → True</td></tr>
+          <tr><td>int → str</td><td><code>str(x)</code></td><td><code>s = str(123)</code> → "123"</td></tr>
+        </tbody>
+      </table>
+
+      <pre class="python"><code># Algorithme Fiche — implémentation Python
+nom = input("Nom : ")
+age = int(input("Âge : "))
+taille = float(input("Taille : "))
+print("Nom :", nom)
+print("Âge :", age)
+print("Taille :", taille)</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>5. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li><code>input()</code> renvoie <strong>toujours</strong> une chaîne → convertir.</li>
+        <li>Un caractère en algorithmique s'écrit entre <strong>apostrophes</strong> : <code>'A'</code>.</li>
+        <li>Une chaîne s'écrit entre <strong>guillemets</strong> : <code>"Bonjour"</code>.</li>
+        <li>Attention à la <strong>division</strong> : <code>/</code> donne un réel, <code>Div</code> donne un entier.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>6. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Calculatrice simple</h4>
+        <p>Saisir deux entiers, afficher leur somme, différence, produit et quotient entier.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Calculs
+DEBUT
+  Lire(a)
+  Lire(b)
+  Écrire("Somme = ", a + b)
+  Écrire("Différence = ", a - b)
+  Écrire("Produit = ", a * b)
+  Écrire("Quotient = ", a Div b)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier</code></pre>
+          <pre class="python"><code>a = int(input("a : "))
+b = int(input("b : "))
+print("Somme =", a + b)
+print("Différence =", a - b)
+print("Produit =", a * b)
+print("Quotient =", a // b)</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Conversion</h4>
+        <p>Saisir une chaîne représentant un entier, la convertir et afficher son double.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Double
+DEBUT
+  Lire(ch)
+  n ← Valeur(ch)
+  Écrire("Double = ", 2 * n)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+ch       Chaîne de caractères
+n        Entier</code></pre>
+          <pre class="python"><code>ch = input("Entier : ")
+n = int(ch)
+print("Double =", 2 * n)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>7. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch03"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 03 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "2eme-ch03";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("2eme-ch03", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

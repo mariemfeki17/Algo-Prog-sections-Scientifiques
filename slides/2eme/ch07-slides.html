@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 07 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">2ème année — Sections scientifiques</p>
+      <h1>Chapitre 07</h1>
+      <h2>Initiation à la robotique</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Définition</h2>
+      <div class="slide-definition">
+        <p>La <strong>robotique</strong> est la science des robots : conception, construction, programmation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Domaines d'application</h2>
+      <ul class="slide-list">
+        <li>Industrie</li>
+        <li>Médecine</li>
+        <li>Agriculture</li>
+        <li>Domestique</li>
+        <li>Espace</li>
+        <li>Éducation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Piloter un objet connecté</h2>
+      <ul class="slide-list">
+        <li>Connaître les interfaces.</li>
+        <li>Connecter l'objet à l'ordinateur.</li>
+        <li>Programmer l'objet.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>LED clignotante</h2>
+      <pre class="slide-code slide-code-python"><code>from microbit import *
+while True:
+    pin0.write_digital(1)
+    sleep(500)
+    pin0.write_digital(0)
+    sleep(500)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Feu de carrefour</h2>
+      <pre class="slide-code slide-code-python"><code>from microbit import *
+while True:
+    pin0.write_digital(1); pin1.write_digital(0); pin2.write_digital(0)
+    sleep(3000)
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(1000)
+    pin0.write_digital(0); pin1.write_digital(0); pin2.write_digital(1)
+    sleep(3000)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Robotique = science des robots.</li>
+        <li>Domaines variés : industrie, médecine, etc.</li>
+        <li>Micro-Python / Arduino pour la carte.</li>
+        <li>Activités : LED, feu de carrefour.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 02 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">3ème année — Sections scientifiques</p>
+      <h1>Chapitre 02</h1>
+      <h2>Conditionnelles : Si et Selon</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Condition simple et complète</h2>
+      <pre class="slide-code"><code>Si C Alors
+  T1
+FinSi
+
+Si C Alors
+  T1
+Sinon
+  T2
+FinSi</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Condition généralisée</h2>
+      <pre class="slide-code"><code>Si C1 Alors
+  T1
+Sinon Si C2 Alors
+  T2
+Sinon
+  T3
+FinSi</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Selon</h2>
+      <pre class="slide-code"><code>Selon &lt;Sélecteur&gt;
+  V1, V2 : T1
+  V3 : T2
+  Sinon T3
+Fin Selon</code></pre>
+      <p class="slide-note">Sélecteur : type scalaire.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple — Calculatrice</h2>
+      <pre class="slide-code slide-code-python"><code>a = float(input("a : "))
+b = float(input("b : "))
+op = input("Opérateur : ")
+match op:
+    case '+': print("Somme =", a + b)
+    case '-': print("Différence =", a - b)
+    case '*': print("Produit =", a * b)
+    case '/':
+        if b != 0: print(a / b)
+        else: print("Division par zéro")
+    case _: print("Opérateur inconnu")</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exercice</h2>
+      <p class="slide-enonce">Afficher la mention selon une moyenne.</p>
+      <button class="btn-correction-slide" onclick="toggleCorrection(this)">Afficher la correction</button>
+      <div class="correction-slide hidden">
+        <pre class="slide-code slide-code-python"><code>m = float(input("Moyenne : "))
+match m:
+    case m if m < 10: print("Ajourné")
+    case m if m < 12: print("Passable")
+    case m if m < 14: print("Assez bien")
+    case m if m < 16: print("Bien")
+    case _: print("Très bien")</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Si / Si...Sinon / Si...Sinon Si.</li>
+        <li>Selon : choix multiples.</li>
+        <li>Python : if / elif / else / match...case.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

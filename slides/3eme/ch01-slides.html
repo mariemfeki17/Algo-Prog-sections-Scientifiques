@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 01 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">3ème année — Sections scientifiques</p>
+      <h1>Chapitre 01</h1>
+      <h2>Rappels : objets, types et opérations</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Objets</h2>
+      <ul class="slide-list">
+        <li><strong>Constante</strong> : valeur fixe.</li>
+        <li><strong>Variable</strong> : valeur modifiable.</li>
+        <li>Déclaration obligatoire.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Types simples</h2>
+      <ul class="slide-list">
+        <li>Entier → <code>int</code></li>
+        <li>Réel → <code>float</code></li>
+        <li>Caractère → <code>str</code></li>
+        <li>Booléen → <code>bool</code></li>
+        <li>Chaîne → <code>str</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Opérations</h2>
+      <pre class="slide-code"><code>Lire(x)
+Écrire("…", x)
+x ← Expression</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Structures de base</h2>
+      <pre class="slide-code"><code>Si C Alors ... Sinon ... FinSi
+Pour i de D à F Faire ... Fin Pour</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Nouveautés 3ème</h2>
+      <ul class="slide-list">
+        <li>Selon</li>
+        <li>Tant Que, Répéter</li>
+        <li>Tableaux 1D</li>
+        <li>Modules</li>
+        <li>Tri à bulles, PGCD, PPCM</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Consolider les bases.</li>
+        <li>Préparer les structures avancées.</li>
+        <li>Adopter les bonnes pratiques.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

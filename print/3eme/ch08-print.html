@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 08 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>3ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 08 — Robotique — Consolidation</p>
+  </header>
+
+  <section>
+    <h2>1. Rappels</h2>
+    <ul>
+      <li>Domaines : industrie, médecine, agriculture, espace, éducation.</li>
+      <li>Programmation : Micro-Python / Arduino.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Feu de carrefour complet</h2>
+    <pre class="python"><code>from microbit import *
+while True:
+    pin0.write_digital(1); pin1.write_digital(0); pin2.write_digital(0)
+    sleep(3000)  # Rouge
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(1000)  # Orange
+    pin0.write_digital(0); pin1.write_digital(0); pin2.write_digital(1)
+    sleep(3000)  # Vert
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(1000)  # Orange</code></pre>
+  </section>
+
+  <section>
+    <h2>3. Factorisation avec module</h2>
+    <pre class="python"><code>from microbit import *
+
+def allumer(rouge, orange, vert):
+    pin0.write_digital(rouge)
+    pin1.write_digital(orange)
+    pin2.write_digital(vert)
+
+while True:
+    allumer(1, 0, 0); sleep(3000)
+    allumer(0, 1, 0); sleep(1000)
+    allumer(0, 0, 1); sleep(3000)
+    allumer(0, 1, 0); sleep(1000)</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Remarques</h2>
+    <ul class="pieges">
+      <li>Pas d'application complète.</li>
+      <li>Micro-Python / Arduino.</li>
+      <li>Factoriser avec des modules.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 3ème année — Chapitre 08</p>
+  </footer>
+</body>
+</html>

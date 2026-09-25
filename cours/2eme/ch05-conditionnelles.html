@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch. 05 — La structure conditionnelle | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch05-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch05-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 05</span>
+      </div>
+      <h1>La structure conditionnelle</h1>
+      <p class="duree">⏱️ Durée estimée : 60 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Écrire Si...Alors et Si...Sinon.</li>
+          <li>Utiliser les opérateurs de comparaison et logiques.</li>
+          <li>Implémenter if / if...else en Python.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023 · Convention algorithmique 2024, p. 4</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Condition simple : Si...Alors</h3>
+      <pre class="algo"><code>Si Condition Alors
+  Traitement
+FinSi</code></pre>
+      <p>Le traitement n'est exécuté que si la condition est vraie.</p>
+
+      <h3>2.2 Condition complète : Si...Sinon</h3>
+      <pre class="algo"><code>Si Condition Alors
+  Traitement1
+Sinon
+  Traitement2
+FinSi</code></pre>
+
+      <h3>2.3 Opérateurs de comparaison</h3>
+      <table class="correspondance">
+        <thead><tr><th>Opération</th><th>Opérateur</th></tr></thead>
+        <tbody>
+          <tr><td>Égal</td><td><code>=</code></td></tr>
+          <tr><td>Différent</td><td><code>≠</code></td></tr>
+          <tr><td>Strictement supérieur</td><td><code>&gt;</code></td></tr>
+          <tr><td>Supérieur ou égal</td><td><code>≥</code></td></tr>
+          <tr><td>Strictement inférieur</td><td><code>&lt;</code></td></tr>
+          <tr><td>Inférieur ou égal</td><td><code>≤</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.4 Opérateurs logiques</h3>
+      <table class="correspondance">
+        <thead><tr><th>Opération</th><th>Opérateur</th></tr></thead>
+        <tbody>
+          <tr><td>Négation</td><td><code>Non</code></td></tr>
+          <tr><td>Conjonction</td><td><code>Et</code></td></tr>
+          <tr><td>Disjonction</td><td><code>Ou</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.5 Exemple complet</h3>
+      <p><strong>Énoncé :</strong> déterminer si un entier est pair ou impair.</p>
+      <pre class="algo"><code>ALGORITHME Parite
+DEBUT
+  Lire(n)
+  Si n Mod 2 = 0 Alors
+    Écrire("Pair")
+  Sinon
+    Écrire("Impair")
+  FinSi
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n        Entier</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Si...Alors...FinSi</td><td><code>if ...:</code></td></tr>
+          <tr><td>Si...Sinon...FinSi</td><td><code>if ...: ... else: ...</code></td></tr>
+          <tr><td>Et / Ou / Non</td><td><code>and / or / not</code></td></tr>
+          <tr><td>= / ≠</td><td><code>== / !=</code></td></tr>
+        </tbody>
+      </table>
+
+      <pre class="python"><code>n = int(input("Entier : "))
+if n % 2 == 0:
+    print("Pair")
+else:
+    print("Impair")</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>En Python, l'égalité s'écrit <code>==</code> (double égal).</li>
+        <li>Ne pas oublier les <code>:</code> après <code>if</code> et <code>else</code>.</li>
+        <li>Respecter l'<strong>indentation</strong> du bloc.</li>
+        <li>Ne pas confondre <code>=</code> (affectation) et <code>==</code> (comparaison).</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Maximum de deux nombres</h4>
+        <p>Déterminer le maximum de deux entiers a et b.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Maximum
+DEBUT
+  Lire(a)
+  Lire(b)
+  Si a &gt; b Alors
+    Écrire("Max = ", a)
+  Sinon
+    Écrire("Max = ", b)
+  FinSi
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier</code></pre>
+          <pre class="python"><code>a = int(input("a : "))
+b = int(input("b : "))
+if a > b:
+    print("Max =", a)
+else:
+    print("Max =", b)</code></pre>
+        </div>
+      </div>
+
+      <div class="exercice">
+        <h4>Exercice 2 — Mention au bac</h4>
+        <p>À partir d'une moyenne, afficher la mention (Passable, Assez bien, Bien, Très bien).</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Mention
+DEBUT
+  Lire(m)
+  Si m &lt; 10 Alors
+    Écrire("Ajourné")
+  Sinon Si m &lt; 12 Alors
+    Écrire("Passable")
+  Sinon Si m &lt; 14 Alors
+    Écrire("Assez bien")
+  Sinon Si m &lt; 16 Alors
+    Écrire("Bien")
+  Sinon
+    Écrire("Très bien")
+  FinSi
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+m        Réel</code></pre>
+          <pre class="python"><code>m = float(input("Moyenne : "))
+if m < 10:
+    print("Ajourné")
+elif m < 12:
+    print("Passable")
+elif m < 14:
+    print("Assez bien")
+elif m < 16:
+    print("Bien")
+else:
+    print("Très bien")</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch05"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 05 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "2eme-ch05";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("2eme-ch05", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

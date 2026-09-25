@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 04 — Tri des tableaux : sélection et insertion | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch04-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch04-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 04</span>
+      </div>
+      <h1>Tri des tableaux : sélection et insertion</h1>
+      <p class="duree">⏱️ Durée estimée : 65 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Implémenter le tri par sélection.</li>
+          <li>Implémenter le tri par insertion.</li>
+          <li>Comparer les deux méthodes.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 9</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels</h2>
+      <p>En 3ème, nous avons vu le <strong>tri à bulles</strong>. En 4ème, on étudie deux autres méthodes : le <strong>tri par sélection</strong> et le <strong>tri par insertion</strong>.</p>
+    </section>
+
+    <section id="cours">
+      <h2>3. Cours théorique</h2>
+
+      <h3>3.1 Tri par sélection</h3>
+      <p><strong>Principe :</strong> à chaque étape, on cherche le plus petit élément à partir de la position i et on l'échange avec T[i].</p>
+      <pre class="algo"><code>Procédure TriSelection (@T : Tableau de 100 Entier, n : Entier)
+DEBUT
+  Pour i de 0 à n - 2 Faire
+    min ← i
+    Pour j de i + 1 à n - 1 Faire
+      Si T[j] &lt; T[min] Alors
+        min ← j
+      FinSi
+    Fin Pour
+    Si min ≠ i Alors
+      aux ← T[i]
+      T[i] ← T[min]
+      T[min] ← aux
+    FinSi
+  Fin Pour
+FIN</code></pre>
+
+      <h3>3.2 Tri par insertion</h3>
+      <p><strong>Principe :</strong> insérer chaque élément T[i] à sa place dans la partie déjà triée T[0..i-1].</p>
+      <pre class="algo"><code>Procédure TriInsertion (@T : Tableau de 100 Entier, n : Entier)
+DEBUT
+  Pour i de 1 à n - 1 Faire
+    cle ← T[i]
+    j ← i - 1
+    Tant que (j ≥ 0) Et (T[j] &gt; cle) Faire
+      T[j + 1] ← T[j]
+      j ← j - 1
+    Fin Tant que
+    T[j + 1] ← cle
+  Fin Pour
+FIN</code></pre>
+
+      <h3>3.3 Comparaison</h3>
+      <table class="correspondance">
+        <thead><tr><th>Critère</th><th>Sélection</th><th>Insertion</th></tr></thead>
+        <tbody>
+          <tr><td>Complexité</td><td>O(n²)</td><td>O(n²)</td></tr>
+          <tr><td>Échanges</td><td>Peu</td><td>Beaucoup</td></tr>
+          <tr><td>Adapté si</td><td>Tableau presque trié</td><td>Petit tableau</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="implementation">
+      <h2>4. Implémentation en Python</h2>
+
+      <pre class="python"><code>def tri_selection(T, n):
+    for i in range(n - 1):
+        mini = i
+        for j in range(i + 1, n):
+            if T[j] < T[mini]:
+                mini = j
+        if mini != i:
+            T[i], T[mini] = T[mini], T[i]
+
+def tri_insertion(T, n):
+    for i in range(1, n):
+        cle = T[i]
+        j = i - 1
+        while j >= 0 and T[j] > cle:
+            T[j + 1] = T[j]
+            j = j - 1
+        T[j + 1] = cle</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>5. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Attention aux bornes : <code>n - 1</code>, <code>i + 1</code>.</li>
+        <li>Tri par insertion : condition <code>j ≥ 0</code> indispensable.</li>
+        <li>Utiliser une variable temporaire pour l'échange.</li>
+        <li>Pas de <code>break</code>.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>6. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Tri par sélection complet</h4>
+        <p>Trier un tableau T de n entiers par sélection puis l'afficher.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>from numpy import array
+
+def tri_selection(T, n):
+    for i in range(n - 1):
+        mini = i
+        for j in range(i + 1, n):
+            if T[j] < T[mini]:
+                mini = j
+        if mini != i:
+            T[i], T[mini] = T[mini], T[i]
+
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+tri_selection(T, n)
+for i in range(n):
+    print(T[i])</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Tri par insertion</h4>
+        <p>Même exercice avec le tri par insertion.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>from numpy import array
+
+def tri_insertion(T, n):
+    for i in range(1, n):
+        cle = T[i]
+        j = i - 1
+        while j >= 0 and T[j] > cle:
+            T[j + 1] = T[j]
+            j = j - 1
+        T[j + 1] = cle
+
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+tri_insertion(T, n)
+for i in range(n):
+    print(T[i])</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>7. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch04"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 04 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch04";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch04", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

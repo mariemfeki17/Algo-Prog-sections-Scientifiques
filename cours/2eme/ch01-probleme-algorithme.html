@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 01 — Notion de problème et d'algorithme | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+
+  <!-- ========== NAVIGATION COURS ========== -->
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch01-print.html" class="btn btn-print" target="_blank" rel="noopener">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch01-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== EN-TÊTE DU COURS ========== -->
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 01</span>
+      </div>
+      <h1>Notion de problème et d'algorithme</h1>
+      <p class="duree">⏱️ Durée estimée : 45 min</p>
+
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Identifier les étapes de résolution d'un problème.</li>
+          <li>Dégager les éléments essentiels : entrées, sorties, traitements.</li>
+          <li>Élaborer des solutions sous forme d'algorithmes.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== CONTENU ========== -->
+  <main class="course-content container">
+
+    <!-- 1. RÉFÉRENCES OFFICIELLES -->
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire — Sections scientifiques</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, pages 2-3</td></tr>
+          <tr><th>Conventions</th><td>Convention algorithmique 2024 · Convention d'implémentation 2024-2025</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 2. DÉFINITIONS ET RAPPELS -->
+    <section id="definitions">
+      <h2>2. Définitions et rappels</h2>
+
+      <div class="definition">
+        <h3>Qu'est-ce qu'un problème ?</h3>
+        <p>
+          Un <strong>problème</strong> est une situation pour laquelle on cherche une solution.
+          En informatique, résoudre un problème consiste à transformer des <em>entrées</em>
+          en <em>sorties</em> grâce à une suite de <em>traitements</em>.
+        </p>
+      </div>
+
+      <div class="definition">
+        <h3>Qu'est-ce qu'un algorithme ?</h3>
+        <p>
+          Un <strong>algorithme</strong> est une suite finie et ordonnée d'instructions
+          permettant de résoudre un problème. Il est indépendant de tout langage de programmation.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. COURS THÉORIQUE -->
+    <section id="cours">
+      <h2>3. Cours théorique</h2>
+
+      <h3>3.1 Les étapes de résolution d'un problème</h3>
+      <ol class="etapes">
+        <li><strong>Analyser</strong> l'énoncé : comprendre ce qui est demandé.</li>
+        <li><strong>Dégager les entrées</strong> : les données fournies.</li>
+        <li><strong>Dégager les sorties</strong> : le résultat attendu.</li>
+        <li><strong>Déterminer les traitements</strong> : les étapes intermédiaires.</li>
+        <li><strong>Écrire l'algorithme</strong> selon la convention officielle.</li>
+      </ol>
+
+      <h3>3.2 Forme générale d'un algorithme</h3>
+      <p>Selon la <em>Convention algorithmique 2024</em>, un algorithme s'écrit :</p>
+
+      <pre class="algo"><code>ALGORITHME Nom_algorithme
+DEBUT
+  Traitements
+FIN</code></pre>
+
+      <p>La déclaration des objets se fait juste après le titre :</p>
+
+      <pre class="algo"><code>ALGORITHME Nom_algorithme
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet          Type / Nature
+Nom_objet      Type_objet</code></pre>
+
+      <h3>3.3 Exemple complet</h3>
+      <p><strong>Énoncé :</strong> Calculer la somme de deux entiers saisis par l'utilisateur.</p>
+
+      <div class="bloc-etapes">
+        <p><strong>Entrées :</strong> deux entiers <code>a</code> et <code>b</code>.</p>
+        <p><strong>Sorties :</strong> la somme <code>s</code>.</p>
+        <p><strong>Traitements :</strong> <code>s ← a + b</code>.</p>
+      </div>
+
+      <pre class="algo"><code>ALGORITHME Somme
+DEBUT
+  Lire(a)
+  Lire(b)
+  s ← a + b
+  Écrire("La somme est : ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a        Entier
+b        Entier
+s        Entier</code></pre>
+    </section>
+
+    <!-- 4. IMPLÉMENTATION PYTHON -->
+    <section id="implementation">
+      <h2>4. Implémentation en Python</h2>
+      <p>
+        Conformément à la <em>Convention d'implémentation 2024-2025</em>, on utilise
+        <code>input()</code> pour la saisie, <code>print()</code> pour l'affichage,
+        et <code>=</code> pour l'affectation. <strong>Attention :</strong>
+        <code>input()</code> retourne toujours une chaîne ; il faut convertir avec
+        <code>int()</code> ou <code>float()</code>.
+      </p>
+
+      <pre class="python"><code># Algorithme Somme — implémentation Python
+a = int(input("Donner le premier entier : "))
+b = int(input("Donner le deuxième entier : "))
+s = a + b
+print("La somme est :", s)</code></pre>
+
+      <div class="remarque">
+        <h4>Correspondances algorithmique ↔ Python</h4>
+        <table class="correspondance">
+          <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+          <tbody>
+            <tr><td><code>Lire(a)</code></td><td><code>a = int(input())</code></td></tr>
+            <tr><td><code>Écrire("…", s)</code></td><td><code>print("…", s)</code></td></tr>
+            <tr><td><code>s ← a + b</code></td><td><code>s = a + b</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. REMARQUES ET PIÈGES -->
+    <section id="remarques">
+      <h2>5. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Ne pas oublier de <strong>déclarer les objets</strong> dans l'algorithme.</li>
+        <li>Respecter l'<strong>indentation</strong> (obligatoire selon la convention).</li>
+        <li>En Python, <code>input()</code> renvoie une <strong>chaîne</strong> : convertir si besoin.</li>
+        <li>Utiliser une <strong>nomenclature significative</strong> pour les objets.</li>
+        <li>Ne jamais utiliser <code>break</code> dans une boucle (interdit par la convention).</li>
+      </ul>
+    </section>
+
+    <!-- 6. EXERCICES CORRIGÉS -->
+    <section id="exercices">
+      <h2>6. Exercices corrigés</h2>
+
+      <div class="exercice">
+        <h4>Exercice 1 — Aire d'un rectangle</h4>
+        <p>Écrire un algorithme qui calcule et affiche l'aire d'un rectangle à partir de sa longueur et de sa largeur.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME AireRectangle
+DEBUT
+  Lire(L)
+  Lire(l)
+  A ← L * l
+  Écrire("Aire = ", A)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+L        Réel
+l        Réel
+A        Réel</code></pre>
+          <pre class="python"><code>L = float(input("Longueur : "))
+l = float(input("Largeur : "))
+A = L * l
+print("Aire =", A)</code></pre>
+        </div>
+      </div>
+
+      <div class="exercice">
+        <h4>Exercice 2 — Moyenne de trois notes</h4>
+        <p>Écrire un algorithme qui calcule la moyenne de trois notes saisies.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Moyenne
+DEBUT
+  Lire(n1)
+  Lire(n2)
+  Lire(n3)
+  m ← (n1 + n2 + n3) / 3
+  Écrire("Moyenne = ", m)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n1, n2, n3  Réel
+m           Réel</code></pre>
+          <pre class="python"><code>n1 = float(input("Note 1 : "))
+n2 = float(input("Note 2 : "))
+n3 = float(input("Note 3 : "))
+m = (n1 + n2 + n3) / 3
+print("Moyenne =", m)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. QUIZ INTERACTIF -->
+    <section id="quiz">
+      <h2>7. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch01"></div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER COURS ========== -->
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 01 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    // Initialisation du cours
+    const COURSE_ID = "2eme-ch01";
+
+    // Bouton "marquer comme terminé"
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé";
+      btn.disabled = true;
+      btn.classList.add("done");
+    });
+
+    // Si déjà terminé, désactiver le bouton
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé";
+      btn.disabled = true;
+      btn.classList.add("done");
+    }
+
+    // Afficher / masquer les corrections
+    function toggleCorrection(btn) {
+      const correction = btn.nextElementSibling;
+      correction.classList.toggle("hidden");
+      btn.textContent = correction.classList.contains("hidden")
+        ? "Afficher la correction"
+        : "Masquer la correction";
+    }
+
+    // Charger le quiz
+    loadQuiz("2eme-ch01", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

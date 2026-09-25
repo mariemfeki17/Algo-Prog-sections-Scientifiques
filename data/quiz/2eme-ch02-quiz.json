@@ -1,0 +1,66 @@
+{
+  "id": "2eme-ch02",
+  "titre": "Quiz — Les objets : constantes et variables",
+  "questions": [
+    {
+      "enonce": "Qu'est-ce qu'une constante ?",
+      "options": [
+        "Un objet dont la valeur peut changer",
+        "Un objet dont la valeur ne change pas pendant l'exécution",
+        "Un type de données",
+        "Une structure de contrôle"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "Comment écrit-on une affectation en algorithmique selon la convention 2024 ?",
+      "options": [
+        "Objet = Expression",
+        "Objet ← Expression",
+        "Objet := Expression",
+        "Objet -> Expression"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "En Python, une variable :",
+      "options": [
+        "Doit être déclarée avec un type avant utilisation",
+        "Est créée au moment de l'affectation",
+        "Ne peut pas changer de valeur",
+        "Doit commencer par un chiffre"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "Parmi ces noms, lequel est significatif pour une variable contenant une moyenne ?",
+      "options": [
+        "x",
+        "m",
+        "moyenne",
+        "var1"
+      ],
+      "reponse": 2
+    },
+    {
+      "enonce": "Que signifie le symbole ← en algorithmique ?",
+      "options": [
+        "Comparaison",
+        "Affectation (reçoit)",
+        "Égalité",
+        "Inférieur ou égal"
+      ],
+      "reponse": 1
+    },
+    {
+      "enonce": "En Python, que se passe-t-il si on écrit Prix = 10 puis prix = 20 ?",
+      "options": [
+        "Erreur de syntaxe",
+        "Prix et prix sont deux variables différentes",
+        "Prix devient 20",
+        "Le programme plante"
+      ],
+      "reponse": 1
+    }
+  ]
+}

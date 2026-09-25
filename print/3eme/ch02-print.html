@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 02 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>3ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 02 — Les structures conditionnelles : Si et Selon</p>
+  </header>
+
+  <section>
+    <h2>1. Condition simple</h2>
+    <pre class="algo"><code>Si Condition Alors
+  Traitement
+FinSi</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Condition complète</h2>
+    <pre class="algo"><code>Si Condition Alors
+  Traitement1
+Sinon
+  Traitement2
+FinSi</code></pre>
+  </section>
+
+  <section>
+    <h2>3. Condition généralisée</h2>
+    <pre class="algo"><code>Si Condition1 Alors
+  Traitement1
+Sinon Si Condition2 Alors
+  Traitement2
+Sinon Si Condition3 Alors
+  Traitement3
+[Sinon
+  TraitementN]
+FinSi</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Selon</h2>
+    <pre class="algo"><code>Selon &lt;Sélecteur&gt;
+  Valeur1_1[, Valeur1_2, …] : Traitement1
+  Valeur2_1, Valeur2_2 : Traitement2
+  [Sinon TraitementN]
+Fin Selon</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>5. Correspondances Python</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Si...Alors</td><td>if ...:</td></tr>
+        <tr><td>Si...Sinon</td><td>if ...: ... else: ...</td></tr>
+        <tr><td>Si...Sinon Si...</td><td>if ...: ... elif ...: ... else: ...</td></tr>
+        <tr><td>Selon</td><td>match...case</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>6. Exemple — Calculatrice</h2>
+    <pre class="python"><code>a = float(input("a : "))
+b = float(input("b : "))
+op = input("Opérateur : ")
+match op:
+    case '+': print("Somme =", a + b)
+    case '-': print("Différence =", a - b)
+    case '*': print("Produit =", a * b)
+    case '/':
+        if b != 0: print("Quotient =", a / b)
+        else: print("Division par zéro impossible")
+    case _: print("Opérateur inconnu")</code></pre>
+  </section>
+
+  <section>
+    <h2>7. Pièges</h2>
+    <ul class="pieges">
+      <li>Sélecteur de Selon : scalaire uniquement.</li>
+      <li>match...case : Python ≥ 3.10.</li>
+      <li>Ne pas oublier Sinon / case _.</li>
+      <li>Attention à = et ==.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 3ème année — Chapitre 02</p>
+  </footer>
+</body>
+</html>

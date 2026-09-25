@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 05 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">3ème année — Sections scientifiques</p>
+      <h1>Chapitre 05</h1>
+      <h2>Modules : fonctions et procédures</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Pourquoi modulariser ?</h2>
+      <ul class="slide-list">
+        <li>Lisibilité</li>
+        <li>Réutilisabilité</li>
+        <li>Maintenance</li>
+        <li>Testabilité</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Fonction</h2>
+      <pre class="slide-code"><code>Fonction Nom_fonction (pf1 : type1, …, pfN : typeN) : Type_résultat
+DEBUT
+  Traitement
+  Retourner Résultat
+FIN</code></pre>
+      <p class="slide-note">Un seul résultat de type simple.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Procédure</h2>
+      <pre class="slide-code"><code>Procédure Nom_procédure (pf1 : type1, …, pfN : typeN)
+DEBUT
+  Traitement
+FIN</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Passage</h2>
+      <ul class="slide-list">
+        <li>Par valeur : copie.</li>
+        <li>Par référence : symbole @.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple — PGCD en Python</h2>
+      <pre class="slide-code slide-code-python"><code>def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a
+
+x = int(input("x : "))
+y = int(input("y : "))
+print("PGCD =", pgcd(x, y))</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Fonction = résultat.</li>
+        <li>Procédure = pas de résultat.</li>
+        <li>Python : def / return.</li>
+        <li>@ = passage par référence.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 08 — Programmation événementielle | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch08-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch08-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 08</span>
+      </div>
+      <h1>Programmation événementielle</h1>
+      <p class="duree">⏱️ Durée estimée : 55 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Comprendre le principe des événements.</li>
+          <li>Connecter un bouton à une action.</li>
+          <li>Améliorer l'ergonomie d'un programme.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, p. 10</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Principe de la programmation événementielle</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>La <strong>programmation événementielle</strong> consiste à réagir à des <strong>événements</strong> (clic, saisie, etc.) déclenchés par l'utilisateur. Chaque événement est associé à une fonction (appelée <em>callback</em> ou gestionnaire).</p>
+      </div>
+
+      <h3>2.2 Connexion d'un événement</h3>
+      <p>En Qt, on utilise la méthode <code>.clicked.connect(fonction)</code> pour relier un bouton à une action.</p>
+
+      <pre class="python"><code>self.btnValider.clicked.connect(self.valider)</code></pre>
+
+      <h3>2.3 Exemple complet — Calculatrice</h3>
+      <pre class="python"><code>from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.uic import loadUi
+import sys
+
+class Fenetre(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        loadUi("calculatrice.ui", self)
+        self.btnSomme.clicked.connect(self.calculer)
+        self.btnEffacer.clicked.connect(self.effacer)
+
+    def calculer(self):
+        a = float(self.txtA.text)
+        b = float(self.txtB.text)
+        s = a + b
+        self.lblResultat.setText("Somme = " + str(s))
+
+    def effacer(self):
+        self.txtA.clear()
+        self.txtB.clear()
+        self.lblResultat.clear()
+
+app = QApplication(sys.argv)
+f = Fenetre()
+f.show()
+app.exec_()</code></pre>
+
+      <h3>2.4 Améliorer l'ergonomie</h3>
+      <ul>
+        <li>Réinitialiser les champs après chaque opération.</li>
+        <li>Vérifier les saisies (try/except).</li>
+        <li>Afficher des messages d'erreur clairs.</li>
+      </ul>
+    </section>
+
+    <section id="remarques">
+      <h2>3. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Se limiter aux méthodes listées dans la convention.</li>
+        <li>La GUI doit rester un moyen, pas un objet principal d'apprentissage.</li>
+        <li>Convertir les <code>.text</code> en nombres avant calcul.</li>
+        <li>Vérifier les erreurs de saisie (try/except).</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>4. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Calculatrice avec vérification</h4>
+        <p>Ajouter un contrôle de saisie avec try/except.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>def calculer(self):
+    try:
+        a = float(self.txtA.text)
+        b = float(self.txtB.text)
+        self.lblResultat.setText("Somme = " + str(a + b))
+    except:
+        self.lblResultat.setText("Saisie invalide")</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Bouton Effacer</h4>
+        <p>Ajouter un bouton "Effacer" qui vide tous les champs.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>def effacer(self):
+    self.txtA.clear()
+    self.txtB.clear()
+    self.lblResultat.clear()</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>5. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch08"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 08 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch08";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch08", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

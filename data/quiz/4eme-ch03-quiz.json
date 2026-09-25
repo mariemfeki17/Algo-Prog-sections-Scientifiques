@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch03",
+  "titre": "Quiz — Itératives avancées",
+  "questions": [
+    { "enonce": "Quelle structure pour un nombre d'itérations connu ?", "options": ["Tant Que", "Répéter", "Pour", "Selon"], "reponse": 2 },
+    { "enonce": "Quelle structure garantit au moins une exécution ?", "options": ["Pour", "Tant Que", "Répéter", "Si"], "reponse": 2 },
+    { "enonce": "Quelle instruction est interdite dans les boucles ?", "options": ["if", "for", "break", "print"], "reponse": 2 },
+    { "enonce": "Que se passe-t-il si la condition d'un Tant Que ne change jamais ?", "options": ["Erreur de syntaxe", "Boucle infinie", "Arrêt automatique", "Compilation"], "reponse": 1 },
+    { "enonce": "Pour parcourir un tableau, quelle structure est la plus adaptée ?", "options": ["Pour", "Tant Que", "Répéter", "Selon"], "reponse": 0 },
+    { "enonce": "Peut-on modifier le compteur d'un Pour dans le traitement ?", "options": ["Oui", "Non", "Parfois", "Cela dépend"], "reponse": 1 }
+  ]
+}

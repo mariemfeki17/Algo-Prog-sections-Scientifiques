@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 08 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">2ème année — Sections scientifiques</p>
+      <h1>Chapitre 08</h1>
+      <h2>Implémentation en Python — Bases</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Commentaires</h2>
+      <pre class="slide-code slide-code-python"><code># Une ligne
+"""
+Plusieurs
+lignes
+"""</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Types Python</h2>
+      <ul class="slide-list">
+        <li>Entier → <code>int</code></li>
+        <li>Réel → <code>float</code></li>
+        <li>Booléen → <code>bool</code></li>
+        <li>Caractère / Chaîne → <code>str</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Opérations</h2>
+      <pre class="slide-code slide-code-python"><code>x = int(input("x : "))
+y = int(input("y : "))
+s = x + y
+print("Somme =", s)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Structures de contrôle</h2>
+      <pre class="slide-code slide-code-python"><code>if x > 0:
+    print("Positif")
+else:
+    print("Négatif")
+
+for i in range(1, 6):
+    print(i)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Bonnes pratiques</h2>
+      <ul class="slide-list">
+        <li>Noms significatifs.</li>
+        <li>Indentation 4 espaces.</li>
+        <li>Commentaires utiles.</li>
+        <li>Pas de break.</li>
+        <li>Pas de print(T).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Python : int, float, bool, str.</li>
+        <li>input() → chaîne : convertir.</li>
+        <li>Structures : if/else, for.</li>
+        <li>Bonnes pratiques obligatoires.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 7</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

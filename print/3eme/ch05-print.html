@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 05 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>3ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 05 — Les modules : fonctions et procédures</p>
+  </header>
+
+  <section>
+    <h2>1. Pourquoi modulariser ?</h2>
+    <ul>
+      <li>Lisibilité, réutilisabilité, maintenance, testabilité.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Fonction</h2>
+    <pre class="algo"><code>Fonction Nom_fonction (pf1 : type1, …, pfN : typeN) : Type_résultat
+DEBUT
+  Traitement
+  Retourner Résultat
+FIN</code></pre>
+    <p>Une fonction retourne un seul résultat de type simple.</p>
+  </section>
+
+  <section>
+    <h2>3. Procédure</h2>
+    <pre class="algo"><code>Procédure Nom_procédure (pf1 : type1, …, pfN : typeN)
+DEBUT
+  Traitement
+FIN</code></pre>
+  </section>
+
+  <section>
+    <h2>4. Appel et passage</h2>
+    <table class="correspondance">
+      <thead><tr><th>Module</th><th>Appel</th></tr></thead>
+      <tbody>
+        <tr><td>Fonction</td><td>Objet ← Nom_fonction(pe1, …, peN)</td></tr>
+        <tr><td>Procédure</td><td>Nom_procédure(pe1, …, peN)</td></tr>
+      </tbody>
+    </table>
+    <p>Passage par référence : symbole <code>@</code> avant le paramètre.</p>
+  </section>
+
+  <section>
+    <h2>5. Exemple — PGCD</h2>
+    <pre class="algo"><code>Fonction PGCD (a : Entier, b : Entier) : Entier
+DEBUT
+  Tant que b ≠ 0 Faire
+    r ← a Mod b
+    a ← b
+    b ← r
+  Fin Tant que
+  Retourner a
+FIN</code></pre>
+  </section>
+
+  <section class="page-break">
+    <h2>6. Implémentation Python</h2>
+    <pre class="python"><code>def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a
+
+x = int(input("x : "))
+y = int(input("y : "))
+p = pgcd(x, y)
+print("PGCD =", p)</code></pre>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Fonction / Procédure</td><td>def nom_module(pf1, pf2, ...):</td></tr>
+        <tr><td>Retourner Résultat</td><td>return Résultat</td></tr>
+        <tr><td>@param</td><td>Passage par défaut pour dict/tableau/fichier</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>7. Pièges</h2>
+    <ul class="pieges">
+      <li>Une fonction : un seul résultat simple.</li>
+      <li>Ne pas oublier return.</li>
+      <li>Portée des variables.</li>
+    </ul>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 3ème année — Chapitre 05</p>
+  </footer>
+</body>
+</html>

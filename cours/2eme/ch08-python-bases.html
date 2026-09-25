@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch. 08 — Implémentation en Python — Bases | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/2eme/ch08-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/2eme/ch08-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-2eme">2ème année</span>
+        <span class="badge badge-chapitre">Chapitre 08</span>
+      </div>
+      <h1>Implémentation en Python — Bases</h1>
+      <p class="duree">⏱️ Durée estimée : 60 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Utiliser un environnement de programmation Python.</li>
+          <li>Respecter la syntaxe de base et les bonnes pratiques.</li>
+          <li>Tester et valider un programme simple.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>2ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023 · Convention d'implémentation 2024-2025</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Environnement Python</h2>
+      <p>Python est un langage de programmation <strong>interprété</strong>, <strong>sensible à la casse</strong> et réputé pour sa lisibilité.</p>
+
+      <h3>2.1 Commentaires</h3>
+      <pre class="python"><code># Commentaire sur une seule ligne
+"""
+Commentaire
+sur plusieurs lignes
+"""</code></pre>
+
+      <h3>2.2 Types et conversion</h3>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Entier</td><td>int</td></tr>
+          <tr><td>Réel</td><td>float</td></tr>
+          <tr><td>Booléen</td><td>bool</td></tr>
+          <tr><td>Caractère / Chaîne</td><td>str</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.3 Opérations élémentaires</h3>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Lire(Objet)</td><td>Objet = input()</td></tr>
+          <tr><td>Écrire("…", x)</td><td>print("…", x)</td></tr>
+          <tr><td>Objet ← Expression</td><td>Objet = Expression</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.4 Structures de contrôle</h3>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Si...Alors</td><td>if ...:</td></tr>
+          <tr><td>Si...Sinon</td><td>if ...: ... else: ...</td></tr>
+          <tr><td>Pour i de D à F</td><td>for i in range(D, F+1):</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.5 Bonnes pratiques</h3>
+      <ul>
+        <li>Noms significatifs pour les variables.</li>
+        <li>Indentation cohérente (4 espaces).</li>
+        <li>Commentaires utiles.</li>
+        <li>Pas de <code>break</code>.</li>
+        <li>Pas de <code>print(T)</code> pour un tableau.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>3. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Programme complet</h4>
+        <p>Écrire un programme qui demande le nom, l'âge et la moyenne, puis affiche un message personnalisé.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>nom = input("Nom : ")
+age = int(input("Âge : "))
+moyenne = float(input("Moyenne : "))
+print("Bonjour", nom, "!")
+print("Vous avez", age, "ans et une moyenne de", moyenne)</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Détection d'erreur</h4>
+        <p>Corriger le programme suivant :</p>
+        <pre class="python"><code>a = input("a : ")
+b = input("b : ")
+print(a + b)</code></pre>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>a = int(input("a : "))
+b = int(input("b : "))
+print(a + b)</code></pre>
+          <p>Erreur : <code>input()</code> renvoie une chaîne ; sans conversion, <code>a + b</code> concatène les chaînes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>4. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="2eme-ch08"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 08 — 2ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "2eme-ch08";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("2eme-ch08", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 05 — Les modules : fonctions et procédures | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/3eme/ch05-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/3eme/ch05-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-3eme">3ème année</span>
+        <span class="badge badge-chapitre">Chapitre 05</span>
+      </div>
+      <h1>Les modules : fonctions et procédures</h1>
+      <p class="duree">⏱️ Durée estimée : 65 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Analyser un problème et le décomposer en modules.</li>
+          <li>Écrire fonctions et procédures selon la convention.</li>
+          <li>Gérer paramètres, résultat, type et portée.</li>
+          <li>Implémenter en Python avec <code>def</code> et <code>return</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>3ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 5 · Convention algorithmique 2024, p. 5-6 · Convention d'implémentation 2024-2025, p. 8</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels</h2>
+      <p>Jusqu'ici, nos algorithmes étaient monolithiques. La <strong>décomposition modulaire</strong> consiste à les découper en sous-programmes (modules) réutilisables.</p>
+    </section>
+
+    <section id="cours">
+      <h2>3. Cours théorique</h2>
+
+      <h3>3.1 Pourquoi modulariser ?</h3>
+      <ul>
+        <li><strong>Lisibilité</strong> : un programme court est plus clair.</li>
+        <li><strong>Réutilisabilité</strong> : un module peut être appelé plusieurs fois.</li>
+        <li><strong>Maintenance</strong> : on corrige un seul endroit.</li>
+        <li><strong>Testabilité</strong> : chaque module peut être testé isolément.</li>
+      </ul>
+
+      <h3>3.2 Déclaration d'une fonction</h3>
+      <pre class="algo"><code>Fonction Nom_fonction (pf1 : type1, pf2 : type2, …, pfN : typeN) : Type_résultat
+DEBUT
+  Traitement
+  Retourner Résultat
+FIN</code></pre>
+      <p><strong>N.B. :</strong> une fonction retourne <strong>un seul résultat</strong> de type simple.</p>
+
+      <h3>3.3 Déclaration d'une procédure</h3>
+      <pre class="algo"><code>Procédure Nom_procédure (pf1 : type1, pf2 : type2, …, pfN : typeN)
+DEBUT
+  Traitement
+FIN</code></pre>
+
+      <h3>3.4 Appel</h3>
+      <table class="correspondance">
+        <thead><tr><th>Module</th><th>Appel</th></tr></thead>
+        <tbody>
+          <tr><td>Fonction</td><td><code>Objet ← Nom_fonction(pe1, …, peN)</code></td></tr>
+          <tr><td>Procédure</td><td><code>Nom_procédure(pe1, …, peN)</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>3.5 Mode de passage</h3>
+      <ul>
+        <li><strong>Par valeur</strong> : la valeur est copiée.</li>
+        <li><strong>Par référence</strong> : on ajoute le symbole <code>@</code> avant le paramètre. La modification affecte l'objet d'origine.</li>
+      </ul>
+
+      <h3>3.6 Exemple complet</h3>
+      <p><strong>Énoncé :</strong> écrire une fonction qui calcule le PGCD de deux entiers par l'algorithme d'Euclide.</p>
+
+      <pre class="algo"><code>Fonction PGCD (a : Entier, b : Entier) : Entier
+DEBUT
+  Tant que b ≠ 0 Faire
+    r ← a Mod b
+    a ← b
+    b ← r
+  Fin Tant que
+  Retourner a
+FIN
+
+ALGORITHME ProgrammePrincipal
+DEBUT
+  Lire(x)
+  Lire(y)
+  p ← PGCD(x, y)
+  Écrire("PGCD = ", p)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+x, y     Entier
+p        Entier</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>4. Implémentation en Python</h2>
+      <p>En Python, un module se définit avec le mot-clé <code>def</code>.</p>
+
+      <pre class="python"><code>def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a
+
+# Programme principal
+x = int(input("x : "))
+y = int(input("y : "))
+p = pgcd(x, y)
+print("PGCD =", p)</code></pre>
+
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Fonction / Procédure</td><td><code>def nom_module(pf1, pf2, ...):</code></td></tr>
+          <tr><td>Retourner Résultat</td><td><code>return Résultat</code></td></tr>
+          <tr><td>Appel fonction</td><td><code>Objet = nom_module(pe1, pe2)</code></td></tr>
+          <tr><td>Appel procédure</td><td><code>nom_module(pe1, pe2)</code></td></tr>
+          <tr><td>@param (référence)</td><td>Passage par défaut pour dict, tableau, fichier</td></tr>
+        </tbody>
+      </table>
+
+      <div class="remarque">
+        <h4>Portée des variables</h4>
+        <ul>
+          <li>Variable locale : déclarée dans un module.</li>
+          <li>Variable globale : précédée de <code>global</code> ; ne doit pas figurer parmi les paramètres.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>5. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Une fonction retourne <strong>un seul</strong> résultat de type simple.</li>
+        <li>Ne pas oublier <code>return</code> dans une fonction.</li>
+        <li>En Python, les paramètres tableau/dict/fichier sont passés par <strong>référence</strong> par défaut.</li>
+        <li>Éviter les variables globales non nécessaires.</li>
+        <li>Commenter chaque module.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>6. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Fonction maximum</h4>
+        <p>Écrire une fonction qui retourne le maximum de deux entiers.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Fonction Maximum (a : Entier, b : Entier) : Entier
+DEBUT
+  Si a &gt; b Alors
+    Retourner a
+  Sinon
+    Retourner b
+  FinSi
+FIN</code></pre>
+          <pre class="python"><code>def maximum(a, b):
+    if a > b:
+        return a
+    else:
+        return b
+
+print(maximum(3, 7))  # 7</code></pre>
+        </div>
+      </div>
+
+      <div class="exercice">
+        <h4>Exercice 2 — Procédure d'affichage de tableau</h4>
+        <p>Écrire une procédure qui affiche un tableau T de n entiers.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Procédure AfficherTab (T : Tableau de 100 Entier, n : Entier)
+DEBUT
+  Pour i de 0 à n - 1 Faire
+    Écrire(T[i])
+  Fin Pour
+FIN</code></pre>
+          <pre class="python"><code>def afficher_tab(T, n):
+    for i in range(n):
+        print(T[i])</code></pre>
+        </div>
+      </div>
+
+      <div class="exercice">
+        <h4>Exercice 3 — Saisie contrôlée modulaire</h4>
+        <p>Écrire une fonction qui saisit un entier entre deux bornes.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Fonction SaisieTaille (bornInf : Entier, bornSup : Entier) : Entier
+DEBUT
+  taille ← 0
+  Tant que (taille &lt; bornInf) Ou (taille &gt; bornSup) Faire
+    Lire(taille)
+  Fin Tant que
+  Retourner taille
+FIN</code></pre>
+          <pre class="python"><code>def saisie_taille(bornInf, bornSup):
+    taille = 0
+    while taille < bornInf or taille > bornSup:
+        taille = int(input("Taille entre " + str(bornInf) + " et " + str(bornSup) + " : "))
+    return taille</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>7. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="3eme-ch05"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 05 — 3ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "3eme-ch05";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("3eme-ch05", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "id": "2eme-ch04",
+  "titre": "Quiz — Les opérations élémentaires",
+  "questions": [
+    { "enonce": "Quelle opération permet de saisir une valeur ?", "options": ["Écrire", "Lire", "Affecter", "Comparer"], "reponse": 1 },
+    { "enonce": "Comment écrit-on une affectation en algorithmique ?", "options": ["a = b", "a ← b", "a := b", "a -> b"], "reponse": 1 },
+    { "enonce": "Que fait Écrire_nl ?", "options": ["Affiche sans retour à la ligne", "Affiche avec retour à la ligne", "Lit une valeur", "Affecte une valeur"], "reponse": 1 },
+    { "enonce": "En Python, comment saisir un entier ?", "options": ["x = input()", "x = int(input())", "x = float(input())", "x = Lire()"], "reponse": 1 },
+    { "enonce": "Quelle instruction est interdite pour afficher un tableau en Python ?", "options": ["print(T[i])", "print(T)", "for i in range(n): print(T[i])", "print(T[0])"], "reponse": 1 },
+    { "enonce": "En algorithmique, le message dans Écrire est :", "options": ["Sans guillemets", "Entre guillemets", "Entre apostrophes", "Entre parenthèses"], "reponse": 1 }
+  ]
+}

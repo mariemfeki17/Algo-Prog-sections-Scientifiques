@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 08 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">3ème année — Sections scientifiques</p>
+      <h1>Chapitre 08</h1>
+      <h2>Robotique — Consolidation</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Domaines</h2>
+      <ul class="slide-list">
+        <li>Industrie</li>
+        <li>Médecine</li>
+        <li>Agriculture</li>
+        <li>Espace</li>
+        <li>Éducation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Feu de carrefour complet</h2>
+      <pre class="slide-code slide-code-python"><code>from microbit import *
+while True:
+    pin0.write_digital(1); pin1.write_digital(0); pin2.write_digital(0)
+    sleep(3000)
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(1000)
+    pin0.write_digital(0); pin1.write_digital(0); pin2.write_digital(1)
+    sleep(3000)
+    pin0.write_digital(0); pin1.write_digital(1); pin2.write_digital(0)
+    sleep(1000)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Factorisation avec module</h2>
+      <pre class="slide-code slide-code-python"><code>def allumer(rouge, orange, vert):
+    pin0.write_digital(rouge)
+    pin1.write_digital(orange)
+    pin2.write_digital(vert)
+
+while True:
+    allumer(1, 0, 0); sleep(3000)
+    allumer(0, 1, 0); sleep(1000)
+    allumer(0, 0, 1); sleep(3000)
+    allumer(0, 1, 0); sleep(1000)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Domaines variés.</li>
+        <li>Micro-Python / Arduino.</li>
+        <li>Factoriser avec def.</li>
+        <li>Pas d'application complète.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 5</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

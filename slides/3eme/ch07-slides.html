@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 07 | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">3ème année — Sections scientifiques</p>
+      <h1>Chapitre 07</h1>
+      <h2>Algorithmes numériques</h2>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>PGCD — Euclide</h2>
+      <pre class="slide-code"><code>Fonction PGCD (a, b) : Entier
+DEBUT
+  Tant que b ≠ 0 Faire
+    r ← a Mod b
+    a ← b
+    b ← r
+  Fin Tant que
+  Retourner a
+FIN</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>PPCM</h2>
+      <pre class="slide-code"><code>PPCM(a, b) = (a * b) Div PGCD(a, b)</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Primalité</h2>
+      <pre class="slide-code"><code>Fonction EstPremier (n) : Booléen
+DEBUT
+  Si n &lt; 2 Alors Retourner Faux FinSi
+  i ← 2
+  Tant que (i * i ≤ n) Et (n Mod i ≠ 0) Faire
+    i ← i + 1
+  Fin Tant que
+  Retourner i * i &gt; n
+FIN</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Implémentation Python</h2>
+      <pre class="slide-code slide-code-python"><code>def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a
+
+def est_premier(n):
+    if n < 2: return False
+    i = 2
+    while i * i <= n and n % i != 0:
+        i += 1
+    return i * i > n</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>PGCD : Euclide.</li>
+        <li>PPCM : (a × b) / PGCD.</li>
+        <li>Primalité : tester jusqu'à √n.</li>
+        <li>Facteurs premiers : division successive.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 6</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)">←</button>
+    <button onclick="showSlide(currentSlide + 1)">→</button>
+    <button onclick="toggleFullscreen()">⛶</button>
+  </div>
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

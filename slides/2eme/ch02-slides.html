@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Slides — Ch. 02 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/slides.css">
+</head>
+<body class="slides-mode">
+
+  <section class="slide active">
+    <div class="slide-content slide-center">
+      <p class="slide-annee">2ème année — Sections scientifiques</p>
+      <h1>Chapitre 02</h1>
+      <h2>Les objets : constantes et variables</h2>
+      <p class="slide-source">Programme officiel 2022-2023 · Convention algorithmique 2024</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Objectifs</h2>
+      <ul class="slide-list">
+        <li>Distinguer constante et variable.</li>
+        <li>Déclarer un objet selon la convention.</li>
+        <li>Affecter une valeur et implémenter en Python.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Objet</h2>
+      <div class="slide-definition">
+        <p>Une <strong>zone mémoire nommée</strong> dans laquelle on stocke une valeur.</p>
+      </div>
+      <p class="slide-note">→ Deux catégories : constantes et variables.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Constante vs Variable</h2>
+      <div class="slide-definition">
+        <p><strong>Constante :</strong> valeur qui ne change pas.</p>
+      </div>
+      <div class="slide-definition" style="border-left-color:#ff9900;">
+        <p><strong>Variable :</strong> valeur qui peut changer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Déclaration des objets</h2>
+      <pre class="slide-code"><code>ALGORITHME Nom_algorithme
+DEBUT
+  Traitements
+FIN
+
+Déclaration des objets
+Objet          Type / Nature
+Nom_objet      Type_objet</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Affectation</h2>
+      <pre class="slide-code"><code>Objet ← Expression</code></pre>
+      <p class="slide-note">Le symbole ← se lit « reçoit ».</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exemple — Prix TTC</h2>
+      <pre class="slide-code"><code>ALGORITHME PrixTTC
+DEBUT
+  Lire(prixHT)
+  Lire(tauxTVA)
+  prixTTC ← prixHT * (1 + tauxTVA / 100)
+  Écrire("Prix TTC = ", prixTTC)
+FIN
+
+Déclaration des objets
+Objet       Type / Nature
+prixHT      Réel
+tauxTVA     Réel
+prixTTC     Réel</code></pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Implémentation Python</h2>
+      <pre class="slide-code slide-code-python"><code>prixHT = float(input("Donner le prix HT : "))
+tauxTVA = float(input("Donner le taux de TVA (%) : "))
+prixTTC = prixHT * (1 + tauxTVA / 100)
+print("Prix TTC =", prixTTC)</code></pre>
+      <p class="slide-note">⚠ Python est sensible à la casse : Prix ≠ prix.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Pièges fréquents</h2>
+      <ul class="slide-list slide-list-warning">
+        <li>Confondre constante et variable.</li>
+        <li>Noms non significatifs.</li>
+        <li>Oublier l'indentation.</li>
+        <li>Oublier la conversion après input().</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content">
+      <h2>Exercice — Périmètre d'un cercle</h2>
+      <p class="slide-enonce">Calculer le périmètre d'un cercle de rayon R avec PI = 3.14.</p>
+      <button class="btn-correction-slide" onclick="toggleCorrection(this)">Afficher la correction</button>
+      <div class="correction-slide hidden">
+        <pre class="slide-code"><code>ALGORITHME PerimetreCercle
+DEBUT
+  PI ← 3.14
+  Lire(R)
+  P ← 2 * PI * R
+  Écrire("Périmètre = ", P)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+PI       Réel (constante)
+R        Réel
+P        Réel</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="slide-content slide-center">
+      <h2>À retenir</h2>
+      <ul class="slide-list">
+        <li>Objet = constante ou variable.</li>
+        <li>Constante : valeur fixe. Variable : valeur modifiable.</li>
+        <li>Déclaration obligatoire dans l'algorithme.</li>
+        <li>Affectation : Objet ← Expression.</li>
+        <li>Python : pas de déclaration, sensible à la casse.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="slide-counter" id="slide-counter">1 / 11</div>
+  <div class="slide-nav">
+    <button onclick="showSlide(currentSlide - 1)" title="Précédent">←</button>
+    <button onclick="showSlide(currentSlide + 1)" title="Suivant">→</button>
+    <button onclick="toggleFullscreen()" title="Plein écran">⛶</button>
+  </div>
+
+  <script src="../../assets/js/slides.js"></script>
+  <script>initSlides();</script>
+</body>
+</html>

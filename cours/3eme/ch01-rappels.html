@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 01 — Rappels : objets, types et opérations | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/3eme/ch01-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/3eme/ch01-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-3eme">3ème année</span>
+        <span class="badge badge-chapitre">Chapitre 01</span>
+      </div>
+      <h1>Rappels : objets, types et opérations</h1>
+      <p class="duree">⏱️ Durée estimée : 40 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Consolider les acquis de 2ème année.</li>
+          <li>Réviser les types et opérations élémentaires.</li>
+          <li>Préparer les structures avancées (Selon, Tant Que, Répéter, tableaux, modules).</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>3ème année secondaire — Sections scientifiques</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 5</td></tr>
+          <tr><th>Conventions</th><td>Convention algorithmique 2024 · Convention d'implémentation 2024-2025</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rappels">
+      <h2>2. Rappels du niveau 2ème année</h2>
+
+      <h3>2.1 Les objets</h3>
+      <ul>
+        <li><strong>Constante</strong> : valeur fixe.</li>
+        <li><strong>Variable</strong> : valeur modifiable.</li>
+        <li>Déclaration obligatoire dans l'algorithme.</li>
+      </ul>
+
+      <h3>2.2 Les types simples</h3>
+      <table class="correspondance">
+        <thead><tr><th>Type</th><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Entier</td><td>Entier</td><td>int</td></tr>
+          <tr><td>Réel</td><td>Réel</td><td>float</td></tr>
+          <tr><td>Caractère</td><td>Caractère</td><td>str</td></tr>
+          <tr><td>Booléen</td><td>Booléen</td><td>bool</td></tr>
+          <tr><td>Chaîne</td><td>Chaîne de caractères</td><td>str</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.3 Les opérations élémentaires</h3>
+      <pre class="algo"><code>Lire(Objet)
+Écrire("Message", Objet, Expression)
+Écrire_nl("Message", Objet, Expression)
+Objet ← Expression</code></pre>
+
+      <h3>2.4 Structures conditionnelles</h3>
+      <pre class="algo"><code>Si Condition Alors
+  Traitement1
+Sinon
+  Traitement2
+FinSi</code></pre>
+
+      <h3>2.5 Structure répétitive Pour</h3>
+      <pre class="algo"><code>Pour Compteur de Début à Fin [Pas = valeur_pas] Faire
+  Traitement
+Fin Pour</code></pre>
+    </section>
+
+    <section id="cours">
+      <h2>3. Ce qui change en 3ème année</h2>
+      <ul>
+        <li>Nouvelles structures conditionnelles : <strong>Selon</strong>.</li>
+        <li>Nouvelles structures itératives : <strong>Tant Que</strong> et <strong>Répéter</strong>.</li>
+        <li>Introduction des <strong>tableaux à une dimension</strong>.</li>
+        <li>Introduction des <strong>modules</strong> (fonctions et procédures).</li>
+        <li>Traitements avancés : tri à bulles, recherche, algorithmes numériques (PGCD, PPCM…).</li>
+      </ul>
+
+      <h3>3.1 Bonnes pratiques</h3>
+      <ul>
+        <li>Noms significatifs.</li>
+        <li>Indentation rigoureuse.</li>
+        <li>Commentaires utiles.</li>
+        <li>Pas de <code>break</code>.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>4. Exercices de révision</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Révision des types</h4>
+        <p>Déclarer les objets suivants : nom (chaîne), âge (entier), moyenne (réel), estAdmis (booléen).</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>Déclaration des objets
+Objet       Type / Nature
+nom         Chaîne de caractères
+age         Entier
+moyenne     Réel
+estAdmis    Booléen</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Révision conditionnelle</h4>
+        <p>Écrire un algorithme qui affiche « Majeur » si l'âge est ≥ 18, sinon « Mineur ».</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Majorite
+DEBUT
+  Lire(age)
+  Si age ≥ 18 Alors
+    Écrire("Majeur")
+  Sinon
+    Écrire("Mineur")
+  FinSi
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+age      Entier</code></pre>
+          <pre class="python"><code>age = int(input("Âge : "))
+if age >= 18:
+    print("Majeur")
+else:
+    print("Mineur")</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>5. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="3eme-ch01"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 01 — 3ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "3eme-ch01";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("3eme-ch01", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

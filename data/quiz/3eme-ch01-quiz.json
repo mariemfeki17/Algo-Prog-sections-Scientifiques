@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch01",
+  "titre": "Quiz — Rappels 3ème année",
+  "questions": [
+    { "enonce": "Quel type pour une moyenne ?", "options": ["Entier", "Réel", "Chaîne", "Booléen"], "reponse": 1 },
+    { "enonce": "Quelle structure conditionnelle est introduite en 3ème ?", "options": ["Si", "Si...Sinon", "Selon", "match...case"], "reponse": 2 },
+    { "enonce": "Quelle structure itérative est introduite en 3ème ?", "options": ["Pour", "Tant Que", "For", "While True"], "reponse": 1 },
+    { "enonce": "Quel type de données est introduit en 3ème ?", "options": ["Les chaînes", "Les tableaux à une dimension", "Les enregistrements", "Les fichiers"], "reponse": 1 },
+    { "enonce": "Qu'est-ce qu'un module ?", "options": ["Une boucle", "Une fonction ou une procédure", "Un tableau", "Un fichier"], "reponse": 1 },
+    { "enonce": "Quelle instruction est interdite par la convention ?", "options": ["if", "for", "break", "while"], "reponse": 2 }
+  ]
+}

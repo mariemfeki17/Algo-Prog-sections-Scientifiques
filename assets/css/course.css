@@ -1,0 +1,376 @@
+/* =========================================================
+   PAGE DE COURS — MODE ÉLÈVE
+   ========================================================= */
+
+.course-page {
+  background: var(--couleur-fond);
+}
+
+/* ---------- Navigation cours ---------- */
+.course-nav {
+  background: #fff;
+  border-bottom: 1px solid var(--couleur-bordure);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.course-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espace-md) 0;
+  flex-wrap: wrap;
+  gap: var(--espace-sm);
+}
+.back-link {
+  font-weight: 600;
+  color: var(--couleur-primaire);
+}
+.course-actions {
+  display: flex;
+  gap: var(--espace-sm);
+  flex-wrap: wrap;
+}
+.course-actions .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: var(--rayon-sm);
+}
+
+/* ---------- En-tête du cours ---------- */
+.course-header {
+  background: linear-gradient(135deg, #fff 0%, var(--couleur-primaire-clair) 100%);
+  padding: var(--espace-xl) 0;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+.course-header h1 {
+  margin: var(--espace-md) 0 var(--espace-sm);
+}
+.course-header .duree {
+  color: var(--couleur-texte-secondaire);
+  font-size: 0.95rem;
+}
+
+.objectifs-box {
+  margin-top: var(--espace-lg);
+  padding: var(--espace-lg);
+  background: #fff;
+  border-radius: var(--rayon-md);
+  border-left: 4px solid var(--couleur-primaire);
+  box-shadow: var(--ombre-sm);
+}
+.objectifs-box h2 {
+  font-size: 1.1rem;
+  margin-bottom: var(--espace-sm);
+  color: var(--couleur-primaire);
+}
+.objectifs-box ul {
+  padding-left: 1.3rem;
+  margin: 0;
+}
+
+/* ---------- Contenu ---------- */
+.course-content {
+  padding: var(--espace-xl) 0;
+  max-width: 900px;
+}
+
+.course-content section {
+  padding: var(--espace-lg) 0;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+.course-content section:last-child { border-bottom: none; }
+
+.course-content h2 {
+  color: var(--couleur-primaire);
+  margin-bottom: var(--espace-md);
+  padding-bottom: var(--espace-sm);
+  border-bottom: 2px solid var(--couleur-primaire-clair);
+}
+.course-content h3 {
+  margin-top: var(--espace-lg);
+  color: var(--couleur-texte);
+}
+.course-content h4 {
+  margin-top: var(--espace-md);
+  color: var(--couleur-texte);
+}
+
+/* ---------- Tableau de références ---------- */
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--rayon-md);
+  overflow: hidden;
+  box-shadow: var(--ombre-sm);
+}
+.ref-table th, .ref-table td {
+  padding: var(--espace-sm) var(--espace-md);
+  text-align: left;
+  border-bottom: 1px solid var(--couleur-bordure);
+  font-size: 0.95rem;
+}
+.ref-table th {
+  background: var(--couleur-primaire-clair);
+  color: var(--couleur-primaire-fonce);
+  width: 180px;
+  font-weight: 600;
+}
+
+/* ---------- Définitions ---------- */
+.definition {
+  background: #fff;
+  border-left: 4px solid var(--couleur-accent);
+  padding: var(--espace-md) var(--espace-lg);
+  margin: var(--espace-md) 0;
+  border-radius: var(--rayon-sm);
+  box-shadow: var(--ombre-sm);
+}
+.definition h3 {
+  margin-top: 0;
+  color: var(--couleur-accent);
+  font-size: 1.1rem;
+}
+
+/* ---------- Étapes ---------- */
+.etapes {
+  counter-reset: etape;
+  list-style: none;
+  padding: 0;
+}
+.etapes li {
+  counter-increment: etape;
+  position: relative;
+  padding: var(--espace-sm) 0 var(--espace-sm) 3rem;
+  border-bottom: 1px dashed var(--couleur-bordure);
+}
+.etapes li::before {
+  content: counter(etape);
+  position: absolute;
+  left: 0;
+  top: var(--espace-sm);
+  width: 2rem;
+  height: 2rem;
+  background: var(--couleur-primaire);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ---------- Blocs algorithmes / Python ---------- */
+pre.algo, pre.python {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: var(--espace-md) var(--espace-lg);
+  border-radius: var(--rayon-md);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: var(--espace-md) 0;
+  box-shadow: var(--ombre-sm);
+}
+pre.algo {
+  border-left: 4px solid var(--couleur-accent);
+}
+pre.python {
+  border-left: 4px solid var(--couleur-primaire);
+}
+pre.algo code, pre.python code {
+  color: inherit;
+  background: none;
+  padding: 0;
+}
+
+code {
+  background: #eef2f7;
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--rayon-sm);
+  font-size: 0.9em;
+  color: var(--couleur-primaire-fonce);
+}
+
+/* ---------- Remarques ---------- */
+.remarque {
+  background: #fff8e1;
+  border-left: 4px solid var(--couleur-avertissement);
+  padding: var(--espace-md) var(--espace-lg);
+  border-radius: var(--rayon-sm);
+  margin: var(--espace-md) 0;
+}
+.remarque h4 { margin-top: 0; color: var(--couleur-avertissement); }
+
+.correspondance {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--espace-sm);
+  background: #fff;
+}
+.correspondance th, .correspondance td {
+  border: 1px solid var(--couleur-bordure);
+  padding: var(--espace-sm);
+  text-align: left;
+  font-size: 0.9rem;
+}
+.correspondance th {
+  background: var(--couleur-fond);
+}
+
+/* ---------- Pièges ---------- */
+.pieges {
+  background: #fdecea;
+  border-left: 4px solid var(--couleur-erreur);
+  padding: var(--espace-md) var(--espace-lg);
+  border-radius: var(--rayon-sm);
+  list-style: none;
+}
+.pieges li {
+  padding: var(--espace-xs) 0 var(--espace-xs) 1.8rem;
+  position: relative;
+}
+.pieges li::before {
+  content: "⚠";
+  position: absolute;
+  left: 0;
+  color: var(--couleur-erreur);
+}
+
+/* ---------- Exercices ---------- */
+.exercice {
+  background: #fff;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+  padding: var(--espace-lg);
+  margin: var(--espace-md) 0;
+  box-shadow: var(--ombre-sm);
+}
+.exercice h4 {
+  margin-top: 0;
+  color: var(--couleur-primaire);
+}
+.btn-correction {
+  background: var(--couleur-accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--rayon-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background var(--transition);
+}
+.btn-correction:hover { background: #e68a00; }
+
+.correction {
+  margin-top: var(--espace-md);
+  padding: var(--espace-md);
+  background: #e8f5e9;
+  border-left: 4px solid var(--couleur-succes);
+  border-radius: var(--rayon-sm);
+}
+.correction.hidden { display: none; }
+
+/* ---------- Quiz ---------- */
+#quiz-container {
+  background: #fff;
+  border-radius: var(--rayon-md);
+  padding: var(--espace-lg);
+  box-shadow: var(--ombre-sm);
+}
+.quiz-question {
+  border-bottom: 1px solid var(--couleur-bordure);
+  padding: var(--espace-md) 0;
+}
+.quiz-question:last-of-type { border-bottom: none; }
+.quiz-question .question {
+  font-weight: 600;
+  margin-bottom: var(--espace-sm);
+}
+.quiz-question .options label {
+  display: block;
+  padding: var(--espace-sm);
+  border-radius: var(--rayon-sm);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.quiz-question .options label:hover {
+  background: var(--couleur-fond);
+}
+.quiz-question input[type="radio"] { margin-right: var(--espace-sm); }
+
+.feedback {
+  margin-top: var(--espace-sm);
+  padding: var(--espace-sm) var(--espace-md);
+  border-radius: var(--rayon-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.feedback.correct { background: #e8f5e9; color: var(--couleur-succes); }
+.feedback.incorrect { background: #fdecea; color: var(--couleur-erreur); }
+.feedback.hidden { display: none; }
+
+#btn-valider-quiz {
+  background: var(--couleur-primaire);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--rayon-md);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: var(--espace-md);
+  font-size: 1rem;
+}
+#btn-valider-quiz:hover { background: var(--couleur-primaire-fonce); }
+
+#quiz-resultat {
+  margin-top: var(--espace-md);
+  padding: var(--espace-md);
+  background: var(--couleur-primaire-clair);
+  border-radius: var(--rayon-md);
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--couleur-primaire-fonce);
+}
+#quiz-resultat.hidden { display: none; }
+
+/* ---------- Footer cours ---------- */
+.course-footer {
+  background: #fff;
+  border-top: 1px solid var(--couleur-bordure);
+  padding: var(--espace-lg) 0;
+  text-align: center;
+}
+.btn-complete {
+  background: var(--couleur-succes);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--rayon-md);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--transition);
+}
+.btn-complete:hover { background: #1b5e20; }
+.btn-complete.done {
+  background: #a5d6a7;
+  cursor: not-allowed;
+}
+.footer-info {
+  margin-top: var(--espace-md);
+  font-size: 0.85rem;
+  color: var(--couleur-texte-secondaire);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .course-nav-inner { flex-direction: column; align-items: flex-start; }
+  .course-actions { width: 100%; }
+  .course-actions .btn { flex: 1; text-align: center; }
+  .course-content { padding: var(--espace-lg) 0; }
+  pre.algo, pre.python { font-size: 0.8rem; padding: var(--espace-sm); }
+}

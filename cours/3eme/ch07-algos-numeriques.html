@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 07 — Algorithmes numériques | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/3eme/ch07-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/3eme/ch07-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-3eme">3ème année</span>
+        <span class="badge badge-chapitre">Chapitre 07</span>
+      </div>
+      <h1>Algorithmes numériques : PGCD, PPCM, nombres premiers</h1>
+      <p class="duree">⏱️ Durée estimée : 55 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Calculer PGCD et PPCM.</li>
+          <li>Tester la primalité et décomposer en facteurs premiers.</li>
+          <li>Implémenter en Python.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>3ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 6</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 PGCD — Algorithme d'Euclide</h3>
+      <pre class="algo"><code>Fonction PGCD (a : Entier, b : Entier) : Entier
+DEBUT
+  Tant que b ≠ 0 Faire
+    r ← a Mod b
+    a ← b
+    b ← r
+  Fin Tant que
+  Retourner a
+FIN</code></pre>
+
+      <h3>2.2 PPCM</h3>
+      <p>Relation : <strong>PPCM(a, b) × PGCD(a, b) = a × b</strong>.</p>
+      <pre class="algo"><code>Fonction PPCM (a : Entier, b : Entier) : Entier
+DEBUT
+  Retourner (a * b) Div PGCD(a, b)
+FIN</code></pre>
+
+      <h3>2.3 Tester la primalité</h3>
+      <pre class="algo"><code>Fonction EstPremier (n : Entier) : Booléen
+DEBUT
+  Si n &lt; 2 Alors
+    Retourner Faux
+  FinSi
+  i ← 2
+  Tant que (i * i ≤ n) Et (n Mod i ≠ 0) Faire
+    i ← i + 1
+  Fin Tant que
+  Retourner i * i &gt; n
+FIN</code></pre>
+
+      <h3>2.4 Décomposition en facteurs premiers</h3>
+      <pre class="algo"><code>Procédure FacteursPremiers (n : Entier)
+DEBUT
+  d ← 2
+  Tant que n &gt; 1 Faire
+    Tant que n Mod d = 0 Faire
+      Écrire(d)
+      n ← n Div d
+    Fin Tant que
+    d ← d + 1
+  Fin Tant que
+FIN</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+
+      <pre class="python"><code>def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a
+
+def ppcm(a, b):
+    return (a * b) // pgcd(a, b)
+
+def est_premier(n):
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n and n % i != 0:
+        i = i + 1
+    return i * i > n
+
+def facteurs_premiers(n):
+    d = 2
+    while n > 1:
+        while n % d == 0:
+            print(d)
+            n = n // d
+        d = d + 1</code></pre>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>PGCD : toujours utiliser l'algorithme d'Euclide (rapide).</li>
+        <li>PPCM : attention à la division entière <code>Div</code>.</li>
+        <li>Primalité : tester jusqu'à √n (i*i ≤ n).</li>
+        <li>Décomposition : réinitialiser le diviseur d après chaque étape.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — PGCD et PPCM</h4>
+        <p>Saisir deux entiers et afficher leur PGCD et PPCM.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME PGCDPPCM
+DEBUT
+  Lire(a)
+  Lire(b)
+  p ← PGCD(a, b)
+  q ← (a * b) Div p
+  Écrire("PGCD = ", p)
+  Écrire("PPCM = ", q)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+a, b     Entier
+p, q     Entier</code></pre>
+          <pre class="python"><code>def pgcd(a, b):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+    return a
+
+a = int(input("a : "))
+b = int(input("b : "))
+p = pgcd(a, b)
+print("PGCD =", p)
+print("PPCM =", (a * b) // p)</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Nombres premiers &lt; n</h4>
+        <p>Afficher tous les nombres premiers inférieurs à n.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="python"><code>def est_premier(n):
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n and n % i != 0:
+        i = i + 1
+    return i * i > n
+
+n = int(input("n : "))
+for k in range(2, n):
+    if est_premier(k):
+        print(k)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="3eme-ch07"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 07 — 3ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "3eme-ch07";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("3eme-ch07", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

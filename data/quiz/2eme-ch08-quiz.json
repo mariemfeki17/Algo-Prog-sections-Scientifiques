@@ -1,0 +1,12 @@
+{
+  "id": "2eme-ch08",
+  "titre": "Quiz — Implémentation Python — Bases",
+  "questions": [
+    { "enonce": "Comment écrit-on un commentaire sur une ligne en Python ?", "options": ["//", "#", "--", "/* */"], "reponse": 1 },
+    { "enonce": "Python est-il sensible à la casse ?", "options": ["Oui", "Non", "Parfois", "Uniquement pour les chaînes"], "reponse": 0 },
+    { "enonce": "Quel type pour un réel en Python ?", "options": ["int", "float", "bool", "str"], "reponse": 1 },
+    { "enonce": "Comment saisir un entier en Python ?", "options": ["x = input()", "x = int(input())", "x = float(input())", "x = Lire()"], "reponse": 1 },
+    { "enonce": "Quelle instruction est interdite par la convention ?", "options": ["if", "for", "break", "print"], "reponse": 2 },
+    { "enonce": "Peut-on écrire print(T) pour afficher un tableau T ?", "options": ["Oui", "Non, il faut afficher élément par élément", "Oui mais uniquement en 4ème", "Cela dépend du type"], "reponse": 1 }
+  ]
+}

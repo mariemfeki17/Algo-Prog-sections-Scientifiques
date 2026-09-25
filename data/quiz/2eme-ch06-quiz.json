@@ -1,0 +1,12 @@
+{
+  "id": "2eme-ch06",
+  "titre": "Quiz — La structure répétitive Pour",
+  "questions": [
+    { "enonce": "Quelle est la syntaxe correcte de la boucle Pour ?", "options": ["Pour i de 1 à 10 Faire ... Fin Pour", "For i from 1 to 10", "Pour i = 1..10", "Pour i in 1..10"], "reponse": 0 },
+    { "enonce": "Que vaut le pas par défaut ?", "options": ["0", "1", "2", "-1"], "reponse": 1 },
+    { "enonce": "En Python, comment inclure la borne finale F ?", "options": ["range(D, F)", "range(D, F+1)", "range(D, F-1)", "range(D, F+2)"], "reponse": 1 },
+    { "enonce": "Que faut-il faire avant la boucle pour calculer une somme ?", "options": ["Initialiser l'accumulateur à 0", "Initialiser l'accumulateur à 1", "Ne rien faire", "Mettre un break"], "reponse": 0 },
+    { "enonce": "Quelle instruction est interdite dans une boucle ?", "options": ["if", "for", "break", "print"], "reponse": 2 },
+    { "enonce": "Pour afficher les entiers de 1 à 5, on écrit :", "options": ["for i in range(1, 5)", "for i in range(1, 6)", "for i in range(5)", "for i in range(0, 5)"], "reponse": 1 }
+  ]
+}

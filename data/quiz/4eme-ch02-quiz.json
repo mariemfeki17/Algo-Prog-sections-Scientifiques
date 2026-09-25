@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch02",
+  "titre": "Quiz — Conditionnelles avancées",
+  "questions": [
+    { "enonce": "Quel doit être le type du sélecteur de Selon ?", "options": ["Chaîne", "Tableau", "Scalaire", "Booléen uniquement"], "reponse": 2 },
+    { "enonce": "En Python, quelle structure correspond à Selon ?", "options": ["switch", "match...case", "select", "choose"], "reponse": 1 },
+    { "enonce": "À partir de quelle version de Python match...case est-il disponible ?", "options": ["3.6", "3.8", "3.10", "3.12"], "reponse": 2 },
+    { "enonce": "Quel cas par défaut en Python pour match...case ?", "options": ["case default", "case _", "case else", "case other"], "reponse": 1 },
+    { "enonce": "Pour comparer à des intervalles, quelle structure est la plus adaptée ?", "options": ["Selon", "Si généralisée", "Pour", "Tant Que"], "reponse": 1 },
+    { "enonce": "Pour comparer à des valeurs précises, quelle structure est adaptée ?", "options": ["Selon", "Si simple", "Pour", "Tant Que"], "reponse": 0 }
+  ]
+}

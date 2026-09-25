@@ -1,0 +1,12 @@
+{
+  "id": "4eme-ch05",
+  "titre": "Quiz — Modules avancés",
+  "questions": [
+    { "enonce": "Quelle est la première étape de la décomposition en sous-problèmes ?", "options": ["Écrire le code", "Analyser l'énoncé et identifier les tâches", "Tester", "Compiler"], "reponse": 1 },
+    { "enonce": "Combien de résultats une fonction retourne-t-elle ?", "options": ["0", "1", "2", "Illimité"], "reponse": 1 },
+    { "enonce": "Que doit-on tester après avoir écrit un module ?", "options": ["Rien", "Le module seul", "Uniquement le programme principal", "Uniquement les autres modules"], "reponse": 1 },
+    { "enonce": "En Python, quel type est passé par référence par défaut ?", "options": ["int", "float", "Tableau / dict / fichier", "bool"], "reponse": 2 },
+    { "enonce": "Quelle bonne pratique faut-il suivre ?", "options": ["Utiliser des noms courts", "Éviter les globales", "Ne pas commenter", "Utiliser break"], "reponse": 1 },
+    { "enonce": "Un module doit avoir :", "options": ["Plusieurs responsabilités", "Une seule responsabilité", "Aucune responsabilité", "Peu importe"], "reponse": 1 }
+  ]
+}

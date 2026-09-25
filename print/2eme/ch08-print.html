@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fiche — Ch. 08 | 2ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+</head>
+<body class="print-page">
+  <header class="header-print">
+    <p class="print-etab">République Tunisienne — Ministère de l'Éducation</p>
+    <h1>Fiche de cours — Informatique</h1>
+    <p><strong>2ème année secondaire — Sections scientifiques</strong></p>
+    <p>Chapitre 08 — Implémentation en Python — Bases</p>
+  </header>
+
+  <section>
+    <h2>1. Commentaires</h2>
+    <pre class="python"><code># Commentaire une ligne
+"""
+Commentaire
+plusieurs lignes
+"""</code></pre>
+  </section>
+
+  <section>
+    <h2>2. Types Python</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Entier</td><td>int</td></tr>
+        <tr><td>Réel</td><td>float</td></tr>
+        <tr><td>Booléen</td><td>bool</td></tr>
+        <tr><td>Caractère / Chaîne</td><td>str</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Opérations</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Lire(x)</td><td>x = input()</td></tr>
+        <tr><td>Écrire("…", x)</td><td>print("…", x)</td></tr>
+        <tr><td>x ← Expression</td><td>x = Expression</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>4. Structures de contrôle</h2>
+    <table class="correspondance">
+      <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+      <tbody>
+        <tr><td>Si...Alors</td><td>if ...:</td></tr>
+        <tr><td>Si...Sinon</td><td>if ...: ... else: ...</td></tr>
+        <tr><td>Pour i de D à F</td><td>for i in range(D, F+1):</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>5. Bonnes pratiques</h2>
+    <ul>
+      <li>Noms significatifs.</li>
+      <li>Indentation 4 espaces.</li>
+      <li>Commentaires utiles.</li>
+      <li>Pas de break.</li>
+      <li>Pas de print(T) pour un tableau.</li>
+    </ul>
+  </section>
+
+  <section class="page-break">
+    <h2>6. Exercices</h2>
+    <div class="exercice">
+      <h4>Exercice 1 — Programme complet</h4>
+      <pre class="python"><code>nom = input("Nom : ")
+age = int(input("Âge : "))
+moyenne = float(input("Moyenne : "))
+print("Bonjour", nom, "!")
+print("Vous avez", age, "ans et une moyenne de", moyenne)</code></pre>
+    </div>
+    <div class="exercice">
+      <h4>Exercice 2 — Correction d'erreur</h4>
+      <p>Programme erroné :</p>
+      <pre class="python"><code>a = input("a : ")
+b = input("b : ")
+print(a + b)</code></pre>
+      <p><strong>Correction :</strong></p>
+      <pre class="python"><code>a = int(input("a : "))
+b = int(input("b : "))
+print(a + b)</code></pre>
+    </div>
+  </section>
+
+  <footer class="print-footer">
+    <p>Fiche de cours — Informatique — 2ème année — Chapitre 08</p>
+  </footer>
+</body>
+</html>

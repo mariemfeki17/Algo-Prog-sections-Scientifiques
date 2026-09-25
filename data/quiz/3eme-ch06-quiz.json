@@ -1,0 +1,12 @@
+{
+  "id": "3eme-ch06",
+  "titre": "Quiz — Traitements sur tableaux",
+  "questions": [
+    { "enonce": "Que renvoie une fonction de recherche si l'élément n'est pas trouvé ?", "options": ["0", "-1", "n", "Erreur"], "reponse": 1 },
+    { "enonce": "Dans le tri à bulles, à chaque passage, quel élément remonte à la fin ?", "options": ["Le plus petit", "Le plus grand", "Le premier", "Le dernier"], "reponse": 1 },
+    { "enonce": "Combien de boucles imbriquées utilise le tri à bulles ?", "options": ["1", "2", "3", "4"], "reponse": 1 },
+    { "enonce": "Comment échange-t-on deux éléments en Python ?", "options": ["aux = T[j]; T[j] = T[j+1]; T[j+1] = aux", "T[j], T[j+1] = T[j+1], T[j]", "Les deux sont corrects", "Aucun des deux"], "reponse": 2 },
+    { "enonce": "Un tableau numpy est passé à une fonction Python :", "options": ["Par valeur", "Par référence", "Par copie", "Impossible"], "reponse": 1 },
+    { "enonce": "Quelle est la complexité du tri à bulles ?", "options": ["O(n)", "O(n log n)", "O(n²)", "O(1)"], "reponse": 2 }
+  ]
+}

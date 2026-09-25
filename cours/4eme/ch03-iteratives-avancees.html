@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch. 03 — Structures itératives avancées | 4ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/4eme/ch03-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/4eme/ch03-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-4eme">4ème année</span>
+        <span class="badge badge-chapitre">Chapitre 03</span>
+      </div>
+      <h1>Structures itératives avancées</h1>
+      <p class="duree">⏱️ Durée estimée : 55 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Choisir entre Pour, Tant Que, Répéter selon le problème.</li>
+          <li>Optimiser les boucles et éviter les pièges.</li>
+          <li>Ne jamais utiliser <code>break</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>4ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, p. 7-8 · Convention algorithmique 2024, p. 5 · Convention d'implémentation 2024-2025, p. 7</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Rappel des trois structures</h3>
+      <pre class="algo"><code>Pour i de D à F [Pas = p] Faire
+  T
+Fin Pour
+
+Tant que C Faire
+  T
+Fin Tant que
+
+Répéter
+  T
+Jusqu'à C</code></pre>
+
+      <h3>2.2 Choix argumenté</h3>
+      <table class="correspondance">
+        <thead><tr><th>Situation</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td>Nombre d'itérations connu</td><td>Pour</td></tr>
+          <tr><td>Condition d'arrêt testée avant</td><td>Tant Que</td></tr>
+          <tr><td>Au moins une exécution garantie</td><td>Répéter</td></tr>
+          <tr><td>Parcours d'un tableau</td><td>Pour</td></tr>
+          <tr><td>Recherche avec arrêt</td><td>Tant Que</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.3 Optimisation</h3>
+      <ul>
+        <li>Éviter les calculs redondants dans la condition.</li>
+        <li>Préférer <code>Pour</code> quand le nombre d'itérations est connu.</li>
+        <li>Ne jamais modifier le compteur d'un <code>Pour</code> dans le traitement.</li>
+        <li>Garantir la terminaison : la condition doit évoluer.</li>
+      </ul>
+
+      <h3>2.4 Exemple — Recherche dans un tableau</h3>
+      <pre class="algo"><code>ALGORITHME Recherche
+DEBUT
+  Lire(n)
+  Lire(x)
+  pos ← -1
+  i ← 0
+  Tant que (i &lt; n) Et (pos = -1) Faire
+    Si T[i] = x Alors
+      pos ← i
+    FinSi
+    i ← i + 1
+  Fin Tant que
+  Écrire("Position = ", pos)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Entier
+n, i, x, pos  Entier</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python</h2>
+      <table class="correspondance">
+        <thead><tr><th>Algorithmique</th><th>Python</th></tr></thead>
+        <tbody>
+          <tr><td>Pour i de D à F</td><td>for i in range(D, F+1):</td></tr>
+          <tr><td>Tant que C Faire</td><td>while C:</td></tr>
+          <tr><td>Répéter...Jusqu'à C</td><td>while not C: ...</td></tr>
+        </tbody>
+      </table>
+
+      <pre class="python"><code>from numpy import array
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+x = int(input("x : "))
+pos = -1
+i = 0
+while i < n and pos == -1:
+    if T[i] == x:
+        pos = i
+    i = i + 1
+print("Position =", pos)</code></pre>
+
+      <div class="remarque">
+        <h4>Interdit : break</h4>
+        <p>La convention d'implémentation interdit <code>break</code> dans toutes les boucles.</p>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Boucle infinie si la condition ne change pas.</li>
+        <li>Ne pas modifier le compteur d'un <code>Pour</code>.</li>
+        <li>Pas de <code>break</code>.</li>
+        <li>Vérifier la terminaison avant d'écrire.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Nombre de chiffres</h4>
+        <p>Compter le nombre de chiffres d'un entier n avec Tant Que.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME NbChiffres
+DEBUT
+  Lire(n)
+  c ← 0
+  Tant que n &gt; 0 Faire
+    c ← c + 1
+    n ← n Div 10
+  Fin Tant que
+  Écrire("Nombre de chiffres = ", c)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n, c     Entier</code></pre>
+          <pre class="python"><code>n = int(input("n : "))
+c = 0
+while n > 0:
+    c = c + 1
+    n = n // 10
+print("Nombre de chiffres =", c)</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Inverser un entier</h4>
+        <p>Inverser les chiffres d'un entier n (ex : 123 → 321).</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME Inverse
+DEBUT
+  Lire(n)
+  inv ← 0
+  Tant que n &gt; 0 Faire
+    inv ← inv * 10 + (n Mod 10)
+    n ← n Div 10
+  Fin Tant que
+  Écrire("Inverse = ", inv)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+n, inv   Entier</code></pre>
+          <pre class="python"><code>n = int(input("n : "))
+inv = 0
+while n > 0:
+    inv = inv * 10 + (n % 10)
+    n = n // 10
+print("Inverse =", inv)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="4eme-ch03"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 03 — 4ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "4eme-ch03";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("4eme-ch03", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ch. 04 — Les tableaux à une dimension | 3ème année</title>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/course.css">
+</head>
+<body class="course-page">
+  <nav class="course-nav no-print">
+    <div class="container course-nav-inner">
+      <a href="../../index.html" class="back-link">← Retour à l'accueil</a>
+      <div class="course-actions">
+        <a href="../../print/3eme/ch04-print.html" class="btn btn-print" target="_blank">🖨️ Version imprimable</a>
+        <a href="../../slides/3eme/ch04-slides.html" class="btn btn-slides">📽️ Mode slides</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="course-header">
+    <div class="container">
+      <div class="badges">
+        <span class="badge badge-annee-3eme">3ème année</span>
+        <span class="badge badge-chapitre">Chapitre 04</span>
+      </div>
+      <h1>Les tableaux à une dimension</h1>
+      <p class="duree">⏱️ Durée estimée : 60 min</p>
+      <div class="objectifs-box">
+        <h2>Objectifs du programme officiel</h2>
+        <ul>
+          <li>Déclarer et remplir un tableau à une dimension.</li>
+          <li>Parcourir et afficher un tableau.</li>
+          <li>Implémenter avec la bibliothèque numpy.</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-content container">
+    <section id="references">
+      <h2>1. Références officielles</h2>
+      <table class="ref-table">
+        <tbody>
+          <tr><th>Domaine</th><td>Pensée computationnelle et programmation</td></tr>
+          <tr><th>Année</th><td>3ème année secondaire</td></tr>
+          <tr><th>Source</th><td>Aides pédagogiques 2022-2023, page 5 · Convention algorithmique 2024, p. 3 · Convention d'implémentation 2024-2025, p. 3-5</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cours">
+      <h2>2. Cours théorique</h2>
+
+      <h3>2.1 Définition</h3>
+      <div class="definition">
+        <h3>Définition</h3>
+        <p>Un <strong>tableau à une dimension</strong> est une structure de données qui regroupe plusieurs éléments de <strong>même type</strong>, accessibles par un <strong>indice</strong>.</p>
+      </div>
+
+      <h3>2.2 Déclaration</h3>
+      <pre class="algo"><code>Déclaration des objets
+Objet       Type / Nature
+T           Tableau de N Entier</code></pre>
+
+      <h3>2.3 Accès aux éléments</h3>
+      <ul>
+        <li>Indice du premier élément : <strong>0</strong>.</li>
+        <li>Accès : <code>T[i]</code> avec <code>0 ≤ i &lt; N</code>.</li>
+        <li>Les éléments d'un tableau doivent être de <strong>même type</strong>.</li>
+      </ul>
+
+      <h3>2.4 Remplissage et affichage</h3>
+      <pre class="algo"><code>ALGORITHME RemplirAfficher
+DEBUT
+  Lire(n)
+  Pour i de 0 à n - 1 Faire
+    Lire(T[i])
+  Fin Pour
+  Pour i de 0 à n - 1 Faire
+    Écrire(T[i])
+  Fin Pour
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Entier
+n        Entier
+i        Entier</code></pre>
+    </section>
+
+    <section id="implementation">
+      <h2>3. Implémentation en Python (numpy)</h2>
+      <p>On utilise la bibliothèque <strong>numpy</strong> pour implémenter les tableaux.</p>
+
+      <pre class="python"><code>from numpy import array
+
+# Déclaration d'un tableau de 10 entiers initialisés à 0
+T = array([0] * 10)
+
+# Déclaration d'un tableau de 10 réels initialisés à 0.0
+T2 = array([0.0] * 10)
+
+# Déclaration d'un tableau de 10 chaînes
+T3 = array([str] * 10)</code></pre>
+
+      <table class="correspondance">
+        <thead><tr><th>Déclaration</th><th>Explication</th></tr></thead>
+        <tbody>
+          <tr><td><code>T = array([5] * 10)</code></td><td>10 entiers initialisés à 5</td></tr>
+          <tr><td><code>T = array([float()] * 10)</code></td><td>10 réels initialisés à 0.0</td></tr>
+          <tr><td><code>T = array([str] * 10)</code></td><td>10 chaînes</td></tr>
+          <tr><td><code>T = array([str()] * 10)</code></td><td>10 caractères vides</td></tr>
+          <tr><td><code>T = array([''] * 10, dtype='U20')</code></td><td>10 chaînes de 20 caractères max</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3.1 Remplissage et affichage en Python</h3>
+      <pre class="python"><code>from numpy import array
+
+n = int(input("Taille : "))
+T = array([0] * n)
+
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+
+for i in range(n):
+    print(T[i])</code></pre>
+
+      <div class="remarque">
+        <h4>Attention</h4>
+        <p>La convention d'implémentation <strong>interdit</strong> <code>print(T)</code> pour afficher un tableau. Il faut afficher élément par élément.</p>
+      </div>
+    </section>
+
+    <section id="remarques">
+      <h2>4. Remarques et pièges fréquents</h2>
+      <ul class="pieges">
+        <li>Indice du premier élément : <strong>0</strong>.</li>
+        <li>Tous les éléments d'un tableau sont de <strong>même type</strong>.</li>
+        <li>Ne pas oublier l'import <code>from numpy import array</code>.</li>
+        <li>Ne pas utiliser <code>print(T)</code>.</li>
+        <li>La taille d'un tableau numpy est fixée à la création.</li>
+      </ul>
+    </section>
+
+    <section id="exercices">
+      <h2>5. Exercices corrigés</h2>
+      <div class="exercice">
+        <h4>Exercice 1 — Somme des éléments</h4>
+        <p>Calculer la somme des éléments d'un tableau T de n entiers.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME SommeTab
+DEBUT
+  Lire(n)
+  Pour i de 0 à n - 1 Faire
+    Lire(T[i])
+  Fin Pour
+  s ← 0
+  Pour i de 0 à n - 1 Faire
+    s ← s + T[i]
+  Fin Pour
+  Écrire("Somme = ", s)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Entier
+n        Entier
+i        Entier
+s        Entier</code></pre>
+          <pre class="python"><code>from numpy import array
+n = int(input("Taille : "))
+T = array([0] * n)
+for i in range(n):
+    T[i] = int(input("T[" + str(i) + "] : "))
+s = 0
+for i in range(n):
+    s = s + T[i]
+print("Somme =", s)</code></pre>
+        </div>
+      </div>
+      <div class="exercice">
+        <h4>Exercice 2 — Maximum d'un tableau</h4>
+        <p>Trouver le maximum d'un tableau T de n réels.</p>
+        <button class="btn-correction" onclick="toggleCorrection(this)">Afficher la correction</button>
+        <div class="correction hidden">
+          <pre class="algo"><code>ALGORITHME MaximumTab
+DEBUT
+  Lire(n)
+  Pour i de 0 à n - 1 Faire
+    Lire(T[i])
+  Fin Pour
+  max ← T[0]
+  Pour i de 1 à n - 1 Faire
+    Si T[i] &gt; max Alors
+      max ← T[i]
+    FinSi
+  Fin Pour
+  Écrire("Maximum = ", max)
+FIN
+
+Déclaration des objets
+Objet    Type / Nature
+T        Tableau de 100 Réel
+n        Entier
+i        Entier
+max      Réel</code></pre>
+          <pre class="python"><code>from numpy import array
+n = int(input("Taille : "))
+T = array([0.0] * n)
+for i in range(n):
+    T[i] = float(input("T[" + str(i) + "] : "))
+maxi = T[0]
+for i in range(1, n):
+    if T[i] > maxi:
+        maxi = T[i]
+print("Maximum =", maxi)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>6. Quiz interactif</h2>
+      <div id="quiz-container" data-quiz="3eme-ch04"></div>
+    </section>
+  </main>
+
+  <footer class="course-footer no-print">
+    <div class="container">
+      <button id="btn-complete" class="btn btn-complete">✅ Marquer ce chapitre comme terminé</button>
+      <p class="footer-info">Chapitre 04 — 3ème année — Programme officiel 2022-2023</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/progress.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const COURSE_ID = "3eme-ch04";
+    document.getElementById("btn-complete").addEventListener("click", () => {
+      setProgress(COURSE_ID, { termine: true, date: new Date().toISOString() });
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    });
+    if (isCompleted(COURSE_ID)) {
+      const btn = document.getElementById("btn-complete");
+      btn.textContent = "✅ Chapitre terminé"; btn.disabled = true; btn.classList.add("done");
+    }
+    function toggleCorrection(btn) {
+      const c = btn.nextElementSibling; c.classList.toggle("hidden");
+      btn.textContent = c.classList.contains("hidden") ? "Afficher la correction" : "Masquer la correction";
+    }
+    loadQuiz("3eme-ch04", document.getElementById("quiz-container"));
+  </script>
+</body>
+</html>
