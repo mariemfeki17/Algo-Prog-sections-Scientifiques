@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info Lycée — Plateforme d'informatique (2ème, 3ème, 4ème)</title>
+  <meta name="description" content="Cours, exercices et quiz d'informatique pour les sections scientifiques — conformes au programme officiel tunisien.">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+          <rect x="2" y="2" width="32" height="32" rx="8" fill="#0066cc"/>
+          <text x="18" y="24" text-anchor="middle" font-size="16" fill="#fff" font-family="monospace">&lt;/&gt;</text>
+        </svg>
+        <span>Info Lycée</span>
+      </a>
+      <nav class="main-nav">
+        <a href="#catalogue">Catalogue</a>
+        <a href="#mode-prof">Mode Prof</a>
+        <a href="#apropos">À propos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container">
+      <h1>Apprendre l'informatique au lycée</h1>
+      <p class="hero-sub">
+        Cours, exercices corrigés et quiz interactifs pour les sections
+        <strong>sciences expérimentales</strong>, <strong>sciences techniques</strong>
+        et <strong>mathématiques</strong>.
+      </p>
+      <p class="hero-note">
+        📘 Contenu 100 % conforme aux programmes officiels du Ministère de l'Éducation
+        (Aides pédagogiques 2022-2023, Convention algorithmique 2024, Convention d'implémentation 2024-2025).
+      </p>
+      <div class="hero-actions">
+        <a href="#catalogue" class="btn btn-primary">Voir les cours</a>
+        <a href="#mode-prof" class="btn btn-secondary">Mode Présentation (Prof)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CATALOGUE ===================== -->
+  <section id="catalogue" class="catalogue">
+    <div class="container">
+      <h2 class="section-title">Catalogue des cours</h2>
+      <p class="section-sub">Progression spiralée : introduction (2ème), consolidation (3ème), maîtrise (4ème).</p>
+
+      <!-- Filtres par année -->
+      <div class="filtres" role="tablist" aria-label="Filtrer par année">
+        <button class="filtre active" data-annee="2eme" role="tab" aria-selected="true">2ème année</button>
+        <button class="filtre" data-annee="3eme" role="tab" aria-selected="false">3ème année</button>
+        <button class="filtre" data-annee="4eme" role="tab" aria-selected="false">4ème année</button>
+      </div>
+
+      <!-- Progression globale -->
+      <div class="global-progress">
+        <div class="global-progress-text">
+          <span id="progress-label">Progression : 0 / 0 chapitres terminés</span>
+          <span id="progress-percent">0 %</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+
+      <!-- Grille des cours (générée par app.js) -->
+      <div id="cours-grid" class="cours-grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===================== MODE PROF ===================== -->
+  <section id="mode-prof" class="mode-prof">
+    <div class="container">
+      <h2 class="section-title">Mode Présentation (Prof)</h2>
+      <p class="section-sub">
+        Slides prêtes à projeter en classe : navigation clavier, plein écran,
+        contraste élevé, corrections masquables.
+      </p>
+      <div id="slides-grid" class="slides-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== À PROPOS ===================== -->
+  <section id="apropos" class="apropos">
+    <div class="container">
+      <h2 class="section-title">À propos</h2>
+      <div class="apropos-grid">
+        <article class="card-info">
+          <h3>📚 Sources officielles</h3>
+          <ul>
+            <li>Aides pédagogiques 2022-2023 (2ème, 3ème, 4ème)</li>
+            <li>Convention algorithmique — Version 2024</li>
+            <li>Convention d'implémentation Python — 2024-2025</li>
+          </ul>
+        </article>
+        <article class="card-info">
+          <h3>🎯 Public cible</h3>
+          <ul>
+            <li>2ème année — Introduction</li>
+            <li>3ème année — Consolidation</li>
+            <li>4ème année — Maîtrise et complexification</li>
+          </ul>
+        </article>
+        <article class="card-info">
+          <h3>🛠️ Technologies</h3>
+          <ul>
+            <li>Algorithmique : convention ministérielle</li>
+            <li>Implémentation : Python 3.10+</li>
+            <li>Bibliothèques : numpy, math, random, pickle</li>
+            <li>GUI : Qt Designer (4ème année)</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2024-2025 — Plateforme pédagogique d'informatique — Sections scientifiques</p>
+      <p class="footer-note">
+        Contenu élaboré conformément aux programmes officiels du Ministère de l'Éducation.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
